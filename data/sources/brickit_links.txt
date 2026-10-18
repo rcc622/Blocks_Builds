@@ -1,0 +1,5 @@
+# Un link por linea. Cada link = snapshot del Pocket/coleccion al momento de compartirlo desde Brickit.
+# Flujo: en Brickit > Pockets > Share > pegar aqui el link nuevo (reemplaza el viejo si es la misma coleccion
+# completa; agrega uno nuevo si es un pocket adicional). Al hacer push, GitHub Actions regenera data/.
+# Lote 1 (2026-10-11): 8 escaneos, 467 piezas, usuario rcruz17
+https://brickit.app/offer/b6023215-1256-4681-b545-a59a10065586

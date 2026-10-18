@@ -1,0 +1,259 @@
+pieza,grupo,categoria,tamano,color,cantidad
+3004,Bricks,Bricks,1×2,Whites,8
+3004,Bricks,Bricks,1×2,Blues,6
+3004,Bricks,Bricks,1×2,Yellows,6
+3004,Bricks,Bricks,1×2,Greens,5
+3004,Bricks,Bricks,1×2,Grays,4
+3004,Bricks,Bricks,1×2,Reds,4
+3004,Bricks,Bricks,1×2,Turquoises,4
+3004,Bricks,Bricks,1×2,Blacks,2
+3004,Bricks,Bricks,1×2,Pinks,1
+3023,Plates,Plates,1×2,Blacks,15
+3023,Plates,Plates,1×2,Grays,3
+3023,Plates,Plates,1×2,Whites,3
+3023,Plates,Plates,1×2,Blues,3
+3023,Plates,Plates,1×2,Reds,3
+3023,Plates,Plates,1×2,Greens,2
+3023,Plates,Plates,1×2,Pinks,1
+3023,Plates,Plates,1×2,Turquoises,1
+3003,Bricks,Bricks,2×2,Yellows,6
+3003,Bricks,Bricks,2×2,Greens,5
+3003,Bricks,Bricks,2×2,Reds,4
+3003,Bricks,Bricks,2×2,Purples,3
+3003,Bricks,Bricks,2×2,Blues,3
+3003,Bricks,Bricks,2×2,Oranges,1
+3003,Bricks,Bricks,2×2,Blacks,1
+3003,Bricks,Bricks,2×2,Grays,1
+3068b,Plates,Tiles,2×2,Yellows,10
+3068b,Plates,Tiles,2×2,Blues,4
+3068b,Plates,Tiles,2×2,Grays,4
+3068b,Plates,Tiles,2×2,Blacks,2
+3068b,Plates,Tiles,2×2,Whites,2
+3039,Bricks,Bricks Sloped,2×2,Blacks,10
+3039,Bricks,Bricks Sloped,2×2,Grays,4
+3039,Bricks,Bricks Sloped,2×2,Greens,3
+3039,Bricks,Bricks Sloped,2×2,Reds,3
+3039,Bricks,Bricks Sloped,2×2,Whites,1
+3001,Bricks,Bricks,2×4,Blacks,8
+3001,Bricks,Bricks,2×4,Reds,3
+3001,Bricks,Bricks,2×4,Whites,2
+3001,Bricks,Bricks,2×4,Yellows,2
+3001,Bricks,Bricks,2×4,Pinks,1
+3001,Bricks,Bricks,2×4,Browns,1
+3001,Bricks,Bricks,2×4,Turquoises,1
+3001,Bricks,Bricks,2×4,Grays,1
+3020,Plates,Plates,2×4,Blacks,5
+3020,Plates,Plates,2×4,Turquoises,4
+3020,Plates,Plates,2×4,Whites,3
+3020,Plates,Plates,2×4,Grays,2
+3020,Plates,Plates,2×4,Blues,1
+3710,Plates,Plates,1×4,Blacks,7
+3005,Bricks,Bricks,1×1,Yellows,5
+4286,Bricks,Bricks Sloped,1×3,Blacks,4
+3710,Plates,Plates,1×4,Greens,2
+4286,Bricks,Bricks Sloped,1×3,Reds,2
+3005,Bricks,Bricks,1×1,Blues,2
+3005,Bricks,Bricks,1×1,Whites,2
+4286,Bricks,Bricks Sloped,1×3,Greens,2
+4286,Bricks,Bricks Sloped,1×3,Grays,2
+4286,Bricks,Bricks Sloped,1×3,Yellows,1
+3710,Plates,Plates,1×4,Grays,1
+3005,Bricks,Bricks,1×1,Reds,1
+3005,Bricks,Bricks,1×1,Grays,1
+3710,Plates,Plates,1×4,Blues,1
+4286,Bricks,Bricks Sloped,1×3,Whites,1
+3005,Bricks,Bricks,1×1,Blacks,1
+3710,Plates,Plates,1×4,Reds,1
+3747b,Bricks,Bricks Sloped,2×3,Blacks,6
+3747b,Bricks,Bricks Sloped,2×3,Reds,2
+3747b,Bricks,Bricks Sloped,2×3,Greens,2
+3747b,Bricks,Bricks Sloped,2×3,Whites,1
+6141,Plates,Plates Round Curved and Dishes,1×1,Blacks,5
+6141,Plates,Plates Round Curved and Dishes,1×1,Reds,4
+3660,Bricks,Bricks Sloped,2×2,Blacks,3
+3941,Bricks,Bricks Round and Cones,2×2,Grays,3
+3010,Bricks,Bricks,1×4,Whites,2
+3941,Bricks,Bricks Round and Cones,2×2,Blacks,2
+3040b,Bricks,Bricks Sloped,1×2,Grays,2
+3040b,Bricks,Bricks Sloped,1×2,Browns,2
+3010,Bricks,Bricks,1×4,Yellows,1
+3010,Bricks,Bricks,1×4,Blacks,1
+3010,Bricks,Bricks,1×4,Greens,1
+3010,Bricks,Bricks,1×4,Pinks,1
+3941,Bricks,Bricks Round and Cones,2×2,Browns,1
+3941,Bricks,Bricks Round and Cones,2×2,Turquoises,1
+3010,Bricks,Bricks,1×4,Browns,1
+3660,Bricks,Bricks Sloped,2×2,Browns,1
+3660,Bricks,Bricks Sloped,2×2,Reds,1
+3660,Bricks,Bricks Sloped,2×2,Grays,1
+3040b,Bricks,Bricks Sloped,1×2,Blues,1
+3040b,Bricks,Bricks Sloped,1×2,Blacks,1
+3040b,Bricks,Bricks Sloped,1×2,Greens,1
+3660,Bricks,Bricks Sloped,2×2,Yellows,1
+3956,Plates,Plates Special,2×2,Blacks,5
+3956,Plates,Plates Special,2×2,Grays,1
+3665,Bricks,Bricks Sloped,1×2,Blacks,3
+3700,Bricks,Technic Bricks,1×2,Grays,3
+3623,Plates,Plates,1×3,Browns,3
+3298,Bricks,Bricks Sloped,2×3,Reds,2
+3623,Plates,Plates,1×3,Blacks,2
+3298,Bricks,Bricks Sloped,2×3,Blues,2
+98138,Plates,Tiles Round and Curved,1×1,Blacks,2
+3298,Bricks,Bricks Sloped,2×3,Turquoises,1
+3665,Bricks,Bricks Sloped,1×2,Grays,1
+3665,Bricks,Bricks Sloped,1×2,Reds,1
+98138,Plates,Tiles Round and Curved,1×1,Reds,1
+98138,Plates,Tiles Round and Curved,1×1,Grays,1
+3700,Bricks,Technic Bricks,1×2,Blues,1
+3700,Bricks,Technic Bricks,1×2,Blacks,1
+98138,Plates,Tiles Round and Curved,1×1,Pinks,1
+3622,Bricks,Bricks,1×3,Yellows,3
+2412b,Plates,Tiles Special,1×2,Grays,3
+2420,Plates,Plates,2×2,Blacks,2
+2458,Bricks,Bricks Special,1×2,Blues,1
+2420,Plates,Plates,2×2,Browns,1
+2420,Plates,Plates,2×2,Whites,1
+2458,Bricks,Bricks Special,1×2,Reds,1
+2458,Bricks,Bricks Special,1×2,Blacks,1
+3022,Plates,Plates,2×2,Whites,1
+3022,Plates,Plates,2×2,Grays,1
+3022,Plates,Plates,2×2,Browns,1
+3024,Plates,Plates,1×1,Blacks,1
+3024,Plates,Plates,1×1,Whites,1
+3024,Plates,Plates,1×1,Blues,1
+3024,Plates,Plates,1×1,Greens,1
+2412b,Plates,Tiles Special,1×2,Yellows,1
+2458,Bricks,Bricks Special,1×2,Grays,1
+3022,Plates,Plates,2×2,Blues,1
+3622,Bricks,Bricks,1×3,Blues,1
+30169,Outdoor,Animals / Creatures,,Blacks,3
+41677,Technic,Technic Beams,1×2 Thin,Reds,3
+3486,Transport,Wheels and Tyres,36mm,Purples,3
+93571,Technic,Technic Connectors,2×3,Blacks,2
+2437,Transport,Windscreens and Fuselage,3×4×1,Turquoises,2
+6215,Bricks,Bricks Curved,2×3,Greens,2
+30383,Functional,"Hinges, Arms and Turntables",1×2,Grays,2
+2437,Transport,Windscreens and Fuselage,3×4×1,Blacks,1
+3795,Plates,Plates,2×6,Blues,1
+60897,Plates,Plates Special,1×1,Blacks,1
+3795,Plates,Plates,2×6,Grays,1
+3795,Plates,Plates,2×6,Blacks,1
+60897,Plates,Plates Special,1×1,Reds,1
+93571,Technic,Technic Connectors,2×3,Blues,1
+6215,Bricks,Bricks Curved,2×3,Yellows,1
+30383,Functional,"Hinges, Arms and Turntables",1×2,Blacks,1
+60897,Plates,Plates Special,1×1,Whites,1
+30365,Functional,"Hinges, Arms and Turntables",1×2,Grays,2
+32166,Technic,Technic Connectors,,Blacks,2
+32828,Plates,Plates Special,1×1,Blacks,2
+3062b,Bricks,Bricks Round and Cones,1×1,Browns,2
+3679,Functional,"Hinges, Arms and Turntables",2×2,Grays,2
+4216,Bricks,Bricks Special,1×2,Grays,2
+6558,Technic,Technic Pins,3L,Blacks,2
+21445,Plates,Plates Special,1×2,Blacks,2
+30136,Bricks,Bricks Special,1×2,Grays,2
+32013,Technic,Technic Connectors,#1,Blacks,2
+32607,Outdoor,Plants & Trees,1×1,Greens,2
+54200,Bricks,Bricks Sloped,1×1,Browns,2
+61252,Plates,Plates Special,1×1,Grays,2
+73983,Functional,"Hinges, Arms and Turntables",1×4,Reds,2
+11203,Plates,Tiles Special,2×2,Blacks,2
+30554b,Functional,"Hinges, Arms and Turntables",1×3,Grays,2
+3009,Bricks,Bricks,1×6,Yellows,1
+4477,Plates,Plates,1×10,Blacks,1
+4519,Technic,Technic Axles,3L,Grays,1
+6091,Bricks,Bricks Curved,1×2×1,Greens,1
+6536,Technic,Technic Connectors,2L,Blacks,1
+41740,Plates,Plates Special,1×4,Blues,1
+4287c,Bricks,Bricks Sloped,1×3,Blacks,1
+3626c,Minifigs,Minifig Heads,,Browns,1
+4287c,Bricks,Bricks Sloped,1×3,Greens,1
+4477,Plates,Plates,1×10,Reds,1
+4519,Technic,Technic Axles,3L,Blacks,1
+6091,Bricks,Bricks Curved,1×2×1,Reds,1
+6536,Technic,Technic Connectors,2L,Browns,1
+15571,Bricks,Bricks Sloped,1×2,Blacks,1
+15573,Plates,Plates Special,1×2,Reds,1
+15573,Plates,Plates Special,1×2,Yellows,1
+41740,Plates,Plates Special,1×4,Grays,1
+47457,Bricks,Bricks Curved,2×2,Grays,1
+47457,Bricks,Bricks Curved,2×2,Yellows,1
+3626c,Minifigs,Minifig Heads,,Reds,1
+3009,Bricks,Bricks,1×6,Blacks,1
+15571,Bricks,Bricks Sloped,1×2,Pinks,1
+2357,Bricks,Bricks,2×2,Blacks,1
+3008,Bricks,Bricks,1×8,Yellows,1
+30387,Functional,"Hinges, Arms and Turntables",1×4,Grays,1
+4489b,Transport,Wheels and Tyres,33mm,Browns,1
+30367c,Bricks,Bricks Round and Cones,2×2,Whites,1
+2518,Outdoor,Plants & Trees,5x10,Greens,1
+2554,Building,Windows and Doors,1×3×6,Greens,1
+3031,Plates,Plates,4×4,Blues,1
+3034,Plates,Plates,2×8,Blues,1
+3666,Plates,Plates,1×6,Grays,1
+3958,Plates,Plates,6×6,Blacks,1
+4070,Bricks,Bricks Special,1×1,Reds,1
+15469,Outdoor,Plants & Trees,2×2,Greens,1
+25269,Plates,Tiles Round and Curved,1×1,Pinks,1
+30592,Bricks,Bricks Special,2×4,Grays,1
+32475,Technic,Large Buildable Figures,,Reds,1
+32524,Technic,Technic Beams,1×7 Thick,Grays,1
+44148,Technic,Large Buildable Figures,,Grays,1
+54672,Functional,"Hinges, Arms and Turntables",,Grays,1
+4491b,Outdoor,Animal / Creature Accessories,,Blues,1
+3049d,Bricks,Bricks Sloped,1×2,Turquoises,1
+6153b,Bricks,Bricks Wedged,4×6,Turquoises,1
+6232,Bricks,Bricks Special,2×2,Grays,1
+15332,Outdoor,"Bars, Ladders and Fences",1×4×2,Whites,1
+30658,Functional,"Hinges, Arms and Turntables",4×4,Blacks,1
+32526,Technic,Technic Beams,3×5 Thick,Blacks,1
+60592,Building,Windows and Doors,1×2×2,Blues,1
+4032a,Plates,Plates Round Curved and Dishes,2×2,Blacks,1
+3937,Functional,"Hinges, Arms and Turntables",1×2,Grays,1
+3938,Functional,"Hinges, Arms and Turntables",1×2,Grays,1
+2419,Plates,Plates Wedged,3×6,Greens,1
+2446,Minifigs,Minifig Headwear,,Blacks,1
+2470,Transport,Wheels and Tyres,27mm,Blacks,1
+2540,Plates,Plates Special,1×2,Grays,1
+3814,Minifigs,Minifig Upper Body,,Whites,1
+3829,Minifigs,Stickers,,Blues,1
+3899,Minifigs,Minifig Accessories,1×1,Whites,1
+4213,Functional,"Hinges, Arms and Turntables",4×4,Yellows,1
+4740,Plates,Plates Round Curved and Dishes,2×2,Grays,1
+6041,Transport,Transportation - Sea and Air,3D,Blues,1
+6636,Plates,Tiles,1×6,Blues,1
+15534,Minifigs,"Minifig Shields, Weapons, & Tools",,Grays,1
+24866,Outdoor,Plants & Trees,1×1,Greens,1
+27928,Plates,Plates Special,2×2,Browns,1
+30364,Functional,"Hinges, Arms and Turntables",1×2,Blacks,1
+30375,Minifigs,Minifig Upper Body,,Blues,1
+30530,Minifigs,Minifig Lower Body,,Oranges,1
+32016,Technic,Technic Connectors,#3 157.5°,Browns,1
+32039,Technic,Technic Connectors,,Blacks,1
+32173,Technic,Large Buildable Figures,2×7,Blacks,1
+32291,Technic,Technic Connectors,2L,Blacks,1
+32316,Technic,Technic Beams,1×5 Thick,Grays,1
+41670,Technic,Large Buildable Figures,4×4×2,Grays,1
+41864,Transport,Wheels and Tyres,,Blacks,1
+42003,Technic,Technic Connectors,3L,Reds,1
+44728,Plates,Plates Special,1×2,Purples,1
+67810,Bricks,Bricks Round and Cones,2×2×1,Pinks,1
+78329,Plates,Plates,1×5,Grays,1
+87580,Plates,Plates Special,2×2,Grays,1
+98100,Bricks,Bricks Round and Cones,2×2,Grays,1
+98560,Bricks,Bricks Sloped,2×2×3,Blues,1
+6126b,Outdoor,Energy Effects,,Reds,1
+970c03,Minifigs,Minifig Lower Body,,Blacks,1
+3680,Functional,"Hinges, Arms and Turntables",2×2,Reds,1
+3705,Technic,Technic Axles,4L,Blacks,1
+3818,Minifigs,Minifig Upper Body,,Blues,1
+6541,Bricks,Technic Bricks,1×1,Grays,1
+11609,Plates,Tiles Special,1×1,Yellows,1
+14769,Plates,Tiles Round and Curved,2×2,Grays,1
+30377,Minifigs,Minifig Upper Body,,Turquoises,1
+32000,Bricks,Technic Bricks,1×2,Browns,1
+32474,Technic,Technic Special,,Blacks,1
+44136,Technic,Large Buildable Figures,,Grays,1
+59900,Bricks,Bricks Round and Cones,1×1,Reds,1
+4865b,Building,Panels,1×2×1,Blacks,1
+32306,Technic,Technic Wheel Holder,7x3,Blacks,1

@@ -1,0 +1,121 @@
+#!/usr/bin/env node
+/**
+ * Importa inventario de Lego desde links compartidos de Brickit (Pockets > Share).
+ *
+ * Uso:  node scripts/brickit_import.mjs            (lee data/sources/brickit_links.txt)
+ *       node scripts/brickit_import.mjs <url> ...   (links explicitos)
+ *
+ * Cada link brickit.app/offer/<id> es un SNAPSHOT fijo del inventario al momento de compartir.
+ * La pagina trae los datos embebidos en window.__NUXT__; de ahi sale cada pieza individual
+ * con su numero, categoria, tamano y familia de color. Se suman las piezas de data/manual_parts.csv
+ * (piezas que Brickit no reconocio) y se escriben los archivos de data/.
+ *
+ * Sin dependencias: Node >= 18.
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const DATA = path.join(ROOT, 'data');
+const LINKS_FILE = path.join(DATA, 'sources', 'brickit_links.txt');
+const MANUAL_FILE = path.join(DATA, 'manual_parts.csv');
+const RAW_DIR = path.join(DATA, 'raw');
+
+function readLinks() {
+  const argv = process.argv.slice(2).filter(a => a.startsWith('http'));
+  if (argv.length) return argv;
+  if (!fs.existsSync(LINKS_FILE)) throw new Error(`No existe ${LINKS_FILE}`);
+  return fs.readFileSync(LINKS_FILE, 'utf8').split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
+}
+
+async function fetchOffer(url) {
+  const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 legobuilds-import' } });
+  if (!res.ok) throw new Error(`${url} -> HTTP ${res.status}`);
+  const html = await res.text();
+  const i = html.indexOf('window.__NUXT__=');
+  if (i < 0) throw new Error(`${url}: no trae window.__NUXT__ (cambio el formato de Brickit?)`);
+  const j = html.indexOf('</script>', i);
+  const code = html.slice(i + 'window.__NUXT__='.length, j).trim().replace(/;$/, '');
+  const nuxt = vm.runInNewContext('(' + code + ')', Object.create(null), { timeout: 5000 });
+  const d = nuxt?.data?.[0];
+  if (!d?.offer || !d?.parts) throw new Error(`${url}: estructura inesperada`);
+  const id = url.split('/offer/')[1]?.split(/[?#]/)[0] || 'offer';
+  fs.mkdirSync(RAW_DIR, { recursive: true });
+  fs.writeFileSync(path.join(RAW_DIR, `${id}.json`), JSON.stringify(d));
+  return { id, url, d };
+}
+
+function parseCsv(text) {
+  const [head, ...lines] = text.split('\n').map(l => l.trim()).filter(Boolean);
+  const cols = head.split(',');
+  return lines.filter(l => !l.startsWith('#')).map(l => Object.fromEntries(l.split(',').map((v, i) => [cols[i], v.trim()])));
+}
+const csvLine = arr => arr.map(v => (/[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : v)).join(',');
+
+async function main() {
+  const links = readLinks();
+  const pieces = [];
+  const sources = [];
+  for (const url of links) {
+    const { id, d } = await fetchOffer(url);
+    let n = 0;
+    for (const scan of Object.values(d.parts)) {
+      for (const [part, list] of Object.entries(scan.partsMap)) {
+        for (const p of list) {
+          n++;
+          pieces.push({ source: id, scan: scan.scanNumber, part, group: p.partGroup, category: p.partCategory,
+                        size: p.partSize || '', color: p.colorName, image: p.partImage || '' });
+        }
+      }
+    }
+    const shapes = new Set(pieces.filter(p => p.source === id).map(p => p.part)).size;
+    const ok = n === d.offer.partCount && shapes === d.offer.shapesCount;
+    sources.push({ id, url, user: d.offer.username, scans: d.offer.scanCount, parts: n, shapes, declared: d.offer, ok });
+    console.log(`${id}: ${n} piezas / ${shapes} formas / ${d.offer.scanCount} escaneos  ${ok ? 'OK' : 'NO CUADRA con lo declarado: ' + JSON.stringify(d.offer)}`);
+    if (!ok) process.exitCode = 1;
+  }
+  if (fs.existsSync(MANUAL_FILE)) {
+    for (const r of parseCsv(fs.readFileSync(MANUAL_FILE, 'utf8'))) {
+      const qty = Number(r.cantidad || 1);
+      for (let k = 0; k < qty; k++) pieces.push({ source: 'manual', scan: 'manual', part: r.pieza, group: r.grupo, category: r.categoria, size: r.tamano, color: r.color, image: '' });
+    }
+  }
+
+  const key = p => `${p.part}|${p.color}`;
+  const byKey = new Map(), byPart = new Map(), byColor = new Map();
+  for (const p of pieces) {
+    byKey.set(key(p), (byKey.get(key(p)) || 0) + 1);
+    if (!byPart.has(p.part)) byPart.set(p.part, { ...p, qty: 0 });
+    byPart.get(p.part).qty++;
+    byColor.set(p.color, (byColor.get(p.color) || 0) + 1);
+  }
+  const colors = [...byColor.entries()].sort((a, b) => b[1] - a[1]).map(([c]) => c);
+  const parts = [...byPart.values()].sort((a, b) => b.qty - a.qty || a.part.localeCompare(b.part));
+
+  fs.writeFileSync(path.join(DATA, 'inventory.csv'), [csvLine(['pieza', 'grupo', 'categoria', 'tamano', 'color', 'cantidad'])]
+    .concat([...byKey.entries()].sort((a, b) => byPart.get(b[0].split('|')[0]).qty - byPart.get(a[0].split('|')[0]).qty || b[1] - a[1])
+      .map(([k, q]) => { const [part, color] = k.split('|'); const m = byPart.get(part); return csvLine([part, m.group, m.category, m.size, color, q]); })).join('\n') + '\n');
+
+  fs.writeFileSync(path.join(DATA, 'color_matrix.csv'), [csvLine(['pieza', 'categoria', 'tamano', 'total', ...colors])]
+    .concat(parts.map(m => csvLine([m.part, m.category, m.size, m.qty, ...colors.map(c => byKey.get(`${m.part}|${c}`) || '')]))).join('\n') + '\n');
+
+  const byScan = new Map();
+  for (const p of pieces) { const k = `${p.source}|${p.scan}|${p.part}|${p.color}`; byScan.set(k, (byScan.get(k) || 0) + 1); }
+  fs.writeFileSync(path.join(DATA, 'by_scan.csv'), [csvLine(['fuente', 'scan', 'pieza', 'categoria', 'tamano', 'color', 'cantidad'])]
+    .concat([...byScan.entries()].sort().map(([k, q]) => { const [s, sc, part, color] = k.split('|'); const m = byPart.get(part); return csvLine([s, sc, part, m.category, m.size, color, q]); })).join('\n') + '\n');
+
+  const inventory = {
+    generated_at: new Date().toISOString(),
+    totals: { pieces: pieces.length, shapes: byPart.size, part_color_combos: byKey.size, colors: colors.length },
+    sources,
+    colors: Object.fromEntries([...byColor.entries()].sort((a, b) => b[1] - a[1])),
+    parts: parts.map(m => ({ part: m.part, group: m.group, category: m.category, size: m.size, qty: m.qty, image: m.image,
+      colors: Object.fromEntries(colors.filter(c => byKey.has(`${m.part}|${c}`)).map(c => [c, byKey.get(`${m.part}|${c}`)])) })),
+  };
+  fs.writeFileSync(path.join(DATA, 'inventory.json'), JSON.stringify(inventory, null, 1) + '\n');
+  console.log(`\nTOTAL: ${pieces.length} piezas, ${byPart.size} formas, ${byKey.size} pieza+color, ${colors.length} familias de color`);
+  console.log('Colores:', inventory.colors);
+}
+main().catch(e => { console.error('ERROR:', e.message); process.exit(1); });

@@ -1,0 +1,1702 @@
+{
+ "generated_at": "2026-10-18T23:44:18.638Z",
+ "totals": {
+  "pieces": 468,
+  "shapes": 140,
+  "part_color_combos": 258,
+  "colors": 12
+ },
+ "sources": [
+  {
+   "id": "b6023215-1256-4681-b545-a59a10065586",
+   "url": "https://brickit.app/offer/b6023215-1256-4681-b545-a59a10065586",
+   "user": "rcruz17",
+   "scans": 8,
+   "parts": 467,
+   "shapes": 139,
+   "declared": {
+    "scanCount": 8,
+    "partCount": 467,
+    "shapesCount": 139,
+    "colors": 12,
+    "ideasCount": 324,
+    "username": "rcruz17"
+   },
+   "ok": true
+  }
+ ],
+ "colors": {
+  "Blacks": 134,
+  "Grays": 78,
+  "Reds": 49,
+  "Yellows": 43,
+  "Blues": 41,
+  "Greens": 35,
+  "Whites": 33,
+  "Browns": 21,
+  "Turquoises": 17,
+  "Pinks": 8,
+  "Purples": 7,
+  "Oranges": 2
+ },
+ "parts": [
+  {
+   "part": "3004",
+   "group": "Bricks",
+   "category": "Bricks",
+   "size": "1×2",
+   "qty": 40,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3004/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2,
+    "Grays": 4,
+    "Reds": 4,
+    "Yellows": 6,
+    "Blues": 6,
+    "Greens": 5,
+    "Whites": 8,
+    "Turquoises": 4,
+    "Pinks": 1
+   }
+  },
+  {
+   "part": "3023",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "1×2",
+   "qty": 31,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3023/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 15,
+    "Grays": 3,
+    "Reds": 3,
+    "Blues": 3,
+    "Greens": 2,
+    "Whites": 3,
+    "Turquoises": 1,
+    "Pinks": 1
+   }
+  },
+  {
+   "part": "3003",
+   "group": "Bricks",
+   "category": "Bricks",
+   "size": "2×2",
+   "qty": 24,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3003/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Grays": 1,
+    "Reds": 4,
+    "Yellows": 6,
+    "Blues": 3,
+    "Greens": 5,
+    "Purples": 3,
+    "Oranges": 1
+   }
+  },
+  {
+   "part": "3068b",
+   "group": "Plates",
+   "category": "Tiles",
+   "size": "2×2",
+   "qty": 22,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3068b/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2,
+    "Grays": 4,
+    "Yellows": 10,
+    "Blues": 4,
+    "Whites": 2
+   }
+  },
+  {
+   "part": "3039",
+   "group": "Bricks",
+   "category": "Bricks Sloped",
+   "size": "2×2",
+   "qty": 21,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3039/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 10,
+    "Grays": 4,
+    "Reds": 3,
+    "Greens": 3,
+    "Whites": 1
+   }
+  },
+  {
+   "part": "3001",
+   "group": "Bricks",
+   "category": "Bricks",
+   "size": "2×4",
+   "qty": 19,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3001/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 8,
+    "Grays": 1,
+    "Reds": 3,
+    "Yellows": 2,
+    "Whites": 2,
+    "Browns": 1,
+    "Turquoises": 1,
+    "Pinks": 1
+   }
+  },
+  {
+   "part": "3020",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "2×4",
+   "qty": 15,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3020/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 5,
+    "Grays": 2,
+    "Blues": 1,
+    "Whites": 3,
+    "Turquoises": 4
+   }
+  },
+  {
+   "part": "3005",
+   "group": "Bricks",
+   "category": "Bricks",
+   "size": "1×1",
+   "qty": 12,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3005/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Grays": 1,
+    "Reds": 1,
+    "Yellows": 5,
+    "Blues": 2,
+    "Whites": 2
+   }
+  },
+  {
+   "part": "3710",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "1×4",
+   "qty": 12,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3710/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 7,
+    "Grays": 1,
+    "Reds": 1,
+    "Blues": 1,
+    "Greens": 2
+   }
+  },
+  {
+   "part": "4286",
+   "group": "Bricks",
+   "category": "Bricks Sloped",
+   "size": "1×3",
+   "qty": 12,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/4286/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 4,
+    "Grays": 2,
+    "Reds": 2,
+    "Yellows": 1,
+    "Greens": 2,
+    "Whites": 1
+   }
+  },
+  {
+   "part": "3747b",
+   "group": "Bricks",
+   "category": "Bricks Sloped",
+   "size": "2×3",
+   "qty": 11,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3747b/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 6,
+    "Reds": 2,
+    "Greens": 2,
+    "Whites": 1
+   }
+  },
+  {
+   "part": "6141",
+   "group": "Plates",
+   "category": "Plates Round Curved and Dishes",
+   "size": "1×1",
+   "qty": 9,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/6141/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 5,
+    "Reds": 4
+   }
+  },
+  {
+   "part": "3010",
+   "group": "Bricks",
+   "category": "Bricks",
+   "size": "1×4",
+   "qty": 7,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3010/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Yellows": 1,
+    "Greens": 1,
+    "Whites": 2,
+    "Browns": 1,
+    "Pinks": 1
+   }
+  },
+  {
+   "part": "3040b",
+   "group": "Bricks",
+   "category": "Bricks Sloped",
+   "size": "1×2",
+   "qty": 7,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3040b/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Grays": 2,
+    "Blues": 1,
+    "Greens": 1,
+    "Browns": 2
+   }
+  },
+  {
+   "part": "3660",
+   "group": "Bricks",
+   "category": "Bricks Sloped",
+   "size": "2×2",
+   "qty": 7,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3660/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 3,
+    "Grays": 1,
+    "Reds": 1,
+    "Yellows": 1,
+    "Browns": 1
+   }
+  },
+  {
+   "part": "3941",
+   "group": "Bricks",
+   "category": "Bricks Round and Cones",
+   "size": "2×2",
+   "qty": 7,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3941/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2,
+    "Grays": 3,
+    "Browns": 1,
+    "Turquoises": 1
+   }
+  },
+  {
+   "part": "3956",
+   "group": "Plates",
+   "category": "Plates Special",
+   "size": "2×2",
+   "qty": 6,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3956/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 5,
+    "Grays": 1
+   }
+  },
+  {
+   "part": "3298",
+   "group": "Bricks",
+   "category": "Bricks Sloped",
+   "size": "2×3",
+   "qty": 5,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3298/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Reds": 2,
+    "Blues": 2,
+    "Turquoises": 1
+   }
+  },
+  {
+   "part": "3623",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "1×3",
+   "qty": 5,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3623/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2,
+    "Browns": 3
+   }
+  },
+  {
+   "part": "3665",
+   "group": "Bricks",
+   "category": "Bricks Sloped",
+   "size": "1×2",
+   "qty": 5,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3665/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 3,
+    "Grays": 1,
+    "Reds": 1
+   }
+  },
+  {
+   "part": "3700",
+   "group": "Bricks",
+   "category": "Technic Bricks",
+   "size": "1×2",
+   "qty": 5,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3700/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Grays": 3,
+    "Blues": 1
+   }
+  },
+  {
+   "part": "98138",
+   "group": "Plates",
+   "category": "Tiles Round and Curved",
+   "size": "1×1",
+   "qty": 5,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/98138/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2,
+    "Grays": 1,
+    "Reds": 1,
+    "Pinks": 1
+   }
+  },
+  {
+   "part": "2412b",
+   "group": "Plates",
+   "category": "Tiles Special",
+   "size": "1×2",
+   "qty": 4,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/2412b/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 3,
+    "Yellows": 1
+   }
+  },
+  {
+   "part": "2420",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "2×2",
+   "qty": 4,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/2420/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2,
+    "Whites": 1,
+    "Browns": 1
+   }
+  },
+  {
+   "part": "2458",
+   "group": "Bricks",
+   "category": "Bricks Special",
+   "size": "1×2",
+   "qty": 4,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/2458/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Grays": 1,
+    "Reds": 1,
+    "Blues": 1
+   }
+  },
+  {
+   "part": "3022",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "2×2",
+   "qty": 4,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3022/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1,
+    "Blues": 1,
+    "Whites": 1,
+    "Browns": 1
+   }
+  },
+  {
+   "part": "3024",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "1×1",
+   "qty": 4,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3024/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Blues": 1,
+    "Greens": 1,
+    "Whites": 1
+   }
+  },
+  {
+   "part": "3622",
+   "group": "Bricks",
+   "category": "Bricks",
+   "size": "1×3",
+   "qty": 4,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3622/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Yellows": 3,
+    "Blues": 1
+   }
+  },
+  {
+   "part": "2437",
+   "group": "Transport",
+   "category": "Windscreens and Fuselage",
+   "size": "3×4×1",
+   "qty": 3,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/2437/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Turquoises": 2
+   }
+  },
+  {
+   "part": "30169",
+   "group": "Outdoor",
+   "category": "Animals / Creatures",
+   "size": "",
+   "qty": 3,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30169/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 3
+   }
+  },
+  {
+   "part": "30383",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "1×2",
+   "qty": 3,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30383/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Grays": 2
+   }
+  },
+  {
+   "part": "3486",
+   "group": "Transport",
+   "category": "Wheels and Tyres",
+   "size": "36mm",
+   "qty": 3,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3486/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Purples": 3
+   }
+  },
+  {
+   "part": "3795",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "2×6",
+   "qty": 3,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3795/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Grays": 1,
+    "Blues": 1
+   }
+  },
+  {
+   "part": "41677",
+   "group": "Technic",
+   "category": "Technic Beams",
+   "size": "1×2 Thin",
+   "qty": 3,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/41677/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Reds": 3
+   }
+  },
+  {
+   "part": "60897",
+   "group": "Plates",
+   "category": "Plates Special",
+   "size": "1×1",
+   "qty": 3,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/60897/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Reds": 1,
+    "Whites": 1
+   }
+  },
+  {
+   "part": "6215",
+   "group": "Bricks",
+   "category": "Bricks Curved",
+   "size": "2×3",
+   "qty": 3,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/6215/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Yellows": 1,
+    "Greens": 2
+   }
+  },
+  {
+   "part": "93571",
+   "group": "Technic",
+   "category": "Technic Connectors",
+   "size": "2×3",
+   "qty": 3,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/93571/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2,
+    "Blues": 1
+   }
+  },
+  {
+   "part": "11203",
+   "group": "Plates",
+   "category": "Tiles Special",
+   "size": "2×2",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/11203/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2
+   }
+  },
+  {
+   "part": "15571",
+   "group": "Bricks",
+   "category": "Bricks Sloped",
+   "size": "1×2",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/15571/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Pinks": 1
+   }
+  },
+  {
+   "part": "15573",
+   "group": "Plates",
+   "category": "Plates Special",
+   "size": "1×2",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/15573/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Reds": 1,
+    "Yellows": 1
+   }
+  },
+  {
+   "part": "21445",
+   "group": "Plates",
+   "category": "Plates Special",
+   "size": "1×2",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/21445/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2
+   }
+  },
+  {
+   "part": "3009",
+   "group": "Bricks",
+   "category": "Bricks",
+   "size": "1×6",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3009/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Yellows": 1
+   }
+  },
+  {
+   "part": "30136",
+   "group": "Bricks",
+   "category": "Bricks Special",
+   "size": "1×2",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30136/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 2
+   }
+  },
+  {
+   "part": "30365",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "1×2",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30365/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 2
+   }
+  },
+  {
+   "part": "30554b",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "1×3",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30554b/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 2
+   }
+  },
+  {
+   "part": "3062b",
+   "group": "Bricks",
+   "category": "Bricks Round and Cones",
+   "size": "1×1",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3062b/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Browns": 2
+   }
+  },
+  {
+   "part": "32013",
+   "group": "Technic",
+   "category": "Technic Connectors",
+   "size": "#1",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32013/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2
+   }
+  },
+  {
+   "part": "32166",
+   "group": "Technic",
+   "category": "Technic Connectors",
+   "size": "",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32166/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2
+   }
+  },
+  {
+   "part": "32607",
+   "group": "Outdoor",
+   "category": "Plants & Trees",
+   "size": "1×1",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32607/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Greens": 2
+   }
+  },
+  {
+   "part": "32828",
+   "group": "Plates",
+   "category": "Plates Special",
+   "size": "1×1",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32828/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2
+   }
+  },
+  {
+   "part": "3626c",
+   "group": "Minifigs",
+   "category": "Minifig Heads",
+   "size": "",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3626c/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Reds": 1,
+    "Browns": 1
+   }
+  },
+  {
+   "part": "3679",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "2×2",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3679/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 2
+   }
+  },
+  {
+   "part": "41740",
+   "group": "Plates",
+   "category": "Plates Special",
+   "size": "1×4",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/41740/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1,
+    "Blues": 1
+   }
+  },
+  {
+   "part": "4216",
+   "group": "Bricks",
+   "category": "Bricks Special",
+   "size": "1×2",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/4216/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 2
+   }
+  },
+  {
+   "part": "4287c",
+   "group": "Bricks",
+   "category": "Bricks Sloped",
+   "size": "1×3",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/4287c/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Greens": 1
+   }
+  },
+  {
+   "part": "4477",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "1×10",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/4477/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Reds": 1
+   }
+  },
+  {
+   "part": "4519",
+   "group": "Technic",
+   "category": "Technic Axles",
+   "size": "3L",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/4519/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Grays": 1
+   }
+  },
+  {
+   "part": "47457",
+   "group": "Bricks",
+   "category": "Bricks Curved",
+   "size": "2×2",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/47457/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1,
+    "Yellows": 1
+   }
+  },
+  {
+   "part": "54200",
+   "group": "Bricks",
+   "category": "Bricks Sloped",
+   "size": "1×1",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/54200/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Browns": 2
+   }
+  },
+  {
+   "part": "6091",
+   "group": "Bricks",
+   "category": "Bricks Curved",
+   "size": "1×2×1",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/6091/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Reds": 1,
+    "Greens": 1
+   }
+  },
+  {
+   "part": "61252",
+   "group": "Plates",
+   "category": "Plates Special",
+   "size": "1×1",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/61252/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 2
+   }
+  },
+  {
+   "part": "6536",
+   "group": "Technic",
+   "category": "Technic Connectors",
+   "size": "2L",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/6536/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1,
+    "Browns": 1
+   }
+  },
+  {
+   "part": "6558",
+   "group": "Technic",
+   "category": "Technic Pins",
+   "size": "3L",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/6558/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 2
+   }
+  },
+  {
+   "part": "73983",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "1×4",
+   "qty": 2,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/73983/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Reds": 2
+   }
+  },
+  {
+   "part": "11609",
+   "group": "Plates",
+   "category": "Tiles Special",
+   "size": "1×1",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/11609/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Yellows": 1
+   }
+  },
+  {
+   "part": "14769",
+   "group": "Plates",
+   "category": "Tiles Round and Curved",
+   "size": "2×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/14769/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "15332",
+   "group": "Outdoor",
+   "category": "Bars, Ladders and Fences",
+   "size": "1×4×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/15332/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Whites": 1
+   }
+  },
+  {
+   "part": "15469",
+   "group": "Outdoor",
+   "category": "Plants & Trees",
+   "size": "2×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/15469/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Greens": 1
+   }
+  },
+  {
+   "part": "15534",
+   "group": "Minifigs",
+   "category": "Minifig Shields, Weapons, & Tools",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/15534/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "2357",
+   "group": "Bricks",
+   "category": "Bricks",
+   "size": "2×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/2357/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "2419",
+   "group": "Plates",
+   "category": "Plates Wedged",
+   "size": "3×6",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/2419/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Greens": 1
+   }
+  },
+  {
+   "part": "2446",
+   "group": "Minifigs",
+   "category": "Minifig Headwear",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/2446/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "2470",
+   "group": "Transport",
+   "category": "Wheels and Tyres",
+   "size": "27mm",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/2470/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "24866",
+   "group": "Outdoor",
+   "category": "Plants & Trees",
+   "size": "1×1",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/24866/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Greens": 1
+   }
+  },
+  {
+   "part": "2518",
+   "group": "Outdoor",
+   "category": "Plants & Trees",
+   "size": "5x10",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/2518/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Greens": 1
+   }
+  },
+  {
+   "part": "25269",
+   "group": "Plates",
+   "category": "Tiles Round and Curved",
+   "size": "1×1",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/25269/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Pinks": 1
+   }
+  },
+  {
+   "part": "2540",
+   "group": "Plates",
+   "category": "Plates Special",
+   "size": "1×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/2540/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "2554",
+   "group": "Building",
+   "category": "Windows and Doors",
+   "size": "1×3×6",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/2554/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Greens": 1
+   }
+  },
+  {
+   "part": "27928",
+   "group": "Plates",
+   "category": "Plates Special",
+   "size": "2×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/27928/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Browns": 1
+   }
+  },
+  {
+   "part": "3008",
+   "group": "Bricks",
+   "category": "Bricks",
+   "size": "1×8",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3008/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Yellows": 1
+   }
+  },
+  {
+   "part": "3031",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "4×4",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3031/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blues": 1
+   }
+  },
+  {
+   "part": "3034",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "2×8",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3034/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blues": 1
+   }
+  },
+  {
+   "part": "30364",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "1×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30364/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "30367c",
+   "group": "Bricks",
+   "category": "Bricks Round and Cones",
+   "size": "2×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30367c/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Whites": 1
+   }
+  },
+  {
+   "part": "30375",
+   "group": "Minifigs",
+   "category": "Minifig Upper Body",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30375/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blues": 1
+   }
+  },
+  {
+   "part": "30377",
+   "group": "Minifigs",
+   "category": "Minifig Upper Body",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30377/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Turquoises": 1
+   }
+  },
+  {
+   "part": "30387",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "1×4",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30387/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "3049d",
+   "group": "Bricks",
+   "category": "Bricks Sloped",
+   "size": "1×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3049d/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Turquoises": 1
+   }
+  },
+  {
+   "part": "30530",
+   "group": "Minifigs",
+   "category": "Minifig Lower Body",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30530/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Oranges": 1
+   }
+  },
+  {
+   "part": "30592",
+   "group": "Bricks",
+   "category": "Bricks Special",
+   "size": "2×4",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30592/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "30658",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "4×4",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/30658/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "32000",
+   "group": "Bricks",
+   "category": "Technic Bricks",
+   "size": "1×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32000/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Browns": 1
+   }
+  },
+  {
+   "part": "32016",
+   "group": "Technic",
+   "category": "Technic Connectors",
+   "size": "#3 157.5°",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32016/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Browns": 1
+   }
+  },
+  {
+   "part": "32039",
+   "group": "Technic",
+   "category": "Technic Connectors",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32039/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "32173",
+   "group": "Technic",
+   "category": "Large Buildable Figures",
+   "size": "2×7",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32173/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "32291",
+   "group": "Technic",
+   "category": "Technic Connectors",
+   "size": "2L",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32291/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "32306",
+   "group": "Technic",
+   "category": "Technic Wheel Holder",
+   "size": "7x3",
+   "qty": 1,
+   "image": "",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "32316",
+   "group": "Technic",
+   "category": "Technic Beams",
+   "size": "1×5 Thick",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32316/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "32474",
+   "group": "Technic",
+   "category": "Technic Special",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32474/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "32475",
+   "group": "Technic",
+   "category": "Large Buildable Figures",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32475/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Reds": 1
+   }
+  },
+  {
+   "part": "32524",
+   "group": "Technic",
+   "category": "Technic Beams",
+   "size": "1×7 Thick",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32524/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "32526",
+   "group": "Technic",
+   "category": "Technic Beams",
+   "size": "3×5 Thick",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/32526/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "3666",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "1×6",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3666/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "3680",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "2×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3680/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Reds": 1
+   }
+  },
+  {
+   "part": "3705",
+   "group": "Technic",
+   "category": "Technic Axles",
+   "size": "4L",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3705/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "3814",
+   "group": "Minifigs",
+   "category": "Minifig Upper Body",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3814/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Whites": 1
+   }
+  },
+  {
+   "part": "3818",
+   "group": "Minifigs",
+   "category": "Minifig Upper Body",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3818/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blues": 1
+   }
+  },
+  {
+   "part": "3829",
+   "group": "Minifigs",
+   "category": "Stickers",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3829/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blues": 1
+   }
+  },
+  {
+   "part": "3899",
+   "group": "Minifigs",
+   "category": "Minifig Accessories",
+   "size": "1×1",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3899/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Whites": 1
+   }
+  },
+  {
+   "part": "3937",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "1×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3937/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "3938",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "1×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3938/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "3958",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "6×6",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/3958/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "4032a",
+   "group": "Plates",
+   "category": "Plates Round Curved and Dishes",
+   "size": "2×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/4032a/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "4070",
+   "group": "Bricks",
+   "category": "Bricks Special",
+   "size": "1×1",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/4070/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Reds": 1
+   }
+  },
+  {
+   "part": "41670",
+   "group": "Technic",
+   "category": "Large Buildable Figures",
+   "size": "4×4×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/41670/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "41864",
+   "group": "Transport",
+   "category": "Wheels and Tyres",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/41864/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "42003",
+   "group": "Technic",
+   "category": "Technic Connectors",
+   "size": "3L",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/42003/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Reds": 1
+   }
+  },
+  {
+   "part": "4213",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "4×4",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/4213/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Yellows": 1
+   }
+  },
+  {
+   "part": "44136",
+   "group": "Technic",
+   "category": "Large Buildable Figures",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/44136/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "44148",
+   "group": "Technic",
+   "category": "Large Buildable Figures",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/44148/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "44728",
+   "group": "Plates",
+   "category": "Plates Special",
+   "size": "1×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/44728/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Purples": 1
+   }
+  },
+  {
+   "part": "4489b",
+   "group": "Transport",
+   "category": "Wheels and Tyres",
+   "size": "33mm",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/4489b/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Browns": 1
+   }
+  },
+  {
+   "part": "4491b",
+   "group": "Outdoor",
+   "category": "Animal / Creature Accessories",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/4491b/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blues": 1
+   }
+  },
+  {
+   "part": "4740",
+   "group": "Plates",
+   "category": "Plates Round Curved and Dishes",
+   "size": "2×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/4740/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "4865b",
+   "group": "Building",
+   "category": "Panels",
+   "size": "1×2×1",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/4865b/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "54672",
+   "group": "Functional",
+   "category": "Hinges, Arms and Turntables",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/54672/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "59900",
+   "group": "Bricks",
+   "category": "Bricks Round and Cones",
+   "size": "1×1",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/59900/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Reds": 1
+   }
+  },
+  {
+   "part": "6041",
+   "group": "Transport",
+   "category": "Transportation - Sea and Air",
+   "size": "3D",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/6041/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blues": 1
+   }
+  },
+  {
+   "part": "60592",
+   "group": "Building",
+   "category": "Windows and Doors",
+   "size": "1×2×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/60592/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blues": 1
+   }
+  },
+  {
+   "part": "6126b",
+   "group": "Outdoor",
+   "category": "Energy Effects",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/6126b/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Reds": 1
+   }
+  },
+  {
+   "part": "6153b",
+   "group": "Bricks",
+   "category": "Bricks Wedged",
+   "size": "4×6",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/6153b/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Turquoises": 1
+   }
+  },
+  {
+   "part": "6232",
+   "group": "Bricks",
+   "category": "Bricks Special",
+   "size": "2×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/6232/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "6541",
+   "group": "Bricks",
+   "category": "Technic Bricks",
+   "size": "1×1",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/6541/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "6636",
+   "group": "Plates",
+   "category": "Tiles",
+   "size": "1×6",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/6636/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blues": 1
+   }
+  },
+  {
+   "part": "67810",
+   "group": "Bricks",
+   "category": "Bricks Round and Cones",
+   "size": "2×2×1",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/67810/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Pinks": 1
+   }
+  },
+  {
+   "part": "78329",
+   "group": "Plates",
+   "category": "Plates",
+   "size": "1×5",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/78329/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "87580",
+   "group": "Plates",
+   "category": "Plates Special",
+   "size": "2×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/87580/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "970c03",
+   "group": "Minifigs",
+   "category": "Minifig Lower Body",
+   "size": "",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/970c03/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blacks": 1
+   }
+  },
+  {
+   "part": "98100",
+   "group": "Bricks",
+   "category": "Bricks Round and Cones",
+   "size": "2×2",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/98100/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Grays": 1
+   }
+  },
+  {
+   "part": "98560",
+   "group": "Bricks",
+   "category": "Bricks Sloped",
+   "size": "2×2×3",
+   "qty": 1,
+   "image": "https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/98560/pom_part_lanczos_webp/image.WEBP",
+   "colors": {
+    "Blues": 1
+   }
+  }
+ ]
+}

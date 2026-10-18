@@ -1,0 +1,3 @@
+pieza,grupo,categoria,tamano,color,cantidad
+# Piezas que Brickit NO reconocio, identificadas a mano (numero BrickLink). Colores: usar las familias de Brickit (Blacks, Grays, Reds, Yellows, Blues, Greens, Whites, Browns, Turquoises, Pinks, Purples, Oranges)
+32306,Technic,Technic Wheel Holder,7x3,Blacks,1
