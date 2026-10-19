@@ -65,4 +65,5 @@ jobs:
           git add data/ builds/
           if git diff --cached --quiet; then echo "Sin cambios"; exit 0; fi
           git commit -m "data: sync inventario y modelos $(date -u +%Y-%m-%d)"
-          git push
+          # Si alguien subio algo mientras corria, se pone encima en vez de fallar el push (ya paso una vez).
+          ok=0; for i in 1 2 3; do git pull --rebase -q origin main && git push -q && { ok=1; break; }; sleep 5; done; [ "$ok" = 1 ]

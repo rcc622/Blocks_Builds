@@ -105,4 +105,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add builds/
           git commit -m "diseños: $NEW"
-          git push
+          # Si alguien subio algo mientras corria, se pone encima en vez de fallar el push (ya paso una vez).
+          ok=0; for i in 1 2 3; do git pull --rebase -q origin main && git push -q && { ok=1; break; }; sleep 5; done; [ "$ok" = 1 ]
