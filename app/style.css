@@ -388,29 +388,45 @@ details.panel[open] > summary::after { transform: rotate(-135deg); }
 }
 .design-form .hint { display: block; }
 
-/* Cargando: tres ladrillos caen uno sobre otro y se embonan (solo transform/opacity) */
-.snap { position: relative; display: block; width: 72px; height: 50px; margin: 0 auto; }
-.snap i {
-  position: absolute; height: 14px; border-radius: 3px; background: currentColor;
-  box-shadow: inset 0 -3px 0 var(--color-brick-shade);
-  transform-origin: 50% 100%; animation: snap 2.6s var(--ease-out) infinite both;
+/* Cargando: una figura chica (casa, cohete, robot, arbol) se arma ladrillo por ladrillo. Ver FIGURES en app.js.
+ * Unidad: 14 px por stud, 16 px por fila. Solo se anima transform/opacity. */
+.bl { position: relative; display: block; width: 84px; height: 100px; margin: 0 auto; transition: opacity var(--dur-slow) var(--ease-in), transform var(--dur-slow) var(--ease-in); }
+.bl.out { opacity: 0; transform: translateY(8px) scale(0.96); }
+.bl i {
+  position: absolute; height: 16px; border-radius: 2px; background: currentColor;
+  box-shadow: inset 0 -3px 0 var(--color-brick-shade), inset -2px 0 0 var(--color-brick-shade);
+  transform-origin: 50% 100%; animation: bl-drop 420ms var(--ease-out) both;
 }
-.snap i::before { content: ""; position: absolute; top: -5px; left: 6px; width: 10px; height: 5px; border-radius: 2px 2px 0 0; background: currentColor; box-shadow: 16px 0 0 currentColor, 32px 0 0 currentColor; }
-.snap .b1 { left: 0; bottom: 0; width: 48px; color: var(--color-brick-red); }
-.snap .b2 { left: 24px; bottom: 15px; width: 48px; color: var(--color-brick-blue); animation-delay: 0.35s; }
-.snap .b3 { left: 8px; bottom: 30px; width: 32px; color: var(--color-brick-white); animation-delay: 0.7s; }
-.snap .b3::before { box-shadow: 16px 0 0 currentColor; }
-@keyframes snap {
-  0% { opacity: 0; transform: translateY(-22px); }
-  14% { opacity: 1; transform: translateY(0); }
-  18% { transform: translateY(1px) scaleY(0.88); }
-  24%, 72% { opacity: 1; transform: none; }
-  86%, 100% { opacity: 0; transform: none; }
+/* Studs: rectangulitos arriba de cada ladrillo; el ladrillo de encima los tapa al caer */
+.bl i::before { content: ""; position: absolute; left: 0; right: 0; top: -4px; height: 4px; background: linear-gradient(90deg, transparent 0 3px, currentColor 3px 11px, transparent 11px) 0 0 / 14px 4px repeat-x; }
+.bl .s-sl { clip-path: polygon(0 100%, 100% 0, 100% 100%); }
+.bl .s-sr { clip-path: polygon(0 0, 100% 100%, 0 100%); }
+.bl .s-tri { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.bl .s-sl::before, .bl .s-sr::before, .bl .s-tri::before { display: none; }
+.bl .c-red { color: var(--color-brick-red); }
+.bl .c-blue { color: var(--color-brick-blue); }
+.bl .c-white { color: var(--color-brick-white); }
+.bl .c-black { color: var(--color-brick-black); }
+.bl .c-gray { color: var(--color-brick-gray); }
+.bl .c-green { color: var(--color-brick-green); }
+@keyframes bl-drop {
+  0% { opacity: 0; transform: translateY(-40px); }
+  55% { opacity: 1; transform: translateY(0); }
+  72% { transform: translateY(1px) scaleY(0.86); }
+  100% { opacity: 1; transform: none; }
 }
+.bl.still i { animation: none; }
 .card-cover { position: relative; }
-.card-cover .snap { position: absolute; inset: 0; margin: auto; }
-.card-cover.ready .snap, .card-cover.failed .snap { display: none; }
-.stage-msg .snap { margin-bottom: var(--space-3); }
-.stage-msg.warn .snap { display: none; }
-@media (prefers-reduced-motion: reduce) { .snap i { animation: none !important; opacity: 1; } }
-.brick-status .snap, .stage-msg .snap { transform: scale(1.5); margin-block: var(--space-4) var(--space-6); }
+.card-cover .bl { position: absolute; inset: 0; margin: auto; }
+.card-cover.ready .bl, .card-cover.failed .bl { display: none; }
+.stage-msg .bl { margin-bottom: var(--space-3); }
+.stage-msg.warn .bl { display: none; }
+.brick-status .bl { transform: scale(1.35); margin-block: var(--space-4) var(--space-5); }
+.brick-status .bl.out { transform: translateY(8px) scale(1.3); }
+/* Barra de avance del diseño */
+.design-progress { width: 100%; max-width: 260px; height: 10px; border-radius: var(--radius-pill); overflow: hidden; background: color-mix(in oklch, var(--color-accent-ink) 16%, transparent); }
+.design-progress i { display: block; width: 100%; height: 100%; border-radius: inherit; background: var(--color-accent-ink); transform-origin: left center; transform: scaleX(var(--p, 0.02)); transition: transform 1s linear; }
+.design-step { display: flex; gap: var(--space-2); justify-content: center; align-items: baseline; font-weight: 600; font-size: var(--text-sm); }
+.design-pct { font-family: var(--font-mono); font-variant-numeric: tabular-nums; opacity: 0.8; }
+@media (prefers-reduced-motion: reduce) { .bl i { animation: none !important; opacity: 1; } .design-progress i { transition: none; } }
+

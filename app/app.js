@@ -108,7 +108,7 @@ function library(d) {
     const cta = at > 0 && at < steps ? `Seguir en el paso ${at}` : st === 'armado' ? 'Ver manual' : 'Abrir manual';
     return `<li class="card">
       <a class="card-link" href="#/b/${esc(b.slug)}${at > 0 && at <= steps ? '/' + at : ''}">
-        <div class="card-cover">${snap()}<img alt="" data-cover="${esc(b.file)}" width="480" height="360"></div>
+        <div class="card-cover">${loader()}<img alt="" data-cover="${esc(b.file)}" width="480" height="360"></div>
         <div class="card-body">
           <div class="card-top"><h2>${esc(b.name)}</h2>${st !== 'diseñado' ? `<span class="badge ${st === 'armado' ? 'info' : 'warn'}">${esc(STATUS[st])}</span>` : ''}</div>
           <p>${esc(b.description)}</p>
@@ -141,14 +141,51 @@ function library(d) {
     if (e.target.closest('#design-btn, #design-retry')) designDialog(d);
     if (e.target.closest('#design-dismiss')) { store.set(s => { delete s.design; }); route(); }
   });
-  const timer = job && !job.failed ? watchDesign(job) : null;
-  current = () => { io.disconnect(); clearInterval(timer); };
+  const stop = job && !job.failed ? watchDesign(job) : null;
+  current = () => { io.disconnect(); stop?.(); };
 }
 
 // ---------- Diseñar modelos nuevos (Claude en GitHub Actions, .github/workflows/design-models.yml) ----------
 const DESIGN_WORKFLOW = 'Diseñar modelos';
 const studs = n => `<span class="studs" aria-hidden="true">${'<i></i>'.repeat(n)}</span>`;
-const snap = () => '<span class="snap" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></span>';
+// Cargando: figuras chicas que se arman ladrillo por ladrillo (vista de lado). [x, fila, ancho en studs, color, forma]
+// Cada ladrillo cae y tapa los studs del de abajo, como al embonar. Al terminar, la figura se va y llega otra.
+const FIGURES = [
+  [[0, 0, 4, 'red'], [4, 0, 2, 'red'], [0, 1, 2, 'white'], [2, 1, 2, 'blue'], [4, 1, 2, 'white'],
+    [0, 2, 2, 'red'], [2, 2, 4, 'red'], [0, 3, 3, 'black', 'sl'], [3, 3, 3, 'black', 'sr']],                     // casita
+  [[0, 0, 2, 'red'], [2, 0, 2, 'gray'], [4, 0, 2, 'red'], [1, 1, 4, 'white'], [1, 2, 2, 'white'], [3, 2, 2, 'blue'],
+    [1, 3, 4, 'white'], [2, 4, 2, 'red'], [2, 5, 2, 'red', 'tri']],                                               // cohete
+  [[0, 0, 2, 'blue'], [4, 0, 2, 'blue'], [1, 1, 1, 'gray'], [4, 1, 1, 'gray'], [0, 2, 6, 'red'],
+    [0, 3, 1, 'gray'], [1, 3, 4, 'red'], [5, 3, 1, 'gray'], [2, 4, 2, 'white'], [2.5, 5, 1, 'red']],              // robot
+  [[0, 0, 6, 'green'], [2, 1, 2, 'black'], [2, 2, 2, 'black'], [0, 3, 6, 'green'], [1, 4, 4, 'green'],
+    [2, 5, 2, 'green', 'tri']],                                                                                    // árbol
+];
+const STEP_MS = 260, HOLD_MS = 1500, OUT_MS = 380;
+const loader = () => '<span class="bl" aria-hidden="true"></span>';
+let figureSeed = Math.floor(Math.random() * FIGURES.length);
+function mountLoaders(root = document) {
+  for (const el of root.querySelectorAll('.bl:not([data-on])')) {
+    el.dataset.on = '1';
+    let i = figureSeed++;
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const draw = () => {
+      if (!el.isConnected) return;
+      const fig = FIGURES[i++ % FIGURES.length];
+      el.classList.remove('out');
+      el.innerHTML = fig.map(([x, row, w, color, shape = 'b'], k) =>
+        `<i class="c-${color} s-${shape}" style="left:${x * 14}px;bottom:${row * 16}px;width:${w * 14}px;animation-delay:${k * STEP_MS}ms"></i>`).join('');
+      if (still) { el.classList.add('still'); return; }
+      setTimeout(() => {
+        if (!el.isConnected) return;
+        el.classList.add('out');
+        setTimeout(draw, OUT_MS);
+      }, fig.length * STEP_MS + HOLD_MS);
+    };
+    draw();
+  }
+}
+new MutationObserver(() => mountLoaders()).observe(document.body, { childList: true, subtree: true });
+
 const brickButton = () => `<button class="brick-btn" id="design-btn" aria-haspopup="dialog">
     ${studs(4)}<span class="brick-plus">${icon('plus')}</span>
     <span class="brick-title">Diseñar modelos nuevos</span>
@@ -156,37 +193,75 @@ const brickButton = () => `<button class="brick-btn" id="design-btn" aria-haspop
   </button>`;
 
 function designStatusCard(job) {
-  const mins = Math.max(0, Math.round((Date.now() - job.at) / 60e3));
-  const run = job.run ? ` <a href="${esc(job.run)}" target="_blank" rel="noopener">Ver en GitHub</a>` : '';
+  const run = job.run ? `<a href="${esc(job.run)}" target="_blank" rel="noopener">Ver en GitHub</a>` : '';
   if (job.failed) return `<div class="brick-status warn" role="status">${icon('alert')}
-      <p><strong>No se pudieron diseñar los modelos.</strong>${run}</p>
+      <p><strong>No se pudieron diseñar los modelos.</strong> ${run}</p>
       <div class="row"><button class="btn ghost" id="design-dismiss">Quitar aviso</button><button class="btn" id="design-retry">Reintentar</button></div></div>`;
-  return `<div class="brick-status" role="status">${studs(4)}${snap()}
-      <p><strong>Claude está diseñando ${plural(job.count, 'modelo', 'modelos')}${job.idea ? `: “${esc(job.idea)}”` : ''}.</strong></p>
-      <p class="hint">Empezó hace ${plural(mins, 'minuto', 'minutos')}. Tarda unos 10 por modelo; aparecen aquí solos.${run}</p>
-      ${mins > 90 ? `<button class="btn ghost" id="design-dismiss">Quitar aviso</button>` : ''}</div>`;
+  const stale = Date.now() - job.at > 90 * 60e3;
+  return `<div class="brick-status">${studs(4)}${loader()}
+      <p><strong>Claude está diseñando ${plural(job.count, 'modelo', 'modelos')}${job.idea ? `: “${esc(job.idea)}”` : ''}</strong></p>
+      <div class="design-progress" role="progressbar" aria-label="Avance del diseño" aria-valuemin="0" aria-valuemax="100" aria-valuenow="2"><i></i></div>
+      <p class="design-step"><span id="design-step" aria-live="polite">En fila en GitHub…</span><span id="design-pct" class="design-pct">2%</span></p>
+      <p class="hint"><span id="design-time"></span> · aparecen aquí solos. ${run}</p>
+      ${stale ? `<button class="btn ghost" id="design-dismiss">Quitar aviso</button>` : ''}</div>`;
 }
 
-// Cada 30 s revisa si ya se publicaron modelos nuevos; cada 90 s cómo va la corrida (API pública: 60 consultas/h).
+// Avance del diseño. Fases reales salen de los pasos del job en GitHub (API pública: ~45 consultas/h);
+// dentro de "Claude diseña" el avance es estimado por tiempo (medido: ~1 min por modelo).
 function watchDesign(job) {
+  const card = $('.brick-status'), bar = $('.design-progress', card);
+  const stepEl = $('#design-step', card), pctEl = $('#design-pct', card), timeEl = $('#design-time', card);
+  const expected = job.count * 66e3;
+  const st = { phase: 'queued', claudeAt: job.claudeAt || 0 };
+  const save = patch => store.set(s => { if (s.design) Object.assign(s.design, patch); });
+  const paint = () => {
+    const now = Date.now();
+    const claudeAt = st.claudeAt || (now - job.at > 50e3 ? job.at + 40e3 : 0); // sin datos de GitHub: estima
+    let p, text;
+    if (st.phase === 'publishing') { p = 0.97; text = 'Listo. Publicando en tu app…'; }
+    else if (st.phase === 'checking') { p = 0.92; text = 'Revisando que tengas todas las piezas…'; }
+    else if (claudeAt) {
+      const f = Math.min(1, (now - claudeAt) / expected), k = Math.min(job.count, Math.floor(f * job.count) + 1);
+      p = 0.1 + 0.78 * f;
+      text = f < 0.1 ? 'Claude está revisando tu inventario…' : f >= 1 ? 'Dando los últimos toques…'
+        : job.count > 1 ? `Diseñando el modelo ${k} de ${job.count}…` : 'Diseñando tu modelo…';
+    } else { p = st.phase === 'setup' ? 0.06 : 0.02; text = st.phase === 'setup' ? 'Preparando a Claude…' : 'En fila en GitHub…'; }
+    const pct = Math.round(p * 100), secs = Math.max(0, Math.round((now - job.at) / 1000));
+    bar.style.setProperty('--p', p);
+    bar.setAttribute('aria-valuenow', pct);
+    pctEl.textContent = `${pct}%`;
+    if (stepEl.textContent !== text) stepEl.textContent = text;
+    timeEl.textContent = `Lleva ${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')} min`;
+  };
+  const api = path => getJson(`https://api.github.com/repos/${REPO}/actions/${path}`);
   let n = 0;
-  const tick = async () => {
+  const poll = async () => {
     try {
       const idx = await getJson('builds/index.json');
       if (idx.builds.length > job.before) { store.set(s => { delete s.design; }); dataP = null; return route(); }
-      if (n++ % 3) return;
-      const { workflow_runs: runs = [] } = await getJson(`https://api.github.com/repos/${REPO}/actions/runs?event=repository_dispatch&per_page=10`);
-      const run = runs.find(r => r.name === DESIGN_WORKFLOW && new Date(r.created_at) >= job.at - 60e3);
-      if (!run) return;
-      const failed = run.status === 'completed' && run.conclusion !== 'success';
-      if (run.html_url !== job.run || failed) {
-        store.set(s => { if (s.design) { s.design.run = run.html_url; s.design.failed = failed; } });
-        route();
+      if (n++ % 4) return;
+      if (!job.runId) {
+        const { workflow_runs: runs = [] } = await api('runs?event=repository_dispatch&per_page=10');
+        const run = runs.find(r => r.name === DESIGN_WORKFLOW && new Date(r.created_at) >= job.at - 60e3);
+        if (!run) return;
+        job.runId = run.id; job.run = run.html_url;
+        save({ runId: run.id, run: run.html_url });
       }
-    } catch { /* sin red o límite de la API: reintenta en la siguiente vuelta */ }
+      const { jobs: [j] = [] } = await api(`runs/${job.runId}/jobs`);
+      if (!j) return;
+      const step = name => j.steps.find(s => s.name.includes(name));
+      const claude = step('claude-code-action'), check = step('Validar');
+      if (j.status === 'completed' && j.conclusion !== 'success') { save({ failed: true }); return route(); }
+      if (j.status === 'completed') st.phase = 'publishing';
+      else if (check?.status === 'in_progress') st.phase = 'checking';
+      else if (claude?.started_at) { st.phase = 'designing'; st.claudeAt = Date.parse(claude.started_at); save({ claudeAt: st.claudeAt }); }
+      else st.phase = j.status === 'queued' ? 'queued' : 'setup';
+      paint();
+    } catch { /* sin red o límite de la API: sigue con la estimación */ }
   };
-  tick();
-  return setInterval(tick, 30e3);
+  paint(); poll();
+  const t1 = setInterval(paint, 1000), t2 = setInterval(poll, 20e3);
+  return () => { clearInterval(t1); clearInterval(t2); };
 }
 
 function designDialog(d) {
@@ -266,7 +341,7 @@ async function manual(d, slug, n) {
         <button class="icon-btn soft" id="reframe" aria-label="Volver a encuadrar">${icon('focus')}</button>
         ${n ? `<button class="icon-btn soft" id="ghost" aria-pressed="${!!store.get().ghost}" aria-label="Resaltar solo las piezas nuevas">${icon('eye')}</button>` : ''}
       </div>
-      <div class="stage-msg" id="stage-msg" role="status">${snap()}<p>Cargando modelo…</p></div>
+      <div class="stage-msg" id="stage-msg" role="status">${loader()}<p>Cargando modelo…</p></div>
     </div>
     <aside class="manual-side">${n ? stepPanel(d, b, n) : overviewPanel(d, b, av)}</aside>
     <nav class="manual-nav" aria-label="Pasos">
