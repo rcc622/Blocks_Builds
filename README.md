@@ -1,4 +1,4 @@
-# legobuilds
+# Blocks Builds
 
 Construcciones Lego personalizadas con mi inventario real de piezas, y manuales interactivos paso a paso.
 
@@ -11,7 +11,7 @@ Construcciones Lego personalizadas con mi inventario real de piezas, y manuales 
 - **Mis piezas:** todo el inventario con búsqueda y filtros por tipo y color.
 
 ## Cómo actualizo mi inventario
-1. En **Brickit**: Pockets → Share → elige **legobuilds** (o copia el link).
+1. En **Brickit**: Pockets → Share → elige **Blocks Builds** (o copia el link).
 2. En la app, **Sincronizar** → pega el link → "Actualizar inventario". En ~2 minutos se refleja.
    - La primera vez: conectar GitHub con un token (la pantalla explica los 4 pasos).
    - Sin token: pega el link en [`data/sources/brickit_links.txt`](data/sources/brickit_links.txt) desde GitHub.

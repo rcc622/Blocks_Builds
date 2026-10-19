@@ -1,6 +1,6 @@
 {
-  "name": "legobuilds",
-  "short_name": "legobuilds",
+  "name": "Blocks Builds",
+  "short_name": "Blocks Builds",
   "description": "Manuales interactivos para armar modelos con mis piezas reales.",
   "lang": "es",
   "start_url": "./",

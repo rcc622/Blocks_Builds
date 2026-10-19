@@ -40,7 +40,7 @@ button, input { font: inherit; color: inherit; }
 }
 .topbar { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
 .topbar #theme-btn { grid-column: 3; justify-self: end; }
-.brand { display: flex; align-items: center; gap: var(--space-2); justify-self: start; color: var(--color-ink); text-decoration: none; font: 800 var(--text-lg)/1 var(--font-display); letter-spacing: -0.03em; min-height: 44px; }
+.brand { display: flex; align-items: center; gap: var(--space-2); justify-self: start; color: var(--color-ink); text-decoration: none; font: 800 var(--text-lg)/1 var(--font-display); letter-spacing: -0.03em; min-height: 44px; white-space: nowrap; }
 .tabs { display: flex; gap: var(--space-1); }
 .tabs a {
   display: flex; align-items: center; gap: var(--space-2);

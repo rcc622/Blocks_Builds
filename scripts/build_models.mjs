@@ -193,7 +193,7 @@ function checkStructure(pieces) {
 }
 
 function toLdr(name, steps) {
-  const out = [`0 ${name}`, '0 Name: model.ldr', '0 Author: legobuilds (generado por scripts/build_models.mjs desde model.txt)', ''];
+  const out = [`0 ${name}`, '0 Name: model.ldr', '0 Author: Blocks Builds (generado por scripts/build_models.mjs desde model.txt)', ''];
   steps.forEach((s, i) => {
     if (s.title) out.push(`0 // ${s.title}`);
     for (const p of s.pieces) out.push(p.raw || `1 ${p.code} ${p.pos.map(fmt).join(' ')} ${ROT[p.r].join(' ')} ${ldrawName(p.part)}`);

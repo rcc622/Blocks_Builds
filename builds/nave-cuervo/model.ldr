@@ -1,6 +1,6 @@
 0 Nave Cuervo
 0 Name: model.ldr
-0 Author: legobuilds (generado por scripts/build_models.mjs desde model.txt)
+0 Author: Blocks Builds (generado por scripts/build_models.mjs desde model.txt)
 
 0 // El casco
 1 0 80 -24 -40 0 0 1 0 1 0 -1 0 0 3001.dat

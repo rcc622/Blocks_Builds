@@ -1,4 +1,4 @@
-# legobuilds — contexto del proyecto para Claude Code
+# Blocks Builds (repo `Blocks_Builds`) — contexto del proyecto para Claude Code
 
 ## Qué es
 App personal de Randall para armar construcciones Lego nuevas **con las piezas que ya tiene**, con **manuales interactivos paso a paso estilo Lego**: visor 3D por paso, recuadro de piezas del paso, progreso, celular primero, modo oscuro.
@@ -36,7 +36,7 @@ Randall no programa; construye con IA. Explica decisiones técnicas en una líne
 - Precisión: buena en forma y cantidad, errores ocasionales (ej. `78329` plate 1×5, pieza 2021+, improbable). Piezas con 1 unidad = "probables".
 
 ## Flujo de sincronización
-1. Brickit → Pockets → Share → **legobuilds** (si instaló la app) o copiar link.
+1. Brickit → Pockets → Share → **Blocks Builds** (si instaló la app) o copiar link.
 2. En la app, `#/sync`: pegar link, elegir "toda mi colección" (reemplaza) o "pocket extra" (suma) → botón. Manda `repository_dispatch` con un token fine-grained de Randall (Contents: read/write, solo este repo, guardado solo en su navegador).
 3. `.github/workflows/sync-inventory.yml` corre import + catálogo + modelos y commitea. `pages.yml` publica después de cada sync y cada push.
 4. Sin token: editar `data/sources/brickit_links.txt` en GitHub. Piezas no reconocidas → `data/manual_parts.csv`.

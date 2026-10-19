@@ -1,4 +1,4 @@
-// legobuilds: biblioteca de modelos, manual paso a paso, inventario y sincronizacion con Brickit.
+// Blocks Builds: biblioteca de modelos, manual paso a paso, inventario y sincronizacion con Brickit.
 // Sitio estatico (GitHub Pages). Rutas por hash: #/  #/b/<slug>/<paso>  #/piezas  #/sync
 import { Viewer, modelCover } from './viewer.js';
 import { FAMILIES } from './colors.js';
@@ -99,7 +99,7 @@ addEventListener('hashchange', route);
 // ---------- Biblioteca ----------
 function library(d) {
   navActive('home');
-  document.title = 'Modelos · legobuilds';
+  document.title = 'Modelos · Blocks Builds';
   const progress = store.get().progress || {};
   const cards = d.builds.map(b => {
     const av = availability(b, d), st = statusOf(b), at = progress[b.slug] || 0, steps = b.steps.length;
@@ -150,7 +150,7 @@ async function manual(d, slug, n) {
   if (!b) { location.hash = '#/'; return; }
   const total = b.steps.length;
   n = Math.max(0, Math.min(total, n));
-  document.title = `${b.name}${n ? ` · paso ${n}` : ''} · legobuilds`;
+  document.title = `${b.name}${n ? ` · paso ${n}` : ''} · Blocks Builds`;
   if (n > 0) store.set(s => { (s.progress ??= {})[slug] = n; });
   const step = b.steps[n - 1];
   const av = availability(b, d);
@@ -366,7 +366,7 @@ function finished(d, b) {
 const GROUPS = { Bricks: 'Ladrillos', Plates: 'Placas y lisos', Technic: 'Technic', Functional: 'Bisagras', Minifigs: 'Minifigs', Outdoor: 'Naturaleza', Transport: 'Ruedas y más', Building: 'Puertas y ventanas' };
 function inventory(d) {
   navActive('piezas');
-  document.title = 'Mis piezas · legobuilds';
+  document.title = 'Mis piezas · Blocks Builds';
   const inv = d.inventory, f = { q: '', group: '', color: '' };
   const groups = [...new Set(inv.parts.map(p => p.group))];
   view.innerHTML = `<section class="page">
@@ -419,7 +419,7 @@ function inventory(d) {
 // ---------- Sincronizar con Brickit ----------
 function sync(d) {
   navActive('sync');
-  document.title = 'Sincronizar · legobuilds';
+  document.title = 'Sincronizar · Blocks Builds';
   const inv = d.inventory, token = store.get().token || '';
   const src = inv.sources.map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url.split('/offer/')[1].slice(0, 8))}…</a> · ${s.scans} escaneos · ${s.parts} piezas</li>`).join('');
   view.innerHTML = `<section class="page narrow">
@@ -434,7 +434,7 @@ function sync(d) {
     </div>
     <form class="panel form" id="sync-form" novalidate>
       <h2>Nuevo link de Brickit</h2>
-      <ol class="how"><li>En Brickit abre <strong>Pockets</strong> y toca <strong>Share</strong>.</li><li>Elige <strong>legobuilds</strong> (si instalaste la app) o copia el link y pégalo abajo.</li></ol>
+      <ol class="how"><li>En Brickit abre <strong>Pockets</strong> y toca <strong>Share</strong>.</li><li>Elige <strong>Blocks Builds</strong> (si instalaste la app) o copia el link y pégalo abajo.</li></ol>
       <label class="field"><span>Link</span><input type="url" name="url" id="link" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://brickit.app/offer/…" value="${esc(sharedLink)}" required aria-describedby="link-err"></label>
       <p class="field-err" id="link-err" hidden>Ese no parece un link de Brickit. Debe verse como https://brickit.app/offer/ seguido de un código.</p>
       <fieldset class="radios"><legend>¿Qué es este link?</legend>
@@ -448,7 +448,7 @@ function sync(d) {
       <summary><h2>Conectar con GitHub</h2><span class="badge ${token ? 'ok' : 'warn'}">${token ? 'Conectado' : 'Pendiente'}</span></summary>
       <ol class="how">
         <li>Abre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">crear token de GitHub ${icon('external')}</a>.</li>
-        <li>Nombre: <span class="mono">legobuilds</span>. Repository access: <strong>Only select repositories</strong> → <span class="mono">legobuilds</span>.</li>
+        <li>Nombre: <span class="mono">BlocksBuilds</span>. Repository access: <strong>Only select repositories</strong> → <span class="mono">${esc(REPO.split('/')[1])}</span>.</li>
         <li>Permissions → Repository → <strong>Contents: Read and write</strong>. Genera y copia el token.</li>
         <li>Pégalo aquí. Se guarda solo en este dispositivo.</li>
       </ol>
@@ -491,7 +491,7 @@ function sync(d) {
         headers: { Authorization: `Bearer ${store.get().token}`, Accept: 'application/vnd.github+json' },
         body: JSON.stringify({ event_type: 'brickit-link', client_payload: { url, mode: form.mode.value } }),
       });
-      if (res.status === 401 || res.status === 403) throw new Error('GitHub rechazó el token. Revisa que tenga Contents: Read and write en legobuilds.');
+      if (res.status === 401 || res.status === 403) throw new Error('GitHub rechazó el token. Revisa que tenga Contents: Read and write en ' + REPO.split('/')[1] + '.');
       if (!res.ok) throw new Error(`GitHub respondió ${res.status}.`);
       sharedLink = '';
       status.textContent = 'Listo, GitHub está importando tu inventario…';
