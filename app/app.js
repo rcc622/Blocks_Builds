@@ -108,7 +108,7 @@ function library(d) {
     const cta = at > 0 && at < steps ? `Seguir en el paso ${at}` : st === 'armado' ? 'Ver manual' : 'Abrir manual';
     return `<li class="card">
       <a class="card-link" href="#/b/${esc(b.slug)}${at > 0 && at <= steps ? '/' + at : ''}">
-        <div class="card-cover"><img alt="" data-cover="${esc(b.file)}" width="480" height="360"></div>
+        <div class="card-cover">${snap()}<img alt="" data-cover="${esc(b.file)}" width="480" height="360"></div>
         <div class="card-body">
           <div class="card-top"><h2>${esc(b.name)}</h2>${st !== 'diseñado' ? `<span class="badge ${st === 'armado' ? 'info' : 'warn'}">${esc(STATUS[st])}</span>` : ''}</div>
           <p>${esc(b.description)}</p>
@@ -148,6 +148,7 @@ function library(d) {
 // ---------- Diseñar modelos nuevos (Claude en GitHub Actions, .github/workflows/design-models.yml) ----------
 const DESIGN_WORKFLOW = 'Diseñar modelos';
 const studs = n => `<span class="studs" aria-hidden="true">${'<i></i>'.repeat(n)}</span>`;
+const snap = () => '<span class="snap" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></span>';
 const brickButton = () => `<button class="brick-btn" id="design-btn" aria-haspopup="dialog">
     ${studs(4)}<span class="brick-plus">${icon('plus')}</span>
     <span class="brick-title">Diseñar modelos nuevos</span>
@@ -160,7 +161,7 @@ function designStatusCard(job) {
   if (job.failed) return `<div class="brick-status warn" role="status">${icon('alert')}
       <p><strong>No se pudieron diseñar los modelos.</strong>${run}</p>
       <div class="row"><button class="btn ghost" id="design-dismiss">Quitar aviso</button><button class="btn" id="design-retry">Reintentar</button></div></div>`;
-  return `<div class="brick-status" role="status">${studs(4)}<span class="brick-plus spin">${icon('refresh')}</span>
+  return `<div class="brick-status" role="status">${studs(4)}${snap()}
       <p><strong>Claude está diseñando ${plural(job.count, 'modelo', 'modelos')}${job.idea ? `: “${esc(job.idea)}”` : ''}.</strong></p>
       <p class="hint">Empezó hace ${plural(mins, 'minuto', 'minutos')}. Tarda unos 10 por modelo; aparecen aquí solos.${run}</p>
       ${mins > 90 ? `<button class="btn ghost" id="design-dismiss">Quitar aviso</button>` : ''}</div>`;
@@ -265,7 +266,7 @@ async function manual(d, slug, n) {
         <button class="icon-btn soft" id="reframe" aria-label="Volver a encuadrar">${icon('focus')}</button>
         ${n ? `<button class="icon-btn soft" id="ghost" aria-pressed="${!!store.get().ghost}" aria-label="Resaltar solo las piezas nuevas">${icon('eye')}</button>` : ''}
       </div>
-      <p class="stage-msg" id="stage-msg">Cargando modelo…</p>
+      <div class="stage-msg" id="stage-msg" role="status">${snap()}<p>Cargando modelo…</p></div>
     </div>
     <aside class="manual-side">${n ? stepPanel(d, b, n) : overviewPanel(d, b, av)}</aside>
     <nav class="manual-nav" aria-label="Pasos">
