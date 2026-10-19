@@ -1,0 +1,7 @@
+{
+  "name": "Templo del escorpión",
+  "description": "Templo escalonado de piedra negra y amarilla con antorchas en las esquinas y un escorpión en la cima.",
+  "difficulty": 1,
+  "status": "diseñado",
+  "tags": ["edificio", "desierto", "animal"]
+}

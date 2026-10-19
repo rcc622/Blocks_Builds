@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T02:56:49.021Z",
+ "generated_at": "2026-10-19T03:17:49.019Z",
  "builds": [
   {
    "slug": "barco-pirata",
@@ -1778,6 +1778,179 @@
        "family": "Reds",
        "code": 4,
        "file": "3005.dat",
+       "qty": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "templo-escorpion",
+   "name": "Templo del escorpión",
+   "description": "Templo escalonado de piedra negra y amarilla con antorchas en las esquinas y un escorpión en la cima.",
+   "difficulty": 1,
+   "status": "diseñado",
+   "tags": [
+    "edificio",
+    "desierto",
+    "animal"
+   ],
+   "photos": [],
+   "file": "builds/templo-escorpion/model.mpd",
+   "ldr": "builds/templo-escorpion/model.ldr",
+   "pieces": 30,
+   "warnings": [],
+   "descs": {
+    "3001": "Brick  2 x  4",
+    "3003": "Brick  2 x  2",
+    "3004": "Brick  1 x  2",
+    "3005": "Brick  1 x  1",
+    "3039": "Slope Brick 45  2 x  2",
+    "6141": "Plate  1 x  1 Round",
+    "30169": "Animal Scorpion"
+   },
+   "bom": [
+    {
+     "part": "3001",
+     "family": "Blacks",
+     "qty": 6
+    },
+    {
+     "part": "3003",
+     "family": "Yellows",
+     "qty": 4
+    },
+    {
+     "part": "3004",
+     "family": "Yellows",
+     "qty": 4
+    },
+    {
+     "part": "3003",
+     "family": "Greens",
+     "qty": 4
+    },
+    {
+     "part": "3005",
+     "family": "Yellows",
+     "qty": 4
+    },
+    {
+     "part": "6141",
+     "family": "Reds",
+     "qty": 4
+    },
+    {
+     "part": "3039",
+     "family": "Blacks",
+     "qty": 2
+    },
+    {
+     "part": "3003",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "30169",
+     "family": "Blacks",
+     "qty": 1
+    }
+   ],
+   "steps": [
+    {
+     "title": "La base de piedra",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "title": "Segundo nivel: esquinas",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3003.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Segundo nivel: muros",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3004.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Tercer nivel",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Greens",
+       "code": 2,
+       "file": "3003.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Bases de antorchas",
+     "parts": [
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Llamas y escalera",
+     "parts": [
+      {
+       "part": "6141",
+       "family": "Reds",
+       "code": 4,
+       "file": "6141.dat",
+       "qty": 4
+      },
+      {
+       "part": "3039",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3039.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "La cima",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Reds",
+       "code": 4,
+       "file": "3003.dat",
+       "qty": 1
+      },
+      {
+       "part": "30169",
+       "family": "Blacks",
+       "code": 0,
+       "file": "30169.dat",
        "qty": 1
       }
      ]

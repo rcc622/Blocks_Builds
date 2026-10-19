@@ -1,0 +1,44 @@
+# Templo del escorpion. z desplazado +2 para la escalera.
+STEP La base de piedra
+3001 Blacks 0 2 0
+3001 Blacks 4 2 0
+3001 Blacks 0 8 0
+3001 Blacks 4 8 0
+3001 Blacks 0 4 0 90
+3001 Blacks 6 4 0 90
+
+STEP Segundo nivel: esquinas
+3003 Yellows 1 3 3
+3003 Yellows 5 3 3
+3003 Yellows 1 7 3
+3003 Yellows 5 7 3
+
+STEP Segundo nivel: muros
+3004 Yellows 3 3 3
+3004 Yellows 3 8 3
+3004 Yellows 1 5 3 90
+3004 Yellows 6 5 3 90
+
+STEP Tercer nivel
+3003 Greens 2 4 6
+3003 Greens 4 4 6
+3003 Greens 2 6 6
+3003 Greens 4 6 6
+
+STEP Bases de antorchas
+3005 Yellows 1 3 6
+3005 Yellows 6 3 6
+3005 Yellows 1 8 6
+3005 Yellows 6 8 6
+
+STEP Llamas y escalera
+6141 Reds 1 3 9
+6141 Reds 6 3 9
+6141 Reds 1 8 9
+6141 Reds 6 8 9
+3039 Blacks 3 0 0
+3039 Blacks 3 0 3
+
+STEP La cima
+3003 Reds 3 5 9
+30169 Blacks 3 4 12
