@@ -1,0 +1,38 @@
+# Robot guardian. Frente = z0. Cuerpo x0-5, z0-3. Piernas en x0-1 y x4-5.
+STEP Pies
+3020 Grays 0 0 0 90
+3020 Grays 4 0 0 90
+3001 Blacks 0 0 1 90
+3001 Blacks 4 0 1 90
+
+STEP Piernas
+3001 Blacks 0 0 4 90
+3001 Blacks 4 0 4 90
+3001 Blacks 1 0 7
+3001 Blacks 1 2 7
+
+STEP Brazos
+3004 Yellows 0 1 7 90
+3004 Yellows 5 1 7 90
+3004 Yellows 0 1 10 90
+3004 Yellows 5 1 10 90
+
+STEP Pecho rojo
+3001 Reds 1 0 10
+3001 Reds 1 2 10
+3001 Blacks 1 0 13
+3001 Blacks 1 2 13
+
+STEP Hombros y cara
+3040b Grays 0 1 13 0
+3040b Grays 5 1 13 0
+3004 Yellows 2 1 16
+4070 Reds 2 0 16
+
+STEP Casco y antena
+3005 Reds 3 0 16
+3004 Yellows 2 2 16
+3039 Grays 2 0 19
+3004 Grays 2 2 19
+3005 Yellows 3 2 22
+59900 Reds 3 2 25

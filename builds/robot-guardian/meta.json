@@ -1,0 +1,7 @@
+{
+  "name": "Robot guardián",
+  "description": "Robot corpulento de pies grises, pecho rojo, brazos amarillos y cabeza con ojos rojos y antena.",
+  "difficulty": 2,
+  "status": "diseñado",
+  "tags": ["robot", "mediano"]
+}

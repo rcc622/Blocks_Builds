@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T03:17:49.019Z",
+ "generated_at": "2026-10-19T03:43:01.804Z",
  "builds": [
   {
    "slug": "barco-pirata",
@@ -1778,6 +1778,226 @@
        "family": "Reds",
        "code": 4,
        "file": "3005.dat",
+       "qty": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "robot-guardian",
+   "name": "Robot guardián",
+   "description": "Robot corpulento de pies grises, pecho rojo, brazos amarillos y cabeza con ojos rojos y antena.",
+   "difficulty": 2,
+   "status": "diseñado",
+   "tags": [
+    "robot",
+    "mediano"
+   ],
+   "photos": [],
+   "file": "builds/robot-guardian/model.mpd",
+   "ldr": "builds/robot-guardian/model.ldr",
+   "pieces": 26,
+   "warnings": [],
+   "descs": {
+    "3001": "Brick  2 x  4",
+    "3004": "Brick  1 x  2",
+    "3005": "Brick  1 x  1",
+    "3020": "Plate  2 x  4",
+    "3039": "Slope Brick 45  2 x  2",
+    "4070": "Brick  1 x  1 with Headlight",
+    "59900": "Cone  1 x  1 with Stop",
+    "3040b": "Slope Brick 45  2 x  1"
+   },
+   "bom": [
+    {
+     "part": "3020",
+     "family": "Grays",
+     "qty": 2
+    },
+    {
+     "part": "3001",
+     "family": "Blacks",
+     "qty": 8
+    },
+    {
+     "part": "3004",
+     "family": "Yellows",
+     "qty": 6
+    },
+    {
+     "part": "3001",
+     "family": "Reds",
+     "qty": 2
+    },
+    {
+     "part": "3040b",
+     "family": "Grays",
+     "qty": 2
+    },
+    {
+     "part": "4070",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "3005",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "3039",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3004",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3005",
+     "family": "Yellows",
+     "qty": 1
+    },
+    {
+     "part": "59900",
+     "family": "Reds",
+     "qty": 1
+    }
+   ],
+   "steps": [
+    {
+     "title": "Pies",
+     "parts": [
+      {
+       "part": "3020",
+       "family": "Grays",
+       "code": 71,
+       "file": "3020.dat",
+       "qty": 2
+      },
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Piernas",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Brazos",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3004.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Pecho rojo",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Reds",
+       "code": 4,
+       "file": "3001.dat",
+       "qty": 2
+      },
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Hombros y cara",
+     "parts": [
+      {
+       "part": "3040b",
+       "family": "Grays",
+       "code": 71,
+       "file": "3040b.dat",
+       "qty": 2
+      },
+      {
+       "part": "3004",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3004.dat",
+       "qty": 1
+      },
+      {
+       "part": "4070",
+       "family": "Reds",
+       "code": 4,
+       "file": "4070.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Casco y antena",
+     "parts": [
+      {
+       "part": "3005",
+       "family": "Reds",
+       "code": 4,
+       "file": "3005.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3004.dat",
+       "qty": 1
+      },
+      {
+       "part": "3039",
+       "family": "Grays",
+       "code": 71,
+       "file": "3039.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Grays",
+       "code": 71,
+       "file": "3004.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 1
+      },
+      {
+       "part": "59900",
+       "family": "Reds",
+       "code": 4,
+       "file": "59900.dat",
        "qty": 1
       }
      ]
