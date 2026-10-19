@@ -465,11 +465,18 @@ function sync(d) {
   </section>`;
 
   const form = $('#sync-form'), link = $('#link'), err = $('#link-err'), status = $('#sync-status');
-  link.addEventListener('input', () => { err.hidden = true; link.removeAttribute('aria-invalid'); });
+  const badLink = err.textContent;
+  link.addEventListener('input', () => { err.hidden = true; err.textContent = badLink; link.removeAttribute('aria-invalid'); });
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const url = (link.value.match(BRICKIT) || [])[0];
     if (!url) { err.hidden = false; link.setAttribute('aria-invalid', 'true'); link.focus(); return; }
+    if (inv.sources.some(x => x.url === url)) {
+      err.hidden = false; link.setAttribute('aria-invalid', 'true');
+      err.textContent = 'Ese link ya está en tu inventario y no cambia. Escanea en Brickit y comparte desde Pockets para obtener uno nuevo.';
+      link.focus();
+      return;
+    }
     if (!store.get().token) {
       status.textContent = 'Falta conectar GitHub: pega tu token abajo y guarda. Solo se hace una vez.';
       $('details.panel').open = true; $('#token').focus();
