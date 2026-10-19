@@ -2,7 +2,7 @@
 
 Construcciones Lego personalizadas con mi inventario real de piezas, y manuales interactivos paso a paso.
 
-**App:** https://rcc622.github.io/legobuilds/ (se instala en el celular desde el menú del navegador → "Agregar a pantalla de inicio").
+**App:** https://rcc622.github.io/Blocks_Builds/ (se instala en el celular desde el menú del navegador → "Agregar a pantalla de inicio").
 
 ## Qué hace
 - **Modelos:** cada uno con su manual 3D por pasos. Las piezas nuevas caen en su lugar; arrastra para girar.

@@ -9,7 +9,7 @@ Randall no programa; construye con IA. Explica decisiones técnicas en una líne
 - **App funcionando** (sitio estático, sin backend): biblioteca de modelos, manual 3D paso a paso, inventario con filtros, localizador de piezas en las fotos de Brickit, botón para actualizar inventario desde el celular, instalable como app (PWA, recibe links compartidos desde Brickit).
 - **3 modelos diseñados y validados** contra el inventario: `faro` (29 piezas), `casita` (34), `nave-cuervo` (38). Ninguno armado físicamente todavía.
 - **Inventario lote 1:** 468 piezas, 140 formas, 12 familias de color (467 Brickit + 1 manual `32306`). Colección total estimada ~1000; faltan lotes por escanear.
-- Pendiente de Randall: activar GitHub Pages (Settings → Pages → Source: **GitHub Actions**), crear el token para el botón de sincronizar, elegir logo (conceptos A/B/C; A "Escalón" está puesto como provisional).
+- Repo renombrado a `rcc622/Blocks_Builds` (2026-10-19); app en https://rcc622.github.io/Blocks_Builds/ . Pages activo, token del botón conectado. Pendiente: elegir logo (conceptos A/B/C; A "Escalón" está puesto como provisional).
 
 ## Estructura
 | Ruta | Qué es |
