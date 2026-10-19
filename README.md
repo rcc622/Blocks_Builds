@@ -18,7 +18,9 @@ Construcciones Lego personalizadas con mi inventario real de piezas, y manuales 
 3. Piezas que Brickit no reconoció → [`data/manual_parts.csv`](data/manual_parts.csv) con su número BrickLink.
 
 ## Cómo pido un modelo nuevo
-En la app: **Pedir un diseño**, o pídeselo a Claude Code en este repo ("diseña un camión con mis piezas"). Cuando lo armes, **Terminé** → "Algo falló" o "Mandar fotos" para que Claude lo ajuste.
+En la app: el ladrillo amarillo **Diseñar modelos nuevos** → elige 1, 3 o 5 (y una idea si quieres). Claude los diseña en GitHub con tus piezas y aparecen solos en ~10 min por modelo.
+- La primera vez: en tu terminal `claude setup-token` y guarda el token como secreto `CLAUDE_CODE_OAUTH_TOKEN` en GitHub (Settings → Secrets and variables → Actions).
+- También puedes pedírselo a Claude Code en este repo ("diseña un camión con mis piezas"). Cuando lo armes, **Terminé** → "Algo falló" o "Mandar fotos" para que Claude lo ajuste.
 
 ## Estado
 - Inventario lote 1: 468 piezas · 140 formas · 12 colores.

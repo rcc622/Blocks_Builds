@@ -1,0 +1,108 @@
+name: Diseñar modelos
+
+# El boton "Diseñar modelos nuevos" de la app manda repository_dispatch (design-request) con { count, idea }.
+# Claude Code disena los modelos con el inventario, los valida con scripts/build_models.mjs y este workflow los
+# commitea; "Publicar app" los publica al terminar.
+# Requiere una vez el secreto CLAUDE_CODE_OAUTH_TOKEN (claude setup-token) o ANTHROPIC_API_KEY en
+# Settings > Secrets and variables > Actions.
+on:
+  repository_dispatch:
+    types: [design-request]
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Cuantos modelos (1, 3 o 5)"
+        default: "3"
+      idea:
+        description: "Idea opcional (ej. un camion)"
+        default: ""
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: design
+  cancel-in-progress: false
+
+jobs:
+  design:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Revisar secreto de Claude
+        env:
+          HAS_OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+          HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+        run: |
+          if [ "$HAS_OAUTH" != "true" ] && [ "$HAS_KEY" != "true" ]; then
+            echo "::error::Falta conectar Claude: agrega el secreto CLAUDE_CODE_OAUTH_TOKEN (sale de 'claude setup-token') o ANTHROPIC_API_KEY en Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+      - name: Parametros
+        id: p
+        env:
+          # Llegan de la app; van por env, nunca pegados en el script.
+          COUNT: ${{ github.event.client_payload.count || inputs.count }}
+          IDEA: ${{ github.event.client_payload.idea || inputs.idea }}
+        run: |
+          case "$COUNT" in 1|2|3|4|5) ;; *) echo "::error::count debe ser 1 a 5 (llego '$COUNT')"; exit 1 ;; esac
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          { echo "idea<<EOF_IDEA"; printf '%s\n' "${IDEA:0:300}" | tr -d '\r'; echo "EOF_IDEA"; } >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/ldraw
+          key: ldraw-${{ hashFiles('builds/**/model.txt', 'builds/**/model.ldr', 'data/inventory.json') }}
+          restore-keys: ldraw-
+      - name: Modelos que ya existen
+        run: ls builds | grep -v index.json > /tmp/before.txt
+      - uses: anthropics/claude-code-action@v1
+        env:
+          LDRAW_CACHE: /home/runner/.cache/ldraw
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Diseña ${{ steps.p.outputs.count }} modelo(s) Lego NUEVO(S) para Randall usando SOLO las piezas de su inventario.
+            Idea de Randall (opcional, puede venir vacía): "${{ steps.p.outputs.idea }}"
+
+            Antes de empezar lee CLAUDE.md completo, sobre todo "Cómo diseñar un modelo nuevo", y revisa
+            data/part_catalog.csv (medidas, studs y colores con cantidad) y los modelos que ya existen en builds/
+            (no repitas temas ni slugs).
+
+            Para cada modelo:
+            - Crea builds/<slug>/meta.json y builds/<slug>/model.txt (slug corto en minúsculas con guiones).
+            - Entre 25 y 120 piezas, 5 a 10 pasos de 3 a 8 piezas, de abajo hacia arriba, cada paso con título en español.
+            - Cada modelo debe poder armarse solo con el inventario completo (no se reparten piezas entre modelos).
+            - Temas distintos entre sí. Si hay idea, al menos uno la sigue; si no, elige lo que mejor salga con el
+              inventario (muchas pendientes negras y grises, colores variados en ladrillos chicos, pocas ruedas).
+            - Corre `node scripts/build_models.mjs <slug>` y corrige hasta que diga "OK inventario" y no imprima
+              ningún "aviso" (ni encimadas ni flotando). Usa `node scripts/build_models.mjs --part <num>` para ver
+              tamaño, studs y cara de abajo de una pieza.
+            - Diseño conservador: traslapa juntas entre hiladas, amarra salientes con placas que crucen al cuerpo.
+            - meta.json: name, description (una frase en español), difficulty 1 a 3, status "diseñado", tags.
+
+            No toques ningún archivo fuera de builds/<slug>/ de los modelos nuevos. No hagas git commit ni push:
+            el workflow lo hace al terminar.
+          claude_args: |
+            --max-turns 200
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash(node scripts/build_models.mjs:*),Bash(node scripts/check.test.mjs)"
+      - name: Validar y commitear
+        run: |
+          export LDRAW_CACHE="$HOME/.cache/ldraw"
+          node scripts/build_models.mjs | tee /tmp/build.txt
+          ls builds | grep -v index.json > /tmp/after.txt
+          NEW=$(comm -13 /tmp/before.txt /tmp/after.txt | tr '\n' ' ')
+          echo "Modelos nuevos: $NEW"
+          [ -n "$NEW" ] || { echo "::error::Claude no creo ningun modelo nuevo"; exit 1; }
+          { echo "## Modelos nuevos"; for s in $NEW; do grep -A20 "^$s:" /tmp/build.txt | sed '/^$/q'; done; } >> "$GITHUB_STEP_SUMMARY"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add builds/
+          git commit -m "diseños: $NEW"
+          git push

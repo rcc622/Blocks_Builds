@@ -73,8 +73,14 @@ Randall no programa; construye con IA. Explica decisiones técnicas en una líne
 - Diseño conservador: traslapa juntas entre hiladas, nada de voladizos largos, amarra alas/salientes con placas que crucen al cuerpo.
 - Números de pieza que LDraw nombra distinto → `scripts/part_aliases.json` (`{"970c03": "970c00"}`). Hoy faltan en LDraw: `32306`, `3814`, `41864`, `970c03`, `98560`.
 
+## Diseños desde la app
+- Ladrillo "Diseñar modelos nuevos" (biblioteca) → elige 1/3/5 + idea opcional → `repository_dispatch` `design-request` con el mismo token del sync.
+- `.github/workflows/design-models.yml` corre Claude Code (`anthropics/claude-code-action@v1`) con el prompt de diseño de este archivo, herramientas limitadas a leer/escribir y `node scripts/build_models.mjs`; el workflow valida y commitea solo `builds/`. "Publicar app" corre después.
+- Requiere el secreto `CLAUDE_CODE_OAUTH_TOKEN` (de `claude setup-token`) o `ANTHROPIC_API_KEY`. Sin secreto el job falla con mensaje claro y la app muestra "No se pudieron diseñar".
+- En CI no hay revisión visual: al empezar sesión, abrir los modelos nuevos en la app y corregir lo raro.
+
 ## Retroalimentación de Randall
-- En la app: "Algo falló" / "Mandar fotos" abren un issue de GitHub con etiqueta `resultado` (fotos adjuntas). "Pedir un diseño" abre issue con etiqueta `idea`. Revisar issues al empezar sesión.
+- En la app: "Algo falló" / "Mandar fotos" abren un issue de GitHub con etiqueta `resultado` (fotos adjuntas). Revisar issues al empezar sesión.
 - Estado del modelo (Por armar / Armado / Necesita cambios) y progreso se guardan en el navegador de Randall. "Armado" aparta sus piezas para los demás modelos. Para dejarlo en el repo, cambiar `status` en `meta.json`.
 
 ## Decisiones tomadas

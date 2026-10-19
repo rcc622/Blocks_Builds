@@ -122,17 +122,13 @@ function library(d) {
       </a></li>`;
   }).join('');
   const t = d.inventory.totals;
+  const job = store.get().design;
   view.innerHTML = `<section class="page">
     <header class="page-head">
       <h1>Mis modelos</h1>
       <p class="lede">Diseñados con tus <strong>${t.pieces}</strong> piezas reales. Cada uno trae su manual paso a paso.</p>
     </header>
-    ${d.builds.length ? `<ul class="cards">${cards}</ul>` : `<div class="panel"><p>Todavía no hay modelos. Pídele uno a Claude.</p></div>`}
-    <aside class="panel idea">
-      <div><h2>¿Quieres otro modelo?</h2>
-      <p>Cuéntale a Claude qué quieres armar: una nave, un camión, un robot. Lo diseña solo con tus piezas.</p></div>
-      <a class="btn" href="https://github.com/${REPO}/issues/new?labels=idea&title=${encodeURIComponent('Idea: ')}&body=${encodeURIComponent('Quiero armar…\n\nTamaño aproximado (piezas):\nColores que me gustarían:\n')}" target="_blank" rel="noopener">${icon('plus')}Pedir un diseño</a>
-    </aside>
+    <ul class="cards">${cards}<li class="card brick-slot">${job ? designStatusCard(job) : brickButton()}</li></ul>
   </section>`;
   const io = new IntersectionObserver(entries => entries.forEach(async e => {
     if (!e.isIntersecting) return;
@@ -141,7 +137,102 @@ function library(d) {
     catch { e.target.closest('.card-cover').classList.add('failed'); }
   }), { rootMargin: '200px' });
   $$('img[data-cover]').forEach(img => io.observe(img));
-  current = () => io.disconnect();
+  view.querySelector('.brick-slot').addEventListener('click', e => {
+    if (e.target.closest('#design-btn, #design-retry')) designDialog(d);
+    if (e.target.closest('#design-dismiss')) { store.set(s => { delete s.design; }); route(); }
+  });
+  const timer = job && !job.failed ? watchDesign(job) : null;
+  current = () => { io.disconnect(); clearInterval(timer); };
+}
+
+// ---------- Diseñar modelos nuevos (Claude en GitHub Actions, .github/workflows/design-models.yml) ----------
+const DESIGN_WORKFLOW = 'Diseñar modelos';
+const studs = n => `<span class="studs" aria-hidden="true">${'<i></i>'.repeat(n)}</span>`;
+const brickButton = () => `<button class="brick-btn" id="design-btn" aria-haspopup="dialog">
+    ${studs(4)}<span class="brick-plus">${icon('plus')}</span>
+    <span class="brick-title">Diseñar modelos nuevos</span>
+    <span class="brick-sub">Claude los arma solo con tus piezas</span>
+  </button>`;
+
+function designStatusCard(job) {
+  const mins = Math.max(0, Math.round((Date.now() - job.at) / 60e3));
+  const run = job.run ? ` <a href="${esc(job.run)}" target="_blank" rel="noopener">Ver en GitHub</a>` : '';
+  if (job.failed) return `<div class="brick-status warn" role="status">${icon('alert')}
+      <p><strong>No se pudieron diseñar los modelos.</strong>${run}</p>
+      <div class="row"><button class="btn ghost" id="design-dismiss">Quitar aviso</button><button class="btn" id="design-retry">Reintentar</button></div></div>`;
+  return `<div class="brick-status" role="status">${studs(4)}<span class="brick-plus spin">${icon('refresh')}</span>
+      <p><strong>Claude está diseñando ${plural(job.count, 'modelo', 'modelos')}${job.idea ? `: “${esc(job.idea)}”` : ''}.</strong></p>
+      <p class="hint">Empezó hace ${plural(mins, 'minuto', 'minutos')}. Tarda unos 10 por modelo; aparecen aquí solos.${run}</p>
+      ${mins > 90 ? `<button class="btn ghost" id="design-dismiss">Quitar aviso</button>` : ''}</div>`;
+}
+
+// Cada 30 s revisa si ya se publicaron modelos nuevos; cada 90 s cómo va la corrida (API pública: 60 consultas/h).
+function watchDesign(job) {
+  let n = 0;
+  const tick = async () => {
+    try {
+      const idx = await getJson('builds/index.json');
+      if (idx.builds.length > job.before) { store.set(s => { delete s.design; }); dataP = null; return route(); }
+      if (n++ % 3) return;
+      const { workflow_runs: runs = [] } = await getJson(`https://api.github.com/repos/${REPO}/actions/runs?event=repository_dispatch&per_page=10`);
+      const run = runs.find(r => r.name === DESIGN_WORKFLOW && new Date(r.created_at) >= job.at - 60e3);
+      if (!run) return;
+      const failed = run.status === 'completed' && run.conclusion !== 'success';
+      if (run.html_url !== job.run || failed) {
+        store.set(s => { if (s.design) { s.design.run = run.html_url; s.design.failed = failed; } });
+        route();
+      }
+    } catch { /* sin red o límite de la API: reintenta en la siguiente vuelta */ }
+  };
+  tick();
+  return setInterval(tick, 30e3);
+}
+
+function designDialog(d) {
+  const el = openDialog('Diseñar modelos nuevos', `
+    <form class="design-form" id="design-form">
+      <fieldset class="count-pick"><legend>¿Cuántos modelos?</legend>
+        ${[1, 3, 5].map(n => `<label class="count-opt"><input class="sr-only" type="radio" name="count" value="${n}" ${n === 3 ? 'checked' : ''}>
+          <span class="count-brick" aria-hidden="true" style="--n:${n}">${studs(n)}<span class="count-body"></span></span><span class="count-n">${n}</span></label>`).join('')}
+      </fieldset>
+      <label class="field"><span>Idea (opcional)</span>
+        <input name="idea" maxlength="200" autocomplete="off" placeholder="Un camión, algo del espacio, un robot…"></label>
+      <p class="hint">Claude revisa tu inventario, diseña cada modelo y comprueba que tengas todas las piezas. Tarda unos 10 minutos por modelo; puedes cerrar la app.</p>
+      <button class="btn primary" id="design-go">${icon('plus')}<span>Diseñar 3 modelos</span></button>
+      <p class="hint" id="design-msg" aria-live="polite">${store.get().token ? '' : 'Primero conecta GitHub en <a href="#/sync">Sincronizar</a> (el mismo token sirve).'}</p>
+      <details class="first-time"><summary>Primera vez: conectar Claude con GitHub</summary>
+        <ol class="how">
+          <li>En la terminal de tu computadora corre <span class="mono" translate="no">claude setup-token</span> y copia el token que te da (usa tu suscripción de Claude).</li>
+          <li>Abre <a href="https://github.com/${REPO}/settings/secrets/actions/new" target="_blank" rel="noopener">nuevo secreto en GitHub ${icon('external')}</a>.</li>
+          <li>Name: <span class="mono" translate="no">CLAUDE_CODE_OAUTH_TOKEN</span>. Secret: pega el token. <strong>Add secret</strong>.</li>
+        </ol>
+        <p class="hint">También sirve una API key de console.anthropic.com guardada como <span class="mono" translate="no">ANTHROPIC_API_KEY</span>.</p>
+      </details>
+    </form>`);
+  const form = $('#design-form', el), go = $('#design-go', el), msg = $('#design-msg', el);
+  form.addEventListener('change', () => { $('span', go).textContent = `Diseñar ${plural(Number(form.count.value), 'modelo', 'modelos')}`; });
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const token = store.get().token;
+    if (!token) { msg.innerHTML = 'Falta el token de GitHub: conéctalo en <a href="#/sync">Sincronizar</a> y vuelve.'; return; }
+    const count = Number(form.count.value), idea = form.idea.value.trim().slice(0, 200);
+    go.disabled = true; go.dataset.state = 'loading'; msg.textContent = 'Enviando a GitHub…';
+    try {
+      const res = await fetch(`https://api.github.com/repos/${REPO}/dispatches`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' },
+        body: JSON.stringify({ event_type: 'design-request', client_payload: { count: String(count), idea } }),
+      });
+      if (res.status === 401 || res.status === 403) throw new Error('GitHub rechazó el token. Revisa que tenga Contents: Read and write.');
+      if (!res.ok) throw new Error(`GitHub respondió ${res.status}. Intenta de nuevo en un momento.`);
+      store.set(s => { s.design = { count, idea, at: Date.now(), before: d.builds.length }; });
+      el.close();
+      route();
+    } catch (ex) {
+      msg.textContent = ex.message.startsWith('GitHub') ? ex.message : `Sin conexión con GitHub (${ex.message}).`;
+      go.disabled = false; go.dataset.state = 'error';
+    }
+  });
 }
 
 // ---------- Manual paso a paso ----------
@@ -517,7 +608,8 @@ async function watchRun(status, btn) {
   while (Date.now() - t0 < 6 * 60e3) {
     await new Promise(r => setTimeout(r, 6000));
     try {
-      const { workflow_runs: [run] = [] } = await getJson(`https://api.github.com/repos/${REPO}/actions/runs?event=repository_dispatch&per_page=1`);
+      const { workflow_runs: runs = [] } = await getJson(`https://api.github.com/repos/${REPO}/actions/runs?event=repository_dispatch&per_page=10`);
+      const run = runs.find(r => r.name === 'Sync inventario y modelos');
       if (!run || new Date(run.created_at) < t0 - 60e3) continue;
       if (run.status !== 'completed') { status.innerHTML = `Importando… <a href="${esc(run.html_url)}" target="_blank" rel="noopener">ver en GitHub</a>`; continue; }
       if (run.conclusion === 'success') {
