@@ -76,7 +76,7 @@ Randall no programa; construye con IA. Explica decisiones técnicas en una líne
 ## Diseños desde la app
 - Ladrillo "Diseñar modelos nuevos" (biblioteca) → elige 1/3/5 + idea opcional → `repository_dispatch` `design-request` con el mismo token del sync.
 - `.github/workflows/design-models.yml` corre Claude Code (`anthropics/claude-code-action@v1`) con el prompt de diseño de este archivo, herramientas limitadas a leer/escribir y `node scripts/build_models.mjs`; el workflow valida y commitea solo `builds/`. "Publicar app" corre después.
-- Requiere el secreto `CLAUDE_CODE_OAUTH_TOKEN` (de `claude setup-token`) o `ANTHROPIC_API_KEY`. Sin secreto el job falla con mensaje claro y la app muestra "No se pudieron diseñar".
+- Secreto `CLAUDE_CODE_OAUTH_TOKEN` guardado el 2026-10-19 (de `claude setup-token`, **vence ~2027-10-19**; renovarlo igual). En esta PC `claude` no está en PATH: el ejecutable de la app de escritorio está en `%LOCALAPPDATA%\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\Claude\claude-code\<versión>\<hash>\claude.exe`. Alternativa sin vencimiento: `ANTHROPIC_API_KEY` (se cobra aparte). Sin secreto el job falla con mensaje claro y la app muestra "No se pudieron diseñar".
 - En CI no hay revisión visual: al empezar sesión, abrir los modelos nuevos en la app y corregir lo raro.
 
 ## Retroalimentación de Randall
