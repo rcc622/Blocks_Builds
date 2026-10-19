@@ -1,6 +1,8 @@
 name: Diseñar modelos
 
-# El boton "Diseñar modelos nuevos" de la app manda repository_dispatch (design-request) con { count, idea }.
+# El boton "Diseñar modelos nuevos" de la app manda repository_dispatch (design-request) con { count, idea },
+# o, si ese navegador no tiene token, abre un issue "[diseño] N modelos" con "Idea: ..." en el cuerpo.
+# Solo cuentan los issues que abre el dueño del repo.
 # Claude Code disena los modelos con el inventario, los valida con scripts/build_models.mjs y este workflow los
 # commitea; "Publicar app" los publica al terminar.
 # Requiere una vez el secreto CLAUDE_CODE_OAUTH_TOKEN (claude setup-token) o ANTHROPIC_API_KEY en
@@ -8,6 +10,8 @@ name: Diseñar modelos
 on:
   repository_dispatch:
     types: [design-request]
+  issues:
+    types: [opened]
   workflow_dispatch:
     inputs:
       count:
@@ -20,6 +24,7 @@ on:
 permissions:
   contents: write
   id-token: write
+  issues: write
 
 concurrency:
   group: design
@@ -27,6 +32,7 @@ concurrency:
 
 jobs:
   design:
+    if: github.event_name != 'issues' || (github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, '[diseño]'))
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -45,7 +51,13 @@ jobs:
           # Llegan de la app; van por env, nunca pegados en el script.
           COUNT: ${{ github.event.client_payload.count || inputs.count }}
           IDEA: ${{ github.event.client_payload.idea || inputs.idea }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
+          if [ "$GITHUB_EVENT_NAME" = "issues" ]; then
+            COUNT=$(printf '%s' "$ISSUE_TITLE" | grep -oE '[0-9]+' | head -1)
+            IDEA=$(printf '%s\n' "$ISSUE_BODY" | sed -n 's/^Idea: *//p' | head -1)
+          fi
           case "$COUNT" in 1|2|3|4|5) ;; *) echo "::error::count debe ser 1 a 5 (llego '$COUNT')"; exit 1 ;; esac
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"
           { echo "idea<<EOF_IDEA"; printf '%s\n' "${IDEA:0:300}" | tr -d '\r'; echo "EOF_IDEA"; } >> "$GITHUB_OUTPUT"
@@ -107,3 +119,14 @@ jobs:
           git commit -m "diseños: $NEW"
           # Si alguien subio algo mientras corria, se pone encima en vez de fallar el push (ya paso una vez).
           ok=0; for i in 1 2 3; do git pull --rebase -q origin main && git push -q && { ok=1; break; }; sleep 5; done; [ "$ok" = 1 ]
+      - name: Cerrar el pedido
+        # Pedido hecho desde la app sin token: un issue de GitHub. Se cierra con el resultado.
+        if: always() && github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUM: ${{ github.event.issue.number }}
+          STATUS: ${{ job.status }}
+          RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ "$STATUS" = "success" ]; then MSG="Listo: los modelos nuevos ya están en la app."; else MSG="No se pudo completar. Detalle: $RUN"; fi
+          gh issue close "$NUM" --repo "$GITHUB_REPOSITORY" --comment "$MSG"

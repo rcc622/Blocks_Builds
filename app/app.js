@@ -147,6 +147,10 @@ function library(d) {
 
 // ---------- Diseñar modelos nuevos (Claude en GitHub Actions, .github/workflows/design-models.yml) ----------
 const DESIGN_WORKFLOW = 'Diseñar modelos';
+// Sin token en este navegador: el pedido se hace abriendo un issue prellenado en GitHub (el dueño solo toca "Create").
+// Los workflows solo aceptan issues del dueño del repo y los cierran con el resultado.
+const requestUrl = (title, body) => `https://github.com/${REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+const openRequest = (title, body) => window.open(requestUrl(title, body), '_blank', 'noopener');
 const studs = n => `<span class="studs" aria-hidden="true">${'<i></i>'.repeat(n)}</span>`;
 // Cargando: figuras chicas que se arman ladrillo por ladrillo (vista de lado). [x, fila, ancho en studs, color, forma]
 // Cada ladrillo cae y tapa los studs del de abajo, como al embonar. Al terminar, la figura se va y llega otra.
@@ -241,7 +245,7 @@ function watchDesign(job) {
       if (idx.builds.length > job.before) { store.set(s => { delete s.design; }); dataP = null; return route(); }
       if (n++ % 4) return;
       if (!job.runId) {
-        const { workflow_runs: runs = [] } = await api('runs?event=repository_dispatch&per_page=10');
+        const { workflow_runs: runs = [] } = await api(`runs?event=${job.via === 'issue' ? 'issues' : 'repository_dispatch'}&per_page=10`);
         const run = runs.find(r => r.name === DESIGN_WORKFLOW && new Date(r.created_at) >= job.at - 60e3);
         if (!run) return;
         job.runId = run.id; job.run = run.html_url;
@@ -275,7 +279,7 @@ function designDialog(d) {
         <input name="idea" maxlength="200" autocomplete="off" placeholder="Un camión, algo del espacio, un robot…"></label>
       <p class="hint">Claude revisa tu inventario, diseña cada modelo y comprueba que tengas todas las piezas. Tarda unos 10 minutos por modelo; puedes cerrar la app.</p>
       <button class="btn primary" id="design-go">${icon('plus')}<span>Diseñar 3 modelos</span></button>
-      <p class="hint" id="design-msg" aria-live="polite">${store.get().token ? '' : 'Primero conecta GitHub en <a href="#/sync">Sincronizar</a> (el mismo token sirve).'}</p>
+      <p class="hint" id="design-msg" aria-live="polite">${store.get().token ? '' : 'Se abre GitHub para confirmar: toca <strong>Create</strong> y vuelve aquí.'}</p>
       <details class="first-time"><summary>Primera vez: conectar Claude con GitHub</summary>
         <ol class="how">
           <li>En la terminal de tu computadora corre <span class="mono" translate="no">claude setup-token</span> y copia el token que te da (usa tu suscripción de Claude).</li>
@@ -290,8 +294,14 @@ function designDialog(d) {
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const token = store.get().token;
-    if (!token) { msg.innerHTML = 'Falta el token de GitHub: conéctalo en <a href="#/sync">Sincronizar</a> y vuelve.'; return; }
     const count = Number(form.count.value), idea = form.idea.value.trim().slice(0, 200);
+    if (!token) {
+      openRequest(`[diseño] ${plural(count, 'modelo', 'modelos')}`,
+        `Idea: ${idea}\n\nPedido desde la app Blocks Builds. Toca "Create" y vuelve a la app: el avance sale en el ladrillo amarillo.`);
+      store.set(s => { s.design = { count, idea, at: Date.now(), before: d.builds.length, via: 'issue' }; });
+      el.close();
+      return route();
+    }
     go.disabled = true; go.dataset.state = 'loading'; msg.textContent = 'Enviando a GitHub…';
     try {
       const res = await fetch(`https://api.github.com/repos/${REPO}/dispatches`, {
@@ -609,10 +619,11 @@ function sync(d) {
         <label><input type="radio" name="mode" value="add"><span>Un pocket extra <small>se suma al inventario</small></span></label>
       </fieldset>
       <button class="btn primary" id="sync-btn">${icon('refresh')}<span>Actualizar inventario</span></button>
-      <p class="hint" id="sync-status" aria-live="polite">${token ? 'Tarda unos 2 minutos en reflejarse aquí.' : 'Primero conecta GitHub (abajo, una sola vez).'}</p>
+      <p class="hint" id="sync-status" aria-live="polite">${token ? 'Tarda unos 2 minutos en reflejarse aquí.' : 'Se abre GitHub para confirmar: toca <strong>Create</strong> y vuelve aquí.'}</p>
     </form>
-    <details class="panel" ${token ? '' : 'open'}>
-      <summary><h2>Conectar con GitHub</h2><span class="badge ${token ? 'ok' : 'warn'}">${token ? 'Conectado' : 'Pendiente'}</span></summary>
+    <details class="panel">
+      <summary><h2>Token de GitHub (opcional)</h2><span class="badge ${token ? 'ok' : 'info'}">${token ? 'Conectado' : 'Opcional'}</span></summary>
+      <p class="hint">Sin token también funciona: la app abre GitHub y confirmas con un toque. Con token se hace directo, pero hay que ponerlo en cada navegador.</p>
       <ol class="how">
         <li>Abre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">crear token de GitHub ${icon('external')}</a>.</li>
         <li>Nombre: <span class="mono">BlocksBuilds</span>. Repository access: <strong>Only select repositories</strong> → <span class="mono">${esc(REPO.split('/')[1])}</span>.</li>
@@ -644,12 +655,15 @@ function sync(d) {
       link.focus();
       return;
     }
-    if (!store.get().token) {
-      status.textContent = 'Falta conectar GitHub: pega tu token abajo y guarda. Solo se hace una vez.';
-      $('details.panel').open = true; $('#token').focus();
-      return;
-    }
     const btn = $('#sync-btn');
+    if (!store.get().token) {
+      openRequest('[sync] Actualizar inventario',
+        `${url}\nmodo: ${form.mode.value === 'add' ? 'pocket' : 'coleccion'}\n\nPedido desde la app Blocks Builds. Toca "Create" y vuelve a la app.`);
+      sharedLink = '';
+      btn.disabled = true; btn.dataset.state = 'loading';
+      status.textContent = 'Abrimos GitHub: toca Create y vuelve. Aquí te avisamos cuando termine.';
+      return watchRun(status, btn, 'issues');
+    }
     btn.disabled = true; btn.dataset.state = 'loading';
     status.textContent = 'Enviando a GitHub…';
     try {
@@ -679,12 +693,12 @@ function sync(d) {
 }
 
 // Sigue la corrida de GitHub Actions disparada por el boton (repo publico: no necesita token para leer).
-async function watchRun(status, btn) {
+async function watchRun(status, btn, event = 'repository_dispatch') {
   const t0 = Date.now();
-  while (Date.now() - t0 < 6 * 60e3) {
-    await new Promise(r => setTimeout(r, 6000));
+  while (Date.now() - t0 < 10 * 60e3) {
+    await new Promise(r => setTimeout(r, 20e3));
     try {
-      const { workflow_runs: runs = [] } = await getJson(`https://api.github.com/repos/${REPO}/actions/runs?event=repository_dispatch&per_page=10`);
+      const { workflow_runs: runs = [] } = await getJson(`https://api.github.com/repos/${REPO}/actions/runs?event=${event}&per_page=10`);
       const run = runs.find(r => r.name === 'Sync inventario y modelos');
       if (!run || new Date(run.created_at) < t0 - 60e3) continue;
       if (run.status !== 'completed') { status.innerHTML = `Importando… <a href="${esc(run.html_url)}" target="_blank" rel="noopener">ver en GitHub</a>`; continue; }
