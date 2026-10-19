@@ -147,6 +147,9 @@ function library(d) {
 
 // ---------- Diseñar modelos nuevos (Claude en GitHub Actions, .github/workflows/design-models.yml) ----------
 const DESIGN_WORKFLOW = 'Diseñar modelos';
+const LEVELS = { 1: ['Fácil', 'Ladrillos y placas comunes'], 2: ['Medio', 'Pendientes, curvas y detalles'], 3: ['Difícil', 'Bisagras, Technic y formas complejas'] };
+const SIZES = { '20-50': 'Chico', '50-120': 'Mediano', '120-250': 'Grande', '250-450': 'Enorme' };
+const sizeWord = job => SIZES[job.size] ? ` ${SIZES[job.size].toLowerCase()}${job.count > 1 ? 's' : ''}` : '';
 // Sin token en este navegador: el pedido se hace abriendo un issue prellenado en GitHub (el dueño solo toca "Create").
 // Los workflows solo aceptan issues del dueño del repo y los cierran con el resultado.
 const requestUrl = (title, body) => `https://github.com/${REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
@@ -203,7 +206,7 @@ function designStatusCard(job) {
       <div class="row"><button class="btn ghost" id="design-dismiss">Quitar aviso</button><button class="btn" id="design-retry">Reintentar</button></div></div>`;
   const stale = Date.now() - job.at > 90 * 60e3;
   return `<div class="brick-status">${studs(4)}${loader()}
-      <p><strong>Claude está diseñando ${plural(job.count, 'modelo', 'modelos')}${job.idea ? `: “${esc(job.idea)}”` : ''}</strong></p>
+      <p><strong>Claude está diseñando ${plural(job.count, 'modelo', 'modelos')}${sizeWord(job)}${LEVELS[job.level] ? `, nivel ${LEVELS[job.level][0].toLowerCase()}` : ''}${job.idea ? `: “${esc(job.idea)}”` : ''}</strong></p>
       <div class="design-progress" role="progressbar" aria-label="Avance del diseño" aria-valuemin="0" aria-valuemax="100" aria-valuenow="2"><i></i></div>
       <p class="design-step"><span id="design-step" aria-live="polite">En fila en GitHub…</span><span id="design-pct" class="design-pct">2%</span></p>
       <p class="hint"><span id="design-time"></span> · aparecen aquí solos. ${run}</p>
@@ -215,7 +218,9 @@ function designStatusCard(job) {
 function watchDesign(job) {
   const card = $('.brick-status'), bar = $('.design-progress', card);
   const stepEl = $('#design-step', card), pctEl = $('#design-pct', card), timeEl = $('#design-time', card);
-  const expected = job.count * 66e3;
+  // Medido: ~1 min por modelo de ~30 piezas. Escala con el tamaño pedido.
+  const [lo, hi] = (job.size || '20-50').split('-').map(Number);
+  const expected = job.count * (30 + 1.2 * (lo + hi) / 2) * 1e3;
   const st = { phase: 'queued', claudeAt: job.claudeAt || 0 };
   const save = patch => store.set(s => { if (s.design) Object.assign(s.design, patch); });
   const paint = () => {
@@ -275,9 +280,17 @@ function designDialog(d) {
         ${[1, 3, 5].map(n => `<label class="count-opt"><input class="sr-only" type="radio" name="count" value="${n}" ${n === 3 ? 'checked' : ''}>
           <span class="count-brick" aria-hidden="true" style="--n:${n}">${studs(n)}<span class="count-body"></span></span><span class="count-n">${n}</span></label>`).join('')}
       </fieldset>
+      <fieldset class="opt-pick"><legend>Nivel</legend>
+        ${Object.entries(LEVELS).map(([k, [name, sub]]) => `<label class="opt"><input class="sr-only" type="radio" name="level" value="${k}" ${k === '2' ? 'checked' : ''}>
+          <span class="level" aria-hidden="true">${[1, 2, 3].map(i => `<i class="${i <= Number(k) ? 'on' : ''}"></i>`).join('')}</span><strong>${name}</strong><small>${sub}</small></label>`).join('')}
+      </fieldset>
+      <fieldset class="opt-pick"><legend>Piezas por modelo</legend>
+        ${Object.entries(SIZES).map(([k, name]) => `<label class="opt"><input class="sr-only" type="radio" name="size" value="${k}" ${k === '50-120' ? 'checked' : ''}>
+          <strong>${name}</strong><small>${k.replace('-', ' a ')} piezas</small></label>`).join('')}
+      </fieldset>
       <label class="field"><span>Idea (opcional)</span>
         <input name="idea" maxlength="200" autocomplete="off" placeholder="Un camión, algo del espacio, un robot…"></label>
-      <p class="hint">Claude revisa tu inventario, diseña cada modelo y comprueba que tengas todas las piezas. Tarda unos 10 minutos por modelo; puedes cerrar la app.</p>
+      <p class="hint">Claude revisa tu inventario, diseña cada modelo y comprueba que tengas todas las piezas. Cada modelo puede usar cualquier pieza de tu colección. Tarda de 2 a 15 minutos por modelo según el tamaño; puedes cerrar la app.</p>
       <button class="btn primary" id="design-go">${icon('plus')}<span>Diseñar 3 modelos</span></button>
       <p class="hint" id="design-msg" aria-live="polite">${store.get().token ? '' : 'Se abre GitHub para confirmar: toca <strong>Create</strong> y vuelve aquí.'}</p>
       <details class="first-time"><summary>Primera vez: conectar Claude con GitHub</summary>
@@ -295,10 +308,11 @@ function designDialog(d) {
     e.preventDefault();
     const token = store.get().token;
     const count = Number(form.count.value), idea = form.idea.value.trim().slice(0, 200);
+    const level = form.level.value, size = form.size.value;
     if (!token) {
       openRequest(`[diseño] ${plural(count, 'modelo', 'modelos')}`,
-        `Idea: ${idea}\n\nPedido desde la app Blocks Builds. Toca "Create" y vuelve a la app: el avance sale en el ladrillo amarillo.`);
-      store.set(s => { s.design = { count, idea, at: Date.now(), before: d.builds.length, via: 'issue' }; });
+        `Idea: ${idea}\nNivel: ${level} (${LEVELS[level][0].toLowerCase()})\nPiezas: ${size}\n\nPedido desde la app Blocks Builds. Toca "Create" y vuelve a la app: el avance sale en el ladrillo amarillo.`);
+      store.set(s => { s.design = { count, idea, level, size, at: Date.now(), before: d.builds.length, via: 'issue' }; });
       el.close();
       return route();
     }
@@ -307,11 +321,11 @@ function designDialog(d) {
       const res = await fetch(`https://api.github.com/repos/${REPO}/dispatches`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' },
-        body: JSON.stringify({ event_type: 'design-request', client_payload: { count: String(count), idea } }),
+        body: JSON.stringify({ event_type: 'design-request', client_payload: { count: String(count), idea, level, size } }),
       });
       if (res.status === 401 || res.status === 403) throw new Error('GitHub rechazó el token. Revisa que tenga Contents: Read and write.');
       if (!res.ok) throw new Error(`GitHub respondió ${res.status}. Intenta de nuevo en un momento.`);
-      store.set(s => { s.design = { count, idea, at: Date.now(), before: d.builds.length }; });
+      store.set(s => { s.design = { count, idea, level, size, at: Date.now(), before: d.builds.length }; });
       el.close();
       route();
     } catch (ex) {

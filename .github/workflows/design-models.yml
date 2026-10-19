@@ -20,6 +20,12 @@ on:
       idea:
         description: "Idea opcional (ej. un camion)"
         default: ""
+      level:
+        description: "Nivel 1 facil, 2 medio, 3 dificil"
+        default: "2"
+      size:
+        description: "Rango de piezas por modelo (ej. 50-120)"
+        default: "50-120"
 
 permissions:
   contents: write
@@ -34,7 +40,7 @@ jobs:
   design:
     if: github.event_name != 'issues' || (github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, '[diseño]'))
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - name: Revisar secreto de Claude
         env:
@@ -51,13 +57,22 @@ jobs:
           # Llegan de la app; van por env, nunca pegados en el script.
           COUNT: ${{ github.event.client_payload.count || inputs.count }}
           IDEA: ${{ github.event.client_payload.idea || inputs.idea }}
+          LEVEL: ${{ github.event.client_payload.level || inputs.level || '2' }}
+          SIZE: ${{ github.event.client_payload.size || inputs.size || '50-120' }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           if [ "$GITHUB_EVENT_NAME" = "issues" ]; then
             COUNT=$(printf '%s' "$ISSUE_TITLE" | grep -oE '[0-9]+' | head -1)
             IDEA=$(printf '%s\n' "$ISSUE_BODY" | sed -n 's/^Idea: *//p' | head -1)
+            LEVEL=$(printf '%s\n' "$ISSUE_BODY" | sed -n 's/^Nivel: *\([123]\).*/\1/p' | head -1)
+            SIZE=$(printf '%s\n' "$ISSUE_BODY" | grep -oE '^Piezas: *[0-9]+-[0-9]+' | grep -oE '[0-9]+-[0-9]+' | head -1)
           fi
+          case "$LEVEL" in 1|2|3) ;; *) LEVEL=2 ;; esac
+          printf '%s' "$SIZE" | grep -qE '^[0-9]{1,3}-[0-9]{1,3}$' || SIZE=50-120
+          echo "level=$LEVEL" >> "$GITHUB_OUTPUT"
+          echo "min=${SIZE%-*}" >> "$GITHUB_OUTPUT"
+          echo "max=${SIZE#*-}" >> "$GITHUB_OUTPUT"
           case "$COUNT" in 1|2|3|4|5) ;; *) echo "::error::count debe ser 1 a 5 (llego '$COUNT')"; exit 1 ;; esac
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"
           { echo "idea<<EOF_IDEA"; printf '%s\n' "${IDEA:0:300}" | tr -d '\r'; echo "EOF_IDEA"; } >> "$GITHUB_OUTPUT"
@@ -82,6 +97,14 @@ jobs:
           prompt: |
             Diseña ${{ steps.p.outputs.count }} modelo(s) Lego NUEVO(S) para Randall usando SOLO las piezas de su inventario.
             Idea de Randall (opcional, puede venir vacía): "${{ steps.p.outputs.idea }}"
+            Tamaño pedido: entre ${{ steps.p.outputs.min }} y ${{ steps.p.outputs.max }} piezas por modelo.
+            Nivel pedido: ${{ steps.p.outputs.level }} (1 fácil: ladrillos, placas y pendientes comunes, formas claras;
+            2 medio: más variedad de pendientes, curvas, redondos, tiles y detalles; 3 difícil: formas complejas,
+            piezas especiales como bisagras, Technic, ruedas, plantas o partes de minifig, y más pasos).
+
+            Usa TODO el inventario como paleta. Cada modelo se arma por separado, así que cada uno puede tomar cualquier
+            pieza del inventario completo (hasta su cantidad). No te limites a ladrillos básicos ni a las piezas de los
+            modelos que ya existen: busca en data/part_catalog.csv las formas y colores que mejor sirvan a cada diseño.
 
             Antes de empezar lee CLAUDE.md completo, sobre todo "Cómo diseñar un modelo nuevo", y revisa
             data/part_catalog.csv (medidas, studs y colores con cantidad) y los modelos que ya existen en builds/
@@ -89,7 +112,8 @@ jobs:
 
             Para cada modelo:
             - Crea builds/<slug>/meta.json y builds/<slug>/model.txt (slug corto en minúsculas con guiones).
-            - Entre 25 y 120 piezas, 5 a 10 pasos de 3 a 8 piezas, de abajo hacia arriba, cada paso con título en español.
+            - Respeta el tamaño pedido. Pasos de 3 a 8 piezas, de abajo hacia arriba, cada paso con título en español.
+            - meta.json difficulty = el nivel pedido.
             - Cada modelo debe poder armarse solo con el inventario completo (no se reparten piezas entre modelos).
             - Temas distintos entre sí. Si hay idea, al menos uno la sigue; si no, elige lo que mejor salga con el
               inventario (muchas pendientes negras y grises, colores variados en ladrillos chicos, pocas ruedas).
@@ -102,7 +126,7 @@ jobs:
             No toques ningún archivo fuera de builds/<slug>/ de los modelos nuevos. No hagas git commit ni push:
             el workflow lo hace al terminar.
           claude_args: |
-            --max-turns 200
+            --max-turns 400
             --allowedTools "Read,Write,Edit,Glob,Grep,Bash(node scripts/build_models.mjs:*),Bash(node scripts/check.test.mjs)"
       - name: Validar y commitear
         run: |
