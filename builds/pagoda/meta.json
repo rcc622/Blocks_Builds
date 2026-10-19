@@ -1,0 +1,7 @@
+{
+  "name": "Pagoda",
+  "description": "Pagoda de dos pisos con muros amarillos, alero negro y techo gris rematado en cono.",
+  "difficulty": 2,
+  "status": "diseñado",
+  "tags": ["templo", "mediano"]
+}

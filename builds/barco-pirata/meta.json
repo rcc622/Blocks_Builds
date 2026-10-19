@@ -1,0 +1,7 @@
+{
+  "name": "Barco pirata",
+  "description": "Barco de casco negro con cabina roja, vela blanca, bandera y barriles en cubierta.",
+  "difficulty": 2,
+  "status": "diseñado",
+  "tags": ["barco", "mediano"]
+}

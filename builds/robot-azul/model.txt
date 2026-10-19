@@ -1,0 +1,35 @@
+# Robot azul. Frente = z0. Cuerpo x1-4, brazos en x0 y x5.
+STEP Pies y piernas
+3020 Turquoises 0 0 0 90
+3020 Turquoises 4 0 0 90
+3003 Blues 0 1 1
+3003 Blues 4 1 1
+3003 Greens 0 1 4
+3003 Greens 4 1 4
+
+STEP Cadera y panel verde
+3795 Blues 0 1 7
+3710 Blacks 1 0 7
+3004 Greens 1 0 8 90
+3004 Greens 2 0 8 90
+3004 Greens 3 0 8 90
+3004 Greens 4 0 8 90
+
+STEP Brazos
+3004 Blues 0 0 8 90
+3004 Blues 5 0 8 90
+3004 Blues 0 0 11 90
+3004 Blues 5 0 11 90
+
+STEP Pecho y hombros
+3001 Reds 1 0 11
+3001 Reds 1 0 14
+3040b Grays 0 0 14
+3040b Grays 5 0 14
+
+STEP Cabeza y antena
+3004 Yellows 2 1 17
+4070 Reds 2 0 17
+3005 Yellows 3 0 17
+3039 Blacks 2 0 20
+3005 Reds 2 0 23

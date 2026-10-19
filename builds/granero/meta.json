@@ -1,0 +1,7 @@
+{
+  "name": "Granero",
+  "description": "Granero rojo con puerta blanca, silo gris, pasto, cerca, heno y un árbol.",
+  "difficulty": 1,
+  "status": "diseñado",
+  "tags": ["granja", "chico"]
+}

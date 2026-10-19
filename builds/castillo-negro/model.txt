@@ -1,0 +1,39 @@
+# Castillo negro sobre placa 6x6. Muros en molinete de 2x4; torreon azul al centro.
+STEP Base y primera hilada
+3958 Blacks 0 0 0
+3001 Blacks 0 0 1
+3001 Blacks 4 0 1 90
+3001 Blacks 2 4 1
+3001 Blacks 0 2 1 90
+
+STEP Segunda hilada
+3001 Blacks 2 0 4
+3001 Blacks 4 2 4 90
+3001 Blacks 0 4 4
+3001 Blacks 0 0 4 90
+
+STEP El torreon
+3003 Blues 2 2 1
+3003 Blues 2 2 4
+3003 Blues 2 2 7
+
+STEP Almenas
+3005 Yellows 0 0 7
+3005 Yellows 5 0 7
+3005 Yellows 0 5 7
+3005 Yellows 5 5 7
+3004 Whites 2 0 7
+3004 Whites 0 2 7 90
+3004 Whites 2 5 7
+3004 Whites 5 2 7 90
+
+STEP El techo del torreon
+3003 Yellows 2 2 10
+98100 Grays 2 2 13
+59900 Reds 2 2 16
+
+STEP Banderines
+6141 Reds 0 0 10
+6141 Reds 5 0 10
+6141 Reds 0 5 10
+6141 Reds 5 5 10

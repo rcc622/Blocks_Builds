@@ -1,0 +1,41 @@
+# Pagoda. Base azul 4x4 (x1-4), alero 6x6.
+STEP Base y muros
+3031 Blues 1 1 0
+3622 Yellows 1 1 1
+3622 Yellows 4 1 1 90
+3622 Yellows 2 4 1
+3622 Blues 1 2 1 90
+
+STEP Segunda hilada de muros
+3004 Whites 1 1 4
+3004 Whites 3 1 4
+3004 Whites 1 4 4
+3004 Whites 3 4 4
+3004 Whites 1 2 4 90
+3004 Whites 4 2 4 90
+
+STEP Alero y primer techo
+3958 Blacks 0 0 7
+3039 Blacks 0 0 8 180
+3039 Blacks 2 0 8 180
+3039 Blacks 4 0 8 180
+
+STEP Resto del techo
+3039 Blacks 0 4 8
+3039 Blacks 2 4 8
+3039 Blacks 4 4 8
+3039 Blacks 0 2 8 90
+3039 Blacks 4 2 8 270
+
+STEP Piso superior
+3003 Reds 2 2 8
+3003 Reds 2 2 11
+3039 Grays 1 1 14 180
+3039 Grays 3 1 14 180
+3039 Grays 1 3 14
+3039 Grays 3 3 14
+
+STEP Remate
+3003 Reds 2 2 17
+98100 Grays 2 2 20
+59900 Reds 2 2 23

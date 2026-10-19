@@ -1,6 +1,187 @@
 {
- "generated_at": "2026-10-19T02:15:37.737Z",
+ "generated_at": "2026-10-19T02:56:49.021Z",
  "builds": [
+  {
+   "slug": "barco-pirata",
+   "name": "Barco pirata",
+   "description": "Barco de casco negro con cabina roja, vela blanca, bandera y barriles en cubierta.",
+   "difficulty": 2,
+   "status": "diseñado",
+   "tags": [
+    "barco",
+    "mediano"
+   ],
+   "photos": [],
+   "file": "builds/barco-pirata/model.mpd",
+   "ldr": "builds/barco-pirata/model.ldr",
+   "pieces": 28,
+   "warnings": [],
+   "descs": {
+    "3001": "Brick  2 x  4",
+    "3004": "Brick  1 x  2",
+    "3005": "Brick  1 x  1",
+    "3010": "Brick  1 x  4",
+    "3039": "Slope Brick 45  2 x  2",
+    "6141": "Plate  1 x  1 Round",
+    "3062b": "Brick  1 x  1 Round with Hollow Stud"
+   },
+   "bom": [
+    {
+     "part": "3001",
+     "family": "Blacks",
+     "qty": 8
+    },
+    {
+     "part": "3039",
+     "family": "Blacks",
+     "qty": 2
+    },
+    {
+     "part": "3001",
+     "family": "Reds",
+     "qty": 2
+    },
+    {
+     "part": "3039",
+     "family": "Grays",
+     "qty": 4
+    },
+    {
+     "part": "3010",
+     "family": "Whites",
+     "qty": 2
+    },
+    {
+     "part": "3004",
+     "family": "Whites",
+     "qty": 2
+    },
+    {
+     "part": "3005",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3005",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "6141",
+     "family": "Blacks",
+     "qty": 4
+    },
+    {
+     "part": "3062b",
+     "family": "Browns",
+     "qty": 2
+    }
+   ],
+   "steps": [
+    {
+     "title": "El casco",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 4
+      },
+      {
+       "part": "3039",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3039.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Segundo nivel",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Cabina y techo",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Reds",
+       "code": 4,
+       "file": "3001.dat",
+       "qty": 2
+      },
+      {
+       "part": "3039",
+       "family": "Grays",
+       "code": 71,
+       "file": "3039.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "La vela",
+     "parts": [
+      {
+       "part": "3010",
+       "family": "Whites",
+       "code": 15,
+       "file": "3010.dat",
+       "qty": 2
+      },
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Detalles de cubierta",
+     "parts": [
+      {
+       "part": "3005",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3005.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Reds",
+       "code": 4,
+       "file": "3005.dat",
+       "qty": 1
+      },
+      {
+       "part": "6141",
+       "family": "Blacks",
+       "code": 0,
+       "file": "6141.dat",
+       "qty": 4
+      },
+      {
+       "part": "3062b",
+       "family": "Browns",
+       "code": 70,
+       "file": "3062b.dat",
+       "qty": 2
+      }
+     ]
+    }
+   ]
+  },
   {
    "slug": "casita",
    "name": "Casita amarilla",
@@ -324,6 +505,181 @@
    ]
   },
   {
+   "slug": "castillo-negro",
+   "name": "Castillo negro",
+   "description": "Fortaleza de muros negros con almenas, torreón azul y techo de cono gris.",
+   "difficulty": 2,
+   "status": "diseñado",
+   "tags": [
+    "castillo",
+    "mediano"
+   ],
+   "photos": [],
+   "file": "builds/castillo-negro/model.mpd",
+   "ldr": "builds/castillo-negro/model.ldr",
+   "pieces": 27,
+   "warnings": [],
+   "descs": {
+    "3001": "Brick  2 x  4",
+    "3003": "Brick  2 x  2",
+    "3004": "Brick  1 x  2",
+    "3005": "Brick  1 x  1",
+    "3958": "Plate  6 x  6",
+    "6141": "Plate  1 x  1 Round",
+    "59900": "Cone  1 x  1 with Stop",
+    "98100": "Cone  2 x  2 Truncated"
+   },
+   "bom": [
+    {
+     "part": "3958",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3001",
+     "family": "Blacks",
+     "qty": 8
+    },
+    {
+     "part": "3003",
+     "family": "Blues",
+     "qty": 3
+    },
+    {
+     "part": "3005",
+     "family": "Yellows",
+     "qty": 4
+    },
+    {
+     "part": "3004",
+     "family": "Whites",
+     "qty": 4
+    },
+    {
+     "part": "3003",
+     "family": "Yellows",
+     "qty": 1
+    },
+    {
+     "part": "98100",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "59900",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "6141",
+     "family": "Reds",
+     "qty": 4
+    }
+   ],
+   "steps": [
+    {
+     "title": "Base y primera hilada",
+     "parts": [
+      {
+       "part": "3958",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3958.dat",
+       "qty": 1
+      },
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Segunda hilada",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "El torreon",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Blues",
+       "code": 1,
+       "file": "3003.dat",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "title": "Almenas",
+     "parts": [
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 4
+      },
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "El techo del torreon",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3003.dat",
+       "qty": 1
+      },
+      {
+       "part": "98100",
+       "family": "Grays",
+       "code": 71,
+       "file": "98100.dat",
+       "qty": 1
+      },
+      {
+       "part": "59900",
+       "family": "Reds",
+       "code": 4,
+       "file": "59900.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Banderines",
+     "parts": [
+      {
+       "part": "6141",
+       "family": "Reds",
+       "code": 4,
+       "file": "6141.dat",
+       "qty": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
    "slug": "faro",
    "name": "Faro",
    "description": "Faro de franjas rojas y blancas sobre una roca, con luz amarilla. Buen primer modelo para probar la app.",
@@ -537,6 +893,246 @@
        "family": "Reds",
        "code": 4,
        "file": "59900.dat",
+       "qty": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "granero",
+   "name": "Granero",
+   "description": "Granero rojo con puerta blanca, silo gris, pasto, cerca, heno y un árbol.",
+   "difficulty": 1,
+   "status": "diseñado",
+   "tags": [
+    "granja",
+    "chico"
+   ],
+   "photos": [],
+   "file": "builds/granero/model.mpd",
+   "ldr": "builds/granero/model.ldr",
+   "pieces": 25,
+   "warnings": [],
+   "descs": {
+    "2419": "Plate  3 x  6 without Corners",
+    "3001": "Brick  2 x  4",
+    "3003": "Brick  2 x  2",
+    "3004": "Brick  1 x  2",
+    "3005": "Brick  1 x  1",
+    "3039": "Slope Brick 45  2 x  2",
+    "3941": "Brick  2 x  2 Round without Reinforcement",
+    "3958": "Plate  6 x  6",
+    "15332": "Fence Spindled  1 x  4 x  2 with 4 Studs",
+    "32607": "Plate  1 x  1 Round with  3 Leaves",
+    "98100": "Cone  2 x  2 Truncated",
+    "3040b": "Slope Brick 45  2 x  1",
+    "3062b": "Brick  1 x  1 Round with Hollow Stud"
+   },
+   "bom": [
+    {
+     "part": "3958",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "2419",
+     "family": "Greens",
+     "qty": 1
+    },
+    {
+     "part": "3001",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "3005",
+     "family": "Whites",
+     "qty": 2
+    },
+    {
+     "part": "3003",
+     "family": "Reds",
+     "qty": 2
+    },
+    {
+     "part": "3005",
+     "family": "Yellows",
+     "qty": 5
+    },
+    {
+     "part": "3004",
+     "family": "Whites",
+     "qty": 1
+    },
+    {
+     "part": "3039",
+     "family": "Blacks",
+     "qty": 2
+    },
+    {
+     "part": "3040b",
+     "family": "Grays",
+     "qty": 2
+    },
+    {
+     "part": "3941",
+     "family": "Grays",
+     "qty": 3
+    },
+    {
+     "part": "98100",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "15332",
+     "family": "Whites",
+     "qty": 1
+    },
+    {
+     "part": "3062b",
+     "family": "Browns",
+     "qty": 2
+    },
+    {
+     "part": "32607",
+     "family": "Greens",
+     "qty": 1
+    }
+   ],
+   "steps": [
+    {
+     "title": "Terreno",
+     "parts": [
+      {
+       "part": "3958",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3958.dat",
+       "qty": 1
+      },
+      {
+       "part": "2419",
+       "family": "Greens",
+       "code": 2,
+       "file": "2419.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Muros del granero",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Reds",
+       "code": 4,
+       "file": "3001.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Whites",
+       "code": 15,
+       "file": "3005.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Segunda hilada",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Reds",
+       "code": 4,
+       "file": "3003.dat",
+       "qty": 2
+      },
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 2
+      },
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Techo",
+     "parts": [
+      {
+       "part": "3039",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3039.dat",
+       "qty": 2
+      },
+      {
+       "part": "3040b",
+       "family": "Grays",
+       "code": 71,
+       "file": "3040b.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "El silo",
+     "parts": [
+      {
+       "part": "3941",
+       "family": "Grays",
+       "code": 71,
+       "file": "3941.dat",
+       "qty": 3
+      },
+      {
+       "part": "98100",
+       "family": "Grays",
+       "code": 71,
+       "file": "98100.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Cerca, heno y arbol",
+     "parts": [
+      {
+       "part": "15332",
+       "family": "Whites",
+       "code": 15,
+       "file": "15332.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 3
+      },
+      {
+       "part": "3062b",
+       "family": "Browns",
+       "code": 70,
+       "file": "3062b.dat",
+       "qty": 2
+      },
+      {
+       "part": "32607",
+       "family": "Greens",
+       "code": 2,
+       "file": "32607.dat",
        "qty": 1
       }
      ]
@@ -764,6 +1360,425 @@
        "code": 71,
        "file": "3068b.dat",
        "qty": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "pagoda",
+   "name": "Pagoda",
+   "description": "Pagoda de dos pisos con muros amarillos, alero negro y techo gris rematado en cono.",
+   "difficulty": 2,
+   "status": "diseñado",
+   "tags": [
+    "templo",
+    "mediano"
+   ],
+   "photos": [],
+   "file": "builds/pagoda/model.mpd",
+   "ldr": "builds/pagoda/model.ldr",
+   "pieces": 29,
+   "warnings": [],
+   "descs": {
+    "3003": "Brick  2 x  2",
+    "3004": "Brick  1 x  2",
+    "3031": "Plate  4 x  4",
+    "3039": "Slope Brick 45  2 x  2",
+    "3622": "Brick  1 x  3",
+    "3958": "Plate  6 x  6",
+    "59900": "Cone  1 x  1 with Stop",
+    "98100": "Cone  2 x  2 Truncated"
+   },
+   "bom": [
+    {
+     "part": "3031",
+     "family": "Blues",
+     "qty": 1
+    },
+    {
+     "part": "3622",
+     "family": "Yellows",
+     "qty": 3
+    },
+    {
+     "part": "3622",
+     "family": "Blues",
+     "qty": 1
+    },
+    {
+     "part": "3004",
+     "family": "Whites",
+     "qty": 6
+    },
+    {
+     "part": "3958",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3039",
+     "family": "Blacks",
+     "qty": 8
+    },
+    {
+     "part": "3003",
+     "family": "Reds",
+     "qty": 3
+    },
+    {
+     "part": "3039",
+     "family": "Grays",
+     "qty": 4
+    },
+    {
+     "part": "98100",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "59900",
+     "family": "Reds",
+     "qty": 1
+    }
+   ],
+   "steps": [
+    {
+     "title": "Base y muros",
+     "parts": [
+      {
+       "part": "3031",
+       "family": "Blues",
+       "code": 1,
+       "file": "3031.dat",
+       "qty": 1
+      },
+      {
+       "part": "3622",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3622.dat",
+       "qty": 3
+      },
+      {
+       "part": "3622",
+       "family": "Blues",
+       "code": 1,
+       "file": "3622.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Segunda hilada de muros",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "title": "Alero y primer techo",
+     "parts": [
+      {
+       "part": "3958",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3958.dat",
+       "qty": 1
+      },
+      {
+       "part": "3039",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3039.dat",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "title": "Resto del techo",
+     "parts": [
+      {
+       "part": "3039",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3039.dat",
+       "qty": 5
+      }
+     ]
+    },
+    {
+     "title": "Piso superior",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Reds",
+       "code": 4,
+       "file": "3003.dat",
+       "qty": 2
+      },
+      {
+       "part": "3039",
+       "family": "Grays",
+       "code": 71,
+       "file": "3039.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Remate",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Reds",
+       "code": 4,
+       "file": "3003.dat",
+       "qty": 1
+      },
+      {
+       "part": "98100",
+       "family": "Grays",
+       "code": 71,
+       "file": "98100.dat",
+       "qty": 1
+      },
+      {
+       "part": "59900",
+       "family": "Reds",
+       "code": 4,
+       "file": "59900.dat",
+       "qty": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "robot-azul",
+   "name": "Robot azul",
+   "description": "Robot de pies turquesa, piernas azules, pecho rojo y casco negro con antena.",
+   "difficulty": 1,
+   "status": "diseñado",
+   "tags": [
+    "robot",
+    "chico"
+   ],
+   "photos": [],
+   "file": "builds/robot-azul/model.mpd",
+   "ldr": "builds/robot-azul/model.ldr",
+   "pieces": 25,
+   "warnings": [],
+   "descs": {
+    "3001": "Brick  2 x  4",
+    "3003": "Brick  2 x  2",
+    "3004": "Brick  1 x  2",
+    "3005": "Brick  1 x  1",
+    "3020": "Plate  2 x  4",
+    "3039": "Slope Brick 45  2 x  2",
+    "3710": "Plate  1 x  4",
+    "3795": "Plate  2 x  6",
+    "4070": "Brick  1 x  1 with Headlight",
+    "3040b": "Slope Brick 45  2 x  1"
+   },
+   "bom": [
+    {
+     "part": "3020",
+     "family": "Turquoises",
+     "qty": 2
+    },
+    {
+     "part": "3003",
+     "family": "Blues",
+     "qty": 2
+    },
+    {
+     "part": "3003",
+     "family": "Greens",
+     "qty": 2
+    },
+    {
+     "part": "3795",
+     "family": "Blues",
+     "qty": 1
+    },
+    {
+     "part": "3710",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3004",
+     "family": "Greens",
+     "qty": 4
+    },
+    {
+     "part": "3004",
+     "family": "Blues",
+     "qty": 4
+    },
+    {
+     "part": "3001",
+     "family": "Reds",
+     "qty": 2
+    },
+    {
+     "part": "3040b",
+     "family": "Grays",
+     "qty": 2
+    },
+    {
+     "part": "3004",
+     "family": "Yellows",
+     "qty": 1
+    },
+    {
+     "part": "4070",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "3005",
+     "family": "Yellows",
+     "qty": 1
+    },
+    {
+     "part": "3039",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3005",
+     "family": "Reds",
+     "qty": 1
+    }
+   ],
+   "steps": [
+    {
+     "title": "Pies y piernas",
+     "parts": [
+      {
+       "part": "3020",
+       "family": "Turquoises",
+       "code": 3,
+       "file": "3020.dat",
+       "qty": 2
+      },
+      {
+       "part": "3003",
+       "family": "Blues",
+       "code": 1,
+       "file": "3003.dat",
+       "qty": 2
+      },
+      {
+       "part": "3003",
+       "family": "Greens",
+       "code": 2,
+       "file": "3003.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Cadera y panel verde",
+     "parts": [
+      {
+       "part": "3795",
+       "family": "Blues",
+       "code": 1,
+       "file": "3795.dat",
+       "qty": 1
+      },
+      {
+       "part": "3710",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3710.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Greens",
+       "code": 2,
+       "file": "3004.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Brazos",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Blues",
+       "code": 1,
+       "file": "3004.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Pecho y hombros",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Reds",
+       "code": 4,
+       "file": "3001.dat",
+       "qty": 2
+      },
+      {
+       "part": "3040b",
+       "family": "Grays",
+       "code": 71,
+       "file": "3040b.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Cabeza y antena",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3004.dat",
+       "qty": 1
+      },
+      {
+       "part": "4070",
+       "family": "Reds",
+       "code": 4,
+       "file": "4070.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 1
+      },
+      {
+       "part": "3039",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3039.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Reds",
+       "code": 4,
+       "file": "3005.dat",
+       "qty": 1
       }
      ]
     }

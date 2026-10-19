@@ -1,0 +1,37 @@
+# Granero sobre placa 6x6 con pasto al frente. Granero x0-3 z0-2, silo x4-5 z0-1.
+STEP Terreno
+3958 Blacks 0 0 0
+2419 Greens 0 3 1
+
+STEP Muros del granero
+3001 Reds 0 0 1
+3005 Whites 0 2 1
+3005 Whites 3 2 1
+
+STEP Segunda hilada
+3003 Reds 0 0 4
+3003 Reds 2 0 4
+3005 Yellows 0 2 4
+3004 Whites 1 2 4
+3005 Yellows 3 2 4
+
+STEP Techo
+3039 Blacks 0 0 7 90
+3039 Blacks 2 0 7 270
+3040b Grays 0 2 7 90
+3040b Grays 2 2 7 270
+
+STEP El silo
+3941 Grays 4 0 1
+3941 Grays 4 0 4
+3941 Grays 4 0 7
+98100 Grays 4 0 10
+
+STEP Cerca, heno y arbol
+15332 Whites 0 5 2
+3005 Yellows 4 3 2
+3005 Yellows 5 3 2
+3005 Yellows 3 4 2
+3062b Browns 4 4 2
+3062b Browns 4 4 5
+32607 Greens 4 4 8

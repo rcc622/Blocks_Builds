@@ -1,0 +1,7 @@
+{
+  "name": "Castillo negro",
+  "description": "Fortaleza de muros negros con almenas, torreón azul y techo de cono gris.",
+  "difficulty": 2,
+  "status": "diseñado",
+  "tags": ["castillo", "mediano"]
+}

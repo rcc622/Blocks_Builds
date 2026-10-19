@@ -1,0 +1,38 @@
+# Barco pirata. Proa hacia el frente (z alto), popa en z0.
+STEP El casco
+3001 Blacks 0 0 0 90
+3001 Blacks 2 0 0 90
+3001 Blacks 0 4 0 90
+3001 Blacks 2 4 0 90
+3039 Blacks 0 8 0
+3039 Blacks 2 8 0
+
+STEP Segundo nivel
+3001 Blacks 0 1 3
+3001 Blacks 0 3 3
+3001 Blacks 0 5 3
+3001 Blacks 0 7 3
+
+STEP Cabina y techo
+3001 Reds 0 1 6
+3001 Reds 0 3 6
+3039 Grays 0 1 9 180
+3039 Grays 2 1 9 180
+3039 Grays 0 3 9
+3039 Grays 2 3 9
+
+STEP La vela
+3010 Whites 0 6 6
+3010 Whites 0 6 9
+3004 Whites 0 6 12
+3004 Whites 2 6 12
+
+STEP Detalles de cubierta
+3005 Blacks 1 6 15
+3005 Reds 2 6 15
+6141 Blacks 0 7 6
+6141 Blacks 3 7 6
+6141 Blacks 0 8 6
+6141 Blacks 3 8 6
+3062b Browns 1 8 6
+3062b Browns 2 8 6

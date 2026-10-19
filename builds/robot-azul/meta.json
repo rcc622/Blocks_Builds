@@ -1,0 +1,7 @@
+{
+  "name": "Robot azul",
+  "description": "Robot de pies turquesa, piernas azules, pecho rojo y casco negro con antena.",
+  "difficulty": 1,
+  "status": "diseñado",
+  "tags": ["robot", "chico"]
+}
