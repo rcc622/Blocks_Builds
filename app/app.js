@@ -4,7 +4,9 @@ import { Viewer, modelCover } from './viewer.js';
 import { FAMILIES } from './colors.js';
 import { checkBom, sumBoms } from './check.js';
 
-const REPO = 'rcc622/legobuilds';
+// En GitHub Pages el repo sale de la URL (usuario.github.io/<repo>/): renombrar el repo no rompe la app.
+const REPO = location.hostname.endsWith('.github.io')
+  ? `${location.hostname.split('.')[0]}/${location.pathname.split('/')[1]}` : 'rcc622/legobuilds';
 const BRICKIT = /https:\/\/brickit\.app\/offer\/[0-9a-f-]{36}/;
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
