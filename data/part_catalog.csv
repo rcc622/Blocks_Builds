@@ -1,0 +1,141 @@
+pieza,ldraw,descripcion,ancho,fondo,alto_plates,studs_arriba,cantidad,colores
+3004,3004.dat,Brick  1 x  2,2,1,3,2,40,Blacks:2 Grays:4 Reds:4 Yellows:6 Blues:6 Greens:5 Whites:8 Turquoises:4 Pinks:1
+3023,3023.dat,Plate  1 x  2,2,1,1,2,31,Blacks:15 Grays:3 Reds:3 Blues:3 Greens:2 Whites:3 Turquoises:1 Pinks:1
+3003,3003.dat,Brick  2 x  2,2,2,3,4,24,Blacks:1 Grays:1 Reds:4 Yellows:6 Blues:3 Greens:5 Purples:3 Oranges:1
+3068b,3068b.dat,Tile  2 x  2 with Groove,2,2,1,0,22,Blacks:2 Grays:4 Yellows:10 Blues:4 Whites:2
+3039,3039.dat,Slope Brick 45  2 x  2,2,2,3,2,21,Blacks:10 Grays:4 Reds:3 Greens:3 Whites:1
+3001,3001.dat,Brick  2 x  4,4,2,3,8,19,Blacks:8 Grays:1 Reds:3 Yellows:2 Whites:2 Browns:1 Turquoises:1 Pinks:1
+3020,3020.dat,Plate  2 x  4,4,2,1,8,15,Blacks:5 Grays:2 Blues:1 Whites:3 Turquoises:4
+3005,3005.dat,Brick  1 x  1,1,1,3,1,12,Blacks:1 Grays:1 Reds:1 Yellows:5 Blues:2 Whites:2
+3710,3710.dat,Plate  1 x  4,4,1,1,4,12,Blacks:7 Grays:1 Reds:1 Blues:1 Greens:2
+4286,4286.dat,Slope Brick 33  3 x  1,1,3,3,1,12,Blacks:4 Grays:2 Reds:2 Yellows:1 Greens:2 Whites:1
+3747b,3747b.dat,Slope Brick 33  3 x  2 Inverted with Ribs between Studs,2,3,3,6,11,Blacks:6 Reds:2 Greens:2 Whites:1
+6141,6141.dat,Plate  1 x  1 Round,1,1,1,1,9,Blacks:5 Reds:4
+3010,3010.dat,Brick  1 x  4,4,1,3,4,7,Blacks:1 Yellows:1 Greens:1 Whites:2 Browns:1 Pinks:1
+3040b,3040b.dat,Slope Brick 45  2 x  1,1,2,3,1,7,Blacks:1 Grays:2 Blues:1 Greens:1 Browns:2
+3660,3660.dat,Slope Brick 45  2 x  2 Inverted without Inner Stopper Ring,2,2,3,4,7,Blacks:3 Grays:1 Reds:1 Yellows:1 Browns:1
+3941,3941.dat,Brick  2 x  2 Round without Reinforcement,2.0000504910000005,2.0000504910000005,3,4,7,Blacks:2 Grays:3 Browns:1 Turquoises:1
+3956,3956.dat,Bracket  2 x  2 -  2 x  2 Up,2,2.4,6,0,6,Blacks:5 Grays:1
+3298,3298.dat,Slope Brick 33  3 x  2,2,3,3,2,5,Reds:2 Blues:2 Turquoises:1
+3623,3623.dat,Plate  1 x  3,3,1,1,3,5,Blacks:2 Browns:3
+3665,3665.dat,Slope Brick 45  2 x  1 Inverted without Inner Stopper Ring,1,2,3,2,5,Blacks:3 Grays:1 Reds:1
+3700,3700.dat,Technic Brick  1 x  2 with Hole,2,1,3,2,5,Blacks:1 Grays:3 Blues:1
+98138,98138.dat,Tile  1 x  1 Round with Groove,1,1,1,0,5,Blacks:2 Grays:1 Reds:1 Pinks:1
+2412b,2412b.dat,Tile  1 x  2 Grille with Groove,2,1,1,0,4,Grays:3 Yellows:1
+2420,2420.dat,Plate  2 x  2 Corner,2,2,1,3,4,Blacks:2 Whites:1 Browns:1
+2458,2458.dat,Brick  1 x  2 with Pin,2,2,3,2,4,Blacks:1 Grays:1 Reds:1 Blues:1
+3022,3022.dat,Plate  2 x  2,2,2,1,4,4,Grays:1 Blues:1 Whites:1 Browns:1
+3024,3024.dat,Plate  1 x  1,1,1,1,1,4,Blacks:1 Blues:1 Greens:1 Whites:1
+3622,3622.dat,Brick  1 x  3,3,1,3,3,4,Yellows:3 Blues:1
+2437,2437.dat,Windscreen  3 x  4 x  1.333,4,3,4,2,3,Blacks:1 Turquoises:2
+30169,30169.dat,Animal Scorpion,2,3,4.75,1,3,Blacks:3
+30383,30383.dat,Hinge Plate  1 x  2 Locking with Single Finger On Top,2,1,2.41875,1,3,Blacks:1 Grays:2
+3486,3486.dat,Wheel 16 x 37 Hard-Plastic with 4 Studs,4.5841,1.9147500000000002,11.46025,0,3,Purples:3
+3795,3795.dat,Plate  2 x  6,6,2,1,12,3,Blacks:1 Grays:1 Blues:1
+41677,41677.dat,Technic Beam  2 x  0.5 Liftarm,0.9,1.9,1.25,0,3,Reds:3
+60897,60897.dat,Plate  1 x  1 with Clip Vertical (Thick C-Clip),1,1.7014900000000002,1,1,3,Blacks:1 Reds:1 Whites:1
+6215,6215.dat,Brick  2 x  3 with Curved Top,3,2,3,4,3,Yellows:1 Greens:2
+93571,93571.dat,Constraction Connector  3 x  2 with Single Round Ball Socket with Straight Opened Sides,2,2.9653,2.5,0,3,Blacks:2 Blues:1
+11203,11203.dat,Tile  2 x  2 Inverted,2,2,1,4,2,Blacks:2
+15571,15571.dat,Slope Brick 45  1 x  2 Triple with Bottom Stud Holder,2,1,3,0,2,Blacks:1 Pinks:1
+15573,15573.dat,"Plate  1 x  2 with Groove with 1 Centre Stud, without Understud",2,1,1,1,2,Reds:1 Yellows:1
+21445,21445.dat,Plate  1 x  2 with 1 Wheel Pin,2,1.7,1.2490157499999999,2,2,Blacks:2
+3009,3009.dat,Brick  1 x  6,6,1,3,6,2,Blacks:1 Yellows:1
+30136,30136.dat,Brick  1 x  2 Log,2.0000999999999998,1,3,2,2,Grays:2
+30365,30365.dat,Hinge Brick  1 x  2 Locking with Dual Finger On End,2.8,1,3,2,2,Grays:2
+30554b,30554b.dat,Hinge Arm Locking with Single and Dual Fingers and Hole,0.9,2.5675,2.250061825,0,2,Grays:2
+3062b,3062b.dat,Brick  1 x  1 Round with Hollow Stud,1,1,3,1,2,Browns:2
+32013,32013.dat,Technic Angle Connector #1,1,1.9500250000000001,2.25,0,2,Blacks:2
+32166,32166.dat,Technic Connector Block  3 x  6 x  1.667 Gearbox,3.2980000000000005,6.098999999999999,6.124125,0,2,Blacks:2
+32607,32607.dat,Plate  1 x  1 Round with  3 Leaves,1.8800000000000001,1.7899999999999998,1.47855,1,2,Greens:2
+32828,32828.dat,Plate  1 x  1 Round with Bar,1.9999953597000002,0.9999907193999998,1.25,1,2,Blacks:2
+3626c,3626c.dat,Minifig Head with Hollow Stud,1.3,1.3,3,1,2,Reds:1 Browns:1
+3679,3679.dat,Turntable  2 x  2 Plate Top,1.75,1.75,1,4,2,Grays:2
+41740,41740.dat,Plate  1 x  4 with Two Studs and Groove,4,1,1,2,2,Grays:1 Blues:1
+4216,4216.dat,Brick  1 x  2 with Groove,2,1,3,2,2,Grays:2
+4287c,4287c.dat,"Slope Brick 33  3 x  1 Inverted with Notch, Stud Blocker and Thin Front",1,3,3,3,2,Blacks:1 Greens:1
+4477,4477.dat,Plate  1 x 10,10,1,1,10,2,Blacks:1 Reds:1
+4519,4519.dat,Technic Axle  3,3,0.6,1.5,0,2,Blacks:1 Grays:1
+47457,47457.dat,Slope Brick Curved  2 x  2 x   2/3 Triple with Two Top Studs,2,2,2,2,2,Grays:1 Yellows:1
+54200,54200.dat,Slope Brick 31  1 x  1 x  0.667,1,1,1.95,0,2,Browns:2
+6091,6091.dat,Brick  2 x  1 x  1.333 with Curved Top,1,2,4,1,2,Reds:1 Greens:1
+61252,61252.dat,Plate  1 x  1 with Clip Horizontal (Thick C-Clip),1,1.7014900000000002,1.8619866885,1,2,Grays:2
+6536,6536.dat,Technic Cross Block 1 x 2 (Axle/Pin),1,1,4.75,0,2,Blacks:1 Browns:1
+6558,6558.dat,Technic Pin Long with Friction and Slot,3,0.80005308,1.95025,0,2,Blacks:2
+73983,73983.dat,Hinge Plate  1 x  4 (Complete),4,1.4,1,4,2,Reds:2
+11609,11609.dat,Plate  1 x  1 Round with Five-Pointed Star Top and Pin Hole Arm,1.3037242020000002,1.255912927,1,0,1,Yellows:1
+14769,14769.dat,Tile  2 x  2 Round with Round Underside Stud,2.0000504910000005,2.0000504910000005,1,0,1,Grays:1
+15332,15332.dat,Fence Spindled  1 x  4 x  2 with 4 Studs,4,1,6,4,1,Whites:1
+15469,15469.dat,Brick  2 x  2 Round with 4 Petals Base and Axle Hole,3.0742000000000003,3.0742000000000003,2.70925,4,1,Greens:1
+15534,15534.dat,Minifig Tool Grappling Hook with Bar,1.79855,1.9304463875000004,5.452,0,1,Grays:1
+2357,2357.dat,Brick  2 x  2 Corner,2,2,3,3,1,Blacks:1
+2419,2419.dat,Plate  3 x  6 without Corners,6,3,1,12,1,Greens:1
+2446,2446.dat,Minifig Helmet Modern,1.58,1.725,4.3269275,0,1,Blacks:1
+2470,2470.dat,Wheel  2.8 x 27 with  8 Spokes,3.4,1,8.5,0,1,Blacks:1
+24866,24866.dat,Plate  1 x  1 with  5 Petals,0.9926406862,0.9771557154,1,1,1,Greens:1
+2518,2518.dat,Plant Tree Palm Leaf Large,9.8,4.5001093,5.412249999999999,2,1,Greens:1
+25269,25269.dat,Tile  1 x  1 Corner Round,1,1,1,0,1,Pinks:1
+2540,2540.dat,Plate  1 x  2 with Handle,2,1.8,1.5,2,1,Grays:1
+2554,2554.dat,Door  1 x  3 x  6 with 1/4 Circle Top,0.6,2.575,16.875,0,1,Greens:1
+27928,27928.dat,Plate  2 x  2 with One Stud with Cut Corners and Raised Tab,2,2,2,1,1,Browns:1
+3008,3008.dat,Brick  1 x  8,8,1,3,8,1,Yellows:1
+3031,3031.dat,Plate  4 x  4,4,4,1,16,1,Blues:1
+3034,3034.dat,Plate  2 x  8,8,2,1,16,1,Blues:1
+30364,30364.dat,Hinge Brick  1 x  2 Locking with Single Finger On End,2.7675,1,3,2,1,Blacks:1
+30367c,30367c.dat,Cylinder  2 x  2 with Dome Top with Axle Hole and Hollow Stud,2.0000525629999997,2.0000525629999997,3.0000625,1,1,Whites:1
+30375,30375.dat,Minifig Mechanical Torso,2,1,5.375,0,1,Blues:1
+30377,30377.dat,Minifig Mechanical Arm with Clips Parallel,0.4,1.25723678184,6.21338125,0,1,Turquoises:1
+30387,30387.dat,"Hinge Brick  1 x  4 Locking Double, Two Finger End with 9 Teeth",5.5675,1,3,4,1,Grays:1
+3049d,3049d.dat,Slope Brick 45  1 x  2 Double / Inverted with Bottom Stud Holder,2,2,3,0,1,Turquoises:1
+30530,30530.dat,Minifig Martian Legs,1.9489999999999998,0.9800000000000001,5.61875,0,1,Oranges:1
+30592,30592.dat,Brick  2 x  2 with Vertical Pin and  1 x  2 Side Plates,4,2,5.5,4,1,Grays:1
+30658,30658.dat,Turntable  4 x  4 x  0.667 Locking Top,4,4,2.25,12,1,Blacks:1
+32000,32000.dat,Technic Brick  1 x  2 with Holes,2,1,3,2,1,Browns:1
+32016,32016.dat,Technic Angle Connector #3 (157.5 degree),1,3.052777419556888,3.5675858248420207,0,1,Browns:1
+32039,32039.dat,Technic Connector (Axle/Bush),1,1.95,2.25,0,1,Blacks:1
+32173,32173.dat,Technic Bionicle Leg  2 x  6 with  2 Ball Joints,1.2810000000000001,6.2692,7.4392499999999995,0,1,Blacks:1
+32291,32291.dat,Technic Cross Block 2 x 2 (Axle/Twin Pin),1.9000230793,1,4.750028849125,0,1,Blacks:1
+32306,32306.dat,"NO ENCONTRADA: No encontre ""32306",,,,,1,
+32316,32316.dat,Technic Beam  5,0.9,4.9,2.5,0,1,Grays:1
+32474,32474.dat,Technic Ball Joint with Axlehole Blind,1.275,1.275,2.75,0,1,Blacks:1
+32475,32475.dat,Constraction Foot  3 x  6 x  2.333 with Ball Socket,3,5.8966,7.234152375,0,1,Reds:1
+32524,32524.dat,Technic Beam  7,0.9,6.9,2.5,0,1,Grays:1
+32526,32526.dat,Technic Beam  3 x  5 Bent 90,2.9,4.9,2.5,0,1,Blacks:1
+3666,3666.dat,Plate  1 x  6,6,1,1,6,1,Grays:1
+3680,3680.dat,Turntable  2 x  2 Plate Base,2,2,1,0,1,Reds:1
+3705,3705.dat,Technic Axle  4,4,0.6,1.5,0,1,Blacks:1
+3814,3814.dat,"NO ENCONTRADA: No encontre ""3814",,,,,1,
+3818,3818.dat,Minifig Arm Right,0.85326,0.9968,3.617,0,1,Blues:1
+3829,3829.dat,Car Steering Stand and Wheel (Complete),2,1.012,5.840000000000001,0,1,Blues:1
+3899,3899.dat,Minifig Cup,1,1.7,3,0,1,Whites:1
+3937,3937.dat,Hinge  1 x  2 Base,2,1,2.75,0,1,Grays:1
+3938,3938.dat,Hinge  1 x  2 Top,2,1,2,2,1,Grays:1
+3958,3958.dat,Plate  6 x  6,6,6,1,36,1,Blacks:1
+4032a,4032a.dat,Plate  2 x  2 Round with Axlehole,2.0000525629999997,2.0000525629999997,1,4,1,Blacks:1
+4070,4070.dat,Brick  1 x  1 with Headlight,1,1,3,1,1,Reds:1
+41670,41670.dat,Technic Bionicle Leg  4 x  4 with Two Ball Joints,4.281000000000001,4.281000000000001,5,0,1,Grays:1
+41864,41864.dat,"NO ENCONTRADA: No encontre ""41864",,,,,1,
+42003,42003.dat,Technic Cross Block 1 x 3 (Axle/Pin/Pin),1,1,7.25,0,1,Reds:1
+4213,4213.dat,Hinge Car Roof  4 x  4,4,4,1,12,1,Yellows:1
+44136,44136.dat,Constraction Block  2 x  7 x  3 Curved with Forked Axle Hole,2.00004,6.9000231450000005,7.37502893125,0,1,Grays:1
+44148,44148.dat,Technic Bionicle Rahkshi Upper Leg Section,1.9,6.1405,6.625036892,0,1,Grays:1
+44728,44728.dat,Bracket  1 x  2 -  2 x  2 Down,2,1.4,5,2,1,Purples:1
+4489b,4489b.dat,Wheel  2.8 x 34 with  8 Spokes with Notched Hole for Wheel Holding Pin,4.2,1,10.5,0,1,Browns:1
+4491b,4491b.dat,Animal Horse Saddle with Two Clips,3.3913257700000004,2,6.375,2,1,Blues:1
+4740,4740.dat,Dish  2 x  2 Inverted,2,2,1,1,1,Grays:1
+4865b,4865b.dat,Panel  1 x  2 x  1 with Rounded Corners,2,1,3,0,1,Blacks:1
+54672,54672.dat,"Hinge Brick  1 x  2 Locking with Dual Finger on End Horizontal,  7 Teeth",2.8,1,3,2,1,Grays:1
+59900,59900.dat,Cone  1 x  1 with Stop,1,1,3,1,1,Reds:1
+6041,6041.dat,Propeller  3 Blade  3.5 Diameter with Axlehole,3.2197822985,1.2,7.176602873125,0,1,Blues:1
+60592,60592.dat,Window  1 x  2 x  2 without Sill,2,1,6,2,1,Blues:1
+6126b,6126b.dat,Minifig Flame with Rim,1.0492455,3.6993602546000006,1.5,0,1,Reds:1
+6153b,6153b.dat,Wedge  6 x  4 with Stud Notches,4,6,3,6,1,Turquoises:1
+6232,6232.dat,Brick  2 x  2 with Pin and Axlehole,3,2,3,4,1,Grays:1
+6541,6541.dat,Technic Brick  1 x  1 with Hole,1,1,3,1,1,Grays:1
+6636,6636.dat,Tile  1 x  6,6,1,1,0,1,Blues:1
+67810,67810.dat,Brick  2 x  2 x  1.333 with Curved Corner Top,2,2,4,1,1,Pinks:1
+78329,78329.dat,Plate  1 x  5,5,1,1,5,1,Grays:1
+87580,87580.dat,Plate  2 x  2 with Groove with 1 Centre Stud,2,2,1,1,1,Grays:1
+970c03,970c03.dat,"NO ENCONTRADA: No encontre ""970c03",,,,,1,
+98100,98100.dat,Cone  2 x  2 Truncated,2,2,3,1,1,Grays:1
+98560,98560.dat,"NO ENCONTRADA: No encontre ""98560",,,,,1,

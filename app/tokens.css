@@ -1,0 +1,105 @@
+/* Hallmark · genre: playful · macrostructure: Workbench (app de manual) · theme: custom
+ * vibe: "manual de armado, ladrillo amarillo, pagina azul" · paper oklch(97.5% 0.008 95) · accent oklch(84% 0.165 88) amarillo
+ * display + body: Plus Jakarta Sans · mono: JetBrains Mono · axes: light / rounded-sans / warm
+ */
+:root {
+  color-scheme: light dark;
+  --color-paper: oklch(97.5% 0.008 95);
+  --color-paper-2: oklch(94.5% 0.012 95);
+  --color-paper-3: oklch(90.5% 0.016 95);
+  --color-stage: oklch(91.5% 0.03 232);       /* fondo del visor: la pagina azul de los manuales */
+  --color-stage-2: oklch(86% 0.04 232);
+  --color-ink: oklch(22% 0.016 255);
+  --color-ink-2: oklch(43% 0.016 255);
+  --color-rule: oklch(85% 0.014 95);
+  --color-accent: oklch(84% 0.165 88);        /* amarillo ladrillo: accion principal */
+  --color-accent-edge: oklch(68% 0.15 75);    /* el "costado" del ladrillo en botones */
+  --color-accent-ink: oklch(24% 0.04 75);
+  --color-accent-hover: oklch(88% 0.15 90);
+  --color-accent-2: oklch(50% 0.17 258);      /* azul: enlaces, foco, paso actual */
+  --color-accent-2-soft: oklch(92% 0.04 258);
+  --color-accent-3: oklch(50% 0.19 28);       /* rojo: faltan piezas */
+  --color-accent-3-soft: oklch(94% 0.035 28);
+  --color-ok: oklch(46% 0.12 150);
+  --color-ok-soft: oklch(94% 0.04 150);
+  --color-focus: oklch(55% 0.2 258);
+  --color-scrim: oklch(20% 0.02 255 / 0.55);
+  --color-shadow: oklch(30% 0.04 255 / 0.22);
+  --color-halo: oklch(99% 0.005 95 / 0.8);    /* contorno claro de los recuadros sobre fotos */
+  --color-swatch-ring: oklch(20% 0.02 255 / 0.25);
+
+  --font-display: "Plus Jakarta Sans", ui-rounded, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Plus Jakarta Sans", ui-rounded, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: clamp(2rem, 1.4rem + 2.6vw, 2.75rem);
+  --text-step: clamp(2.75rem, 2rem + 4vw, 4.5rem);
+
+  --space-half: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+  --rule-1: 1px solid var(--color-rule);
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.6, 0, 0.4, 1);
+  --dur-fast: 120ms;
+  --dur-med: 220ms;
+  --dur-slow: 380ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-paper: oklch(19% 0.012 255);
+    --color-paper-2: oklch(23% 0.014 255);
+    --color-paper-3: oklch(28% 0.016 255);
+    --color-stage: oklch(45% 0.035 240);   /* el visor queda medio-claro: las piezas negras se siguen viendo */
+    --color-stage-2: oklch(49% 0.04 240);
+    --color-ink: oklch(95% 0.008 95);
+    --color-ink-2: oklch(76% 0.012 255);
+    --color-rule: oklch(34% 0.014 255);
+    --color-accent-2: oklch(72% 0.14 258);
+    --color-accent-2-soft: oklch(30% 0.06 258);
+    --color-accent-3: oklch(70% 0.17 28);
+    --color-accent-3-soft: oklch(30% 0.06 28);
+    --color-ok: oklch(74% 0.14 150);
+    --color-ok-soft: oklch(29% 0.05 150);
+    --color-focus: oklch(75% 0.15 258);
+    --color-shadow: oklch(5% 0.02 255 / 0.5);
+  }
+}
+:root[data-theme="dark"] {
+  --color-paper: oklch(19% 0.012 255);
+  --color-paper-2: oklch(23% 0.014 255);
+  --color-paper-3: oklch(28% 0.016 255);
+  --color-stage: oklch(45% 0.035 240);
+  --color-stage-2: oklch(49% 0.04 240);
+  --color-ink: oklch(95% 0.008 95);
+  --color-ink-2: oklch(76% 0.012 255);
+  --color-rule: oklch(34% 0.014 255);
+  --color-accent-2: oklch(72% 0.14 258);
+  --color-accent-2-soft: oklch(30% 0.06 258);
+  --color-accent-3: oklch(70% 0.17 28);
+  --color-accent-3-soft: oklch(30% 0.06 28);
+  --color-ok: oklch(74% 0.14 150);
+  --color-ok-soft: oklch(29% 0.05 150);
+  --color-focus: oklch(75% 0.15 258);
+  --color-shadow: oklch(5% 0.02 255 / 0.5);
+}

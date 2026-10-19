@@ -1,0 +1,53 @@
+# Nave Cuervo. Nariz hacia el frente (z alto). Fuselaje x3-6, alas x0-2 y x7-9.
+# Rejilla: x a la derecha, z hacia el frente, y en plates (brick = 3). Giro: 0 frente, 90 izq, 180 atras, 270 der.
+STEP El casco
+3001 Blacks 3 0 0 90
+3001 Blacks 5 0 0 90
+3001 Blacks 3 4 0 90
+3001 Blacks 5 4 0 90
+
+STEP Nariz y alas
+3039 Blacks 3 8 0
+3039 Blacks 5 8 0
+3747b Blacks 0 2 0 90
+3747b Blacks 0 4 0 90
+3747b Blacks 7 2 0 270
+3747b Blacks 7 4 0 270
+
+STEP Amarra el centro
+3020 Blacks 3 0 3
+3795 Blacks 2 3 3
+3710 Blacks 3 6 3
+3020 Blacks 3 7 3
+
+STEP Amarra las alas
+3710 Blacks 0 2 3
+3023 Blacks 4 2 3
+3710 Blacks 6 2 3
+3710 Blacks 0 5 3
+3023 Blacks 4 5 3
+3710 Blacks 6 5 3
+3023 Blacks 0 3 3
+3023 Blacks 0 4 3
+3023 Blacks 8 3 3
+3023 Blacks 8 4 3
+
+STEP La cabina
+2437 Turquoises:43 3 5 4
+3001 Blacks 3 3 4
+
+STEP Aleta y motores
+3039 Grays 3 1 4 180
+3039 Grays 5 1 4 180
+3700 Grays 3 0 4
+3700 Grays 5 0 4
+
+STEP Luces y acabados
+6141 Reds 0 2 4
+6141 Reds 9 2 4
+6141 Reds 0 5 4
+6141 Reds 9 5 4
+3068b Grays 0 3 4
+3068b Grays 8 3 4
+3068b Grays 3 3 7
+3068b Grays 5 3 7

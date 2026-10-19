@@ -1,0 +1,773 @@
+{
+ "generated_at": "2026-10-19T00:28:49.961Z",
+ "builds": [
+  {
+   "slug": "casita",
+   "name": "Casita amarilla",
+   "description": "Casa de muros amarillos con techo negro, chimenea, árbol, cerca blanca y flores.",
+   "difficulty": 1,
+   "status": "diseñado",
+   "tags": [
+    "casa",
+    "chico"
+   ],
+   "photos": [],
+   "file": "builds/casita/model.mpd",
+   "ldr": "builds/casita/model.ldr",
+   "pieces": 34,
+   "warnings": [],
+   "descs": {
+    "3003": "Brick  2 x  2",
+    "3004": "Brick  1 x  2",
+    "3005": "Brick  1 x  1",
+    "3010": "Brick  1 x  4",
+    "3020": "Plate  2 x  4",
+    "3039": "Slope Brick 45  2 x  2",
+    "3622": "Brick  1 x  3",
+    "3941": "Brick  2 x  2 Round without Reinforcement",
+    "3958": "Plate  6 x  6",
+    "6141": "Plate  1 x  1 Round",
+    "15332": "Fence Spindled  1 x  4 x  2 with 4 Studs",
+    "24866": "Plate  1 x  1 with  5 Petals",
+    "32607": "Plate  1 x  1 Round with  3 Leaves",
+    "60592": "Window  1 x  2 x  2 without Sill",
+    "98138": "Tile  1 x  1 Round with Groove",
+    "3062b": "Brick  1 x  1 Round with Hollow Stud"
+   },
+   "bom": [
+    {
+     "part": "3958",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3010",
+     "family": "Whites",
+     "qty": 2
+    },
+    {
+     "part": "3004",
+     "family": "Yellows",
+     "qty": 5
+    },
+    {
+     "part": "3005",
+     "family": "Yellows",
+     "qty": 4
+    },
+    {
+     "part": "60592",
+     "family": "Blues",
+     "qty": 1
+    },
+    {
+     "part": "3622",
+     "family": "Yellows",
+     "qty": 2
+    },
+    {
+     "part": "3004",
+     "family": "Whites",
+     "qty": 2
+    },
+    {
+     "part": "3039",
+     "family": "Blacks",
+     "qty": 4
+    },
+    {
+     "part": "3020",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3062b",
+     "family": "Browns",
+     "qty": 2
+    },
+    {
+     "part": "3941",
+     "family": "Browns",
+     "qty": 1
+    },
+    {
+     "part": "3003",
+     "family": "Greens",
+     "qty": 2
+    },
+    {
+     "part": "32607",
+     "family": "Greens",
+     "qty": 1
+    },
+    {
+     "part": "15332",
+     "family": "Whites",
+     "qty": 1
+    },
+    {
+     "part": "98138",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "98138",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "6141",
+     "family": "Reds",
+     "qty": 2
+    },
+    {
+     "part": "24866",
+     "family": "Greens",
+     "qty": 1
+    }
+   ],
+   "steps": [
+    {
+     "title": "El terreno",
+     "parts": [
+      {
+       "part": "3958",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3958.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Primera hilada y la puerta",
+     "parts": [
+      {
+       "part": "3010",
+       "family": "Whites",
+       "code": 15,
+       "file": "3010.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3004.dat",
+       "qty": 2
+      },
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 2
+      },
+      {
+       "part": "60592",
+       "family": "Blues",
+       "code": 1,
+       "file": "60592.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Segunda hilada",
+     "parts": [
+      {
+       "part": "3622",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3622.dat",
+       "qty": 2
+      },
+      {
+       "part": "3004",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3004.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Tercera hilada",
+     "parts": [
+      {
+       "part": "3010",
+       "family": "Whites",
+       "code": 15,
+       "file": "3010.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3004.dat",
+       "qty": 2
+      },
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "El techo",
+     "parts": [
+      {
+       "part": "3039",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3039.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Cumbrera y chimenea",
+     "parts": [
+      {
+       "part": "3020",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3020.dat",
+       "qty": 1
+      },
+      {
+       "part": "3062b",
+       "family": "Browns",
+       "code": 70,
+       "file": "3062b.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "El árbol",
+     "parts": [
+      {
+       "part": "3941",
+       "family": "Browns",
+       "code": 70,
+       "file": "3941.dat",
+       "qty": 1
+      },
+      {
+       "part": "3003",
+       "family": "Greens",
+       "code": 2,
+       "file": "3003.dat",
+       "qty": 2
+      },
+      {
+       "part": "32607",
+       "family": "Greens",
+       "code": 2,
+       "file": "32607.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Cerca, camino y flores",
+     "parts": [
+      {
+       "part": "15332",
+       "family": "Whites",
+       "code": 15,
+       "file": "15332.dat",
+       "qty": 1
+      },
+      {
+       "part": "98138",
+       "family": "Grays",
+       "code": 71,
+       "file": "98138.dat",
+       "qty": 1
+      },
+      {
+       "part": "98138",
+       "family": "Blacks",
+       "code": 0,
+       "file": "98138.dat",
+       "qty": 1
+      },
+      {
+       "part": "6141",
+       "family": "Reds",
+       "code": 4,
+       "file": "6141.dat",
+       "qty": 2
+      },
+      {
+       "part": "24866",
+       "family": "Greens",
+       "code": 2,
+       "file": "24866.dat",
+       "qty": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "faro",
+   "name": "Faro",
+   "description": "Faro de franjas rojas y blancas sobre una roca, con luz amarilla. Buen primer modelo para probar la app.",
+   "difficulty": 1,
+   "status": "diseñado",
+   "tags": [
+    "chico",
+    "edificio"
+   ],
+   "photos": [],
+   "file": "builds/faro/model.mpd",
+   "ldr": "builds/faro/model.ldr",
+   "pieces": 29,
+   "warnings": [],
+   "descs": {
+    "3003": "Brick  2 x  2",
+    "3004": "Brick  1 x  2",
+    "3005": "Brick  1 x  1",
+    "3020": "Plate  2 x  4",
+    "3031": "Plate  4 x  4",
+    "6141": "Plate  1 x  1 Round",
+    "59900": "Cone  1 x  1 with Stop",
+    "98100": "Cone  2 x  2 Truncated"
+   },
+   "bom": [
+    {
+     "part": "3031",
+     "family": "Blues",
+     "qty": 1
+    },
+    {
+     "part": "3004",
+     "family": "Grays",
+     "qty": 4
+    },
+    {
+     "part": "3003",
+     "family": "Reds",
+     "qty": 4
+    },
+    {
+     "part": "3004",
+     "family": "Whites",
+     "qty": 8
+    },
+    {
+     "part": "3020",
+     "family": "Blacks",
+     "qty": 2
+    },
+    {
+     "part": "3005",
+     "family": "Yellows",
+     "qty": 4
+    },
+    {
+     "part": "6141",
+     "family": "Blacks",
+     "qty": 4
+    },
+    {
+     "part": "98100",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "59900",
+     "family": "Reds",
+     "qty": 1
+    }
+   ],
+   "steps": [
+    {
+     "title": "El mar y las rocas",
+     "parts": [
+      {
+       "part": "3031",
+       "family": "Blues",
+       "code": 1,
+       "file": "3031.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Grays",
+       "code": 71,
+       "file": "3004.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Base de la torre",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Reds",
+       "code": 4,
+       "file": "3003.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Sube la torre",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Reds",
+       "code": 4,
+       "file": "3003.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Más franjas",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Reds",
+       "code": 4,
+       "file": "3003.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Remate de la torre",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Reds",
+       "code": 4,
+       "file": "3003.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "El balcón",
+     "parts": [
+      {
+       "part": "3020",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3020.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "La luz y los postes",
+     "parts": [
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 4
+      },
+      {
+       "part": "6141",
+       "family": "Blacks",
+       "code": 0,
+       "file": "6141.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "El techo",
+     "parts": [
+      {
+       "part": "98100",
+       "family": "Grays",
+       "code": 71,
+       "file": "98100.dat",
+       "qty": 1
+      },
+      {
+       "part": "59900",
+       "family": "Reds",
+       "code": 4,
+       "file": "59900.dat",
+       "qty": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "nave-cuervo",
+   "name": "Nave Cuervo",
+   "description": "Caza espacial negro con cabina transparente, alas inclinadas, luces rojas y motores grises.",
+   "difficulty": 2,
+   "status": "diseñado",
+   "tags": [
+    "nave",
+    "mediano"
+   ],
+   "photos": [],
+   "file": "builds/nave-cuervo/model.mpd",
+   "ldr": "builds/nave-cuervo/model.ldr",
+   "pieces": 38,
+   "warnings": [],
+   "descs": {
+    "2437": "Windscreen  3 x  4 x  1.333",
+    "3001": "Brick  2 x  4",
+    "3020": "Plate  2 x  4",
+    "3023": "Plate  1 x  2",
+    "3039": "Slope Brick 45  2 x  2",
+    "3700": "Technic Brick  1 x  2 with Hole",
+    "3710": "Plate  1 x  4",
+    "3795": "Plate  2 x  6",
+    "6141": "Plate  1 x  1 Round",
+    "3747b": "Slope Brick 33  3 x  2 Inverted with Ribs between Studs",
+    "3068b": "Tile  2 x  2 with Groove"
+   },
+   "bom": [
+    {
+     "part": "3001",
+     "family": "Blacks",
+     "qty": 5
+    },
+    {
+     "part": "3039",
+     "family": "Blacks",
+     "qty": 2
+    },
+    {
+     "part": "3747b",
+     "family": "Blacks",
+     "qty": 4
+    },
+    {
+     "part": "3020",
+     "family": "Blacks",
+     "qty": 2
+    },
+    {
+     "part": "3795",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3710",
+     "family": "Blacks",
+     "qty": 5
+    },
+    {
+     "part": "3023",
+     "family": "Blacks",
+     "qty": 6
+    },
+    {
+     "part": "2437",
+     "family": "Turquoises",
+     "qty": 1
+    },
+    {
+     "part": "3039",
+     "family": "Grays",
+     "qty": 2
+    },
+    {
+     "part": "3700",
+     "family": "Grays",
+     "qty": 2
+    },
+    {
+     "part": "6141",
+     "family": "Reds",
+     "qty": 4
+    },
+    {
+     "part": "3068b",
+     "family": "Grays",
+     "qty": 4
+    }
+   ],
+   "steps": [
+    {
+     "title": "El casco",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Nariz y alas",
+     "parts": [
+      {
+       "part": "3039",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3039.dat",
+       "qty": 2
+      },
+      {
+       "part": "3747b",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3747b.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Amarra el centro",
+     "parts": [
+      {
+       "part": "3020",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3020.dat",
+       "qty": 2
+      },
+      {
+       "part": "3795",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3795.dat",
+       "qty": 1
+      },
+      {
+       "part": "3710",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3710.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Amarra las alas",
+     "parts": [
+      {
+       "part": "3710",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3710.dat",
+       "qty": 4
+      },
+      {
+       "part": "3023",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3023.dat",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "title": "La cabina",
+     "parts": [
+      {
+       "part": "2437",
+       "family": "Turquoises",
+       "code": 43,
+       "file": "2437.dat",
+       "qty": 1
+      },
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Aleta y motores",
+     "parts": [
+      {
+       "part": "3039",
+       "family": "Grays",
+       "code": 71,
+       "file": "3039.dat",
+       "qty": 2
+      },
+      {
+       "part": "3700",
+       "family": "Grays",
+       "code": 71,
+       "file": "3700.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Luces y acabados",
+     "parts": [
+      {
+       "part": "6141",
+       "family": "Reds",
+       "code": 4,
+       "file": "6141.dat",
+       "qty": 4
+      },
+      {
+       "part": "3068b",
+       "family": "Grays",
+       "code": 71,
+       "file": "3068b.dat",
+       "qty": 4
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

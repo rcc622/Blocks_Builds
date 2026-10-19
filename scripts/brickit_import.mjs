@@ -23,8 +23,24 @@ const LINKS_FILE = path.join(DATA, 'sources', 'brickit_links.txt');
 const MANUAL_FILE = path.join(DATA, 'manual_parts.csv');
 const RAW_DIR = path.join(DATA, 'raw');
 
+// --replace <url> deja ese link como unica coleccion; --add <url> lo suma como pocket extra. Ambos editan
+// data/sources/brickit_links.txt (los usa el boton "Actualizar inventario" de la app via GitHub Actions).
+function updateLinks() {
+  const i = process.argv.findIndex(a => a === '--replace' || a === '--add');
+  if (i < 0) return;
+  const url = (process.argv[i + 1] || '').trim();
+  if (!/^https:\/\/brickit\.app\/offer\/[0-9a-f-]{36}$/.test(url)) throw new Error(`Link de Brickit invalido: "${url}"`);
+  const lines = fs.readFileSync(LINKS_FILE, 'utf8').split('\n');
+  const comments = lines.filter(l => !l.trim() || l.trim().startsWith('#'));
+  const links = lines.filter(l => l.trim() && !l.trim().startsWith('#'));
+  const next = process.argv[i] === '--replace' ? [url] : [...new Set([...links, url])];
+  fs.writeFileSync(LINKS_FILE, [...comments.filter(Boolean), ...next].join('\n') + '\n');
+  console.log(`${LINKS_FILE}: ${process.argv[i] === '--replace' ? 'reemplazado por' : 'agregado'} ${url}`);
+}
+
 function readLinks() {
-  const argv = process.argv.slice(2).filter(a => a.startsWith('http'));
+  const editing = process.argv.includes('--replace') || process.argv.includes('--add');
+  const argv = editing ? [] : process.argv.slice(2).filter(a => a.startsWith('http'));
   if (argv.length) return argv;
   if (!fs.existsSync(LINKS_FILE)) throw new Error(`No existe ${LINKS_FILE}`);
   return fs.readFileSync(LINKS_FILE, 'utf8').split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
@@ -55,16 +71,28 @@ function parseCsv(text) {
 const csvLine = arr => arr.map(v => (/[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : v)).join(',');
 
 async function main() {
+  updateLinks();
   const links = readLinks();
   const pieces = [];
   const sources = [];
+  // Localizador: en que foto de escaneo (y en que parte de la foto) esta cada pieza+color.
+  const locator = { scans: {}, parts: {} };
   for (const url of links) {
     const { id, d } = await fetchOffer(url);
     let n = 0;
     for (const scan of Object.values(d.parts)) {
+      const scanKey = `${id.slice(0, 8)}-${scan.scanNumber}`;
+      locator.scans[scanKey] = { n: scan.scanNumber, source: id, image: scan.scanImage };
       for (const [part, list] of Object.entries(scan.partsMap)) {
         for (const p of list) {
           n++;
+          const b = p.boundingBox, c = p.crop;
+          if (b && c && !locator.scans[scanKey].w && b.right > b.left && b.bottom > b.top) {
+            // crop esta en pixeles y centrado en la caja normalizada: el cociente de centros da el tamano de la foto.
+            locator.scans[scanKey].w = Math.round((c.left + c.right) / (b.left + b.right));
+            locator.scans[scanKey].h = Math.round((c.top + c.bottom) / (b.top + b.bottom));
+          }
+          if (b) (locator.parts[`${part}|${p.colorName}`] ??= []).push([scanKey, ...[b.left, b.top, b.right, b.bottom].map(v => Math.round(v * 1e4) / 1e4)]);
           pieces.push({ source: id, scan: scan.scanNumber, part, group: p.partGroup, category: p.partCategory,
                         size: p.partSize || '', color: p.colorName, image: p.partImage || '' });
         }
@@ -115,6 +143,7 @@ async function main() {
       colors: Object.fromEntries(colors.filter(c => byKey.has(`${m.part}|${c}`)).map(c => [c, byKey.get(`${m.part}|${c}`)])) })),
   };
   fs.writeFileSync(path.join(DATA, 'inventory.json'), JSON.stringify(inventory, null, 1) + '\n');
+  fs.writeFileSync(path.join(DATA, 'locator.json'), JSON.stringify(locator) + '\n');
   console.log(`\nTOTAL: ${pieces.length} piezas, ${byPart.size} formas, ${byKey.size} pieza+color, ${colors.length} familias de color`);
   console.log('Colores:', inventory.colors);
 }

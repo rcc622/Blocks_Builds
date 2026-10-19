@@ -1,0 +1,45 @@
+# Faro. Rejilla: x a la derecha, z hacia el frente, y en plates (brick = 3). Giro: 0 frente, 90 izq, 180 atras, 270 der.
+STEP El mar y las rocas
+3031 Blues 0 0 0
+3004 Grays 0 0 1
+3004 Grays 2 3 1
+3004 Grays 0 2 1 90
+3004 Grays 3 0 1 90
+
+STEP Base de la torre
+3003 Reds 1 1 1
+3004 Whites 1 1 4
+3004 Whites 1 2 4
+
+STEP Sube la torre
+3003 Reds 1 1 7
+3004 Whites 1 1 10 90
+3004 Whites 2 1 10 90
+
+STEP Más franjas
+3003 Reds 1 1 13
+3004 Whites 1 1 16
+3004 Whites 1 2 16
+
+STEP Remate de la torre
+3003 Reds 1 1 19
+3004 Whites 1 1 22 90
+3004 Whites 2 1 22 90
+
+STEP El balcón
+3020 Blacks 0 0 25
+3020 Blacks 0 2 25
+
+STEP La luz y los postes
+3005 Yellows 1 1 26
+3005 Yellows 2 1 26
+3005 Yellows 1 2 26
+3005 Yellows 2 2 26
+6141 Blacks 0 0 26
+6141 Blacks 3 0 26
+6141 Blacks 0 3 26
+6141 Blacks 3 3 26
+
+STEP El techo
+98100 Grays 1 1 29
+59900 Reds 1.5 1.5 32

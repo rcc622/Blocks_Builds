@@ -1,74 +1,104 @@
 # legobuilds — contexto del proyecto para Claude Code
 
 ## Qué es
-App personal de Randall para diseñar construcciones Lego nuevas **con las piezas que ya tiene** y seguirlas con **manuales interactivos paso a paso estilo Lego** (vista 3D/isométrica por paso, lista de piezas del paso, progreso, usable en celular y PC).
+App personal de Randall para armar construcciones Lego nuevas **con las piezas que ya tiene**, con **manuales interactivos paso a paso estilo Lego**: visor 3D por paso, recuadro de piezas del paso, progreso, celular primero, modo oscuro.
 
 Randall no programa; construye con IA. Explica decisiones técnicas en una línea, no en párrafos. Responde en español, directo, números primero.
 
-## Estado actual (2026-10-18)
-- **Inventario lote 1 cargado y verificado:** 468 piezas, 140 formas, 258 combinaciones pieza+color, 12 familias de color. 467 vienen de Brickit (8 escaneos) + 1 manual (32306).
-- Colección total estimada ~1000 piezas, sueltas, de sets de los 90s y 2000s, sin manuales. Faltan lotes por escanear.
-- No hay app todavía. Solo pipeline de datos.
+## Estado (2026-10-18)
+- **App funcionando** (sitio estático, sin backend): biblioteca de modelos, manual 3D paso a paso, inventario con filtros, localizador de piezas en las fotos de Brickit, botón para actualizar inventario desde el celular, instalable como app (PWA, recibe links compartidos desde Brickit).
+- **3 modelos diseñados y validados** contra el inventario: `faro` (29 piezas), `casita` (34), `nave-cuervo` (38). Ninguno armado físicamente todavía.
+- **Inventario lote 1:** 468 piezas, 140 formas, 12 familias de color (467 Brickit + 1 manual `32306`). Colección total estimada ~1000; faltan lotes por escanear.
+- Pendiente de Randall: activar GitHub Pages (Settings → Pages → Source: **GitHub Actions**), crear el token para el botón de sincronizar, elegir logo (conceptos A/B/C; A "Escalón" está puesto como provisional).
+
+## Estructura
+| Ruta | Qué es |
+|---|---|
+| `index.html` | Shell de la app. three.js 0.180 por importmap desde jsDelivr (versión fija). |
+| `app/app.js` | Router por hash y vistas: `#/` modelos, `#/b/<slug>/<paso>` manual (0 = resumen), `#/piezas`, `#/sync`. |
+| `app/viewer.js` | Visor three.js + `LDrawLoader`: pasos (`0 STEP`), piezas nuevas caen en su lugar, encuadre por paso, modo "resaltar nuevas", miniaturas de piezas en color. |
+| `app/check.js` | ¿Se puede armar? pieza+color vs inventario, sustitutos de color, piezas apartadas por modelos armados. **Compartido** con los scripts. |
+| `app/colors.js` | Familias de Brickit → código de color LDraw. **Compartido** con los scripts. |
+| `app/tokens.css`, `app/style.css` | Sistema de diseño (OKLCH, Plus Jakarta Sans + JetBrains Mono). Todo color/fuente sale de tokens. |
+| `app/LDConfig.ldr` | Colores oficiales LDraw (los usa el visor). |
+| `sw.js`, `manifest.webmanifest`, `icons/` | PWA: offline mientras armas, `share_target` para recibir el link de Brickit. |
+| `builds/<slug>/` | `meta.json` + `model.txt` (fuente) → generados: `model.ldr`, `model.mpd` (empaquetado con sus piezas). |
+| `builds/index.json` | Catálogo generado para la app (piezas por paso, BOM, avisos). |
+| `scripts/brickit_import.mjs` | Inventario desde links de Brickit (`--replace URL` / `--add URL` editan la lista). |
+| `scripts/build_models.mjs` | Compila, revisa y empaqueta modelos. `--part` y `--catalog` para diseñar. |
+| `scripts/check.test.mjs` | Prueba mínima de `check.js`. |
 
 ## Fuente de datos: Brickit (app Android, cuenta `rcruz17`, licencia Pro)
-- Randall escanea sus piezas en **Brickit > Pockets** (un pocket por bolsa de 150–200 piezas). Pockets acumula; Quick Play NO (se sobrescribe).
-- **Brickit no tiene API pública** (verificado: `/api/offer/...` da 404; el FAQ está vacío). La única salida de datos es el **link de compartir** `https://brickit.app/offer/<uuid>`.
-- Ese link es un **snapshot congelado** al momento de compartir. Si Randall agrega escaneos, el link viejo NO cambia (verificado 2026-10-18: mismo link, mismos 467). Hay que generar un link nuevo desde la app.
-- La página del link trae **todo** embebido en `window.__NUXT__`: cada pieza individual con `partNum` (número BrickLink/LDraw), `partGroup`, `partCategory`, `partSize`, `colorName`, `partImage`, `boundingBox` dentro de la foto del escaneo, y `scanImage`. `scripts/brickit_import.mjs` lo evalúa con `vm` y lo aplana.
-- Los colores son **familias** (Blacks, Grays, Reds, Yellows, Blues, Greens, Whites, Browns, Turquoises, Pinks, Purples, Oranges), no el tono exacto. "Blues" mezcla azul claro y oscuro. Suficiente para diseñar; si un diseño exige tono exacto, Randall confirma a mano.
-- Precisión del escaneo: buena en forma y cantidad, con errores ocasionales (ej. detectó una plate 1×5 `78329`, pieza de 2021+, improbable en sets de los 90s/2000s; probablemente una 1×4 o 1×6). Tratar cantidades de piezas raras con 1 unidad como "probables".
+- Randall escanea en **Brickit > Pockets** (un pocket por bolsa de 150–200 piezas). Pockets acumula; Quick Play NO.
+- **Brickit no tiene API pública.** La única salida es el link de compartir `https://brickit.app/offer/<uuid>`: un **snapshot congelado**; si escanea más, hay que compartir un link nuevo.
+- La página trae todo en `window.__NUXT__`: por pieza `partNum` (BrickLink/LDraw), grupo, categoría, tamaño, `colorName`, `partImage`, `boundingBox`/`crop` en la foto y `scanImage` (URL firmada, vence ~1 año; el sync semanal la renueva).
+- Colores = **familias** ("Blues" mezcla claro y oscuro). Si un diseño exige tono exacto, Randall confirma a mano.
+- Precisión: buena en forma y cantidad, errores ocasionales (ej. `78329` plate 1×5, pieza 2021+, improbable). Piezas con 1 unidad = "probables".
 
-## Flujo de sincronización (ya implementado)
-1. Randall en Brickit: Pockets > Share → copia el link nuevo.
-2. Pega el link en `data/sources/brickit_links.txt` (reemplaza si es la colección completa; agrega si es un pocket extra). Piezas no reconocidas van a `data/manual_parts.csv`.
-3. Push → `.github/workflows/sync-inventory.yml` corre `node scripts/brickit_import.mjs` y commitea `data/`. También corre a mano (Actions) y los domingos.
-4. El script **verifica** que piezas y formas cuadren con lo que declara Brickit; si no cuadra, falla el job.
+## Flujo de sincronización
+1. Brickit → Pockets → Share → **legobuilds** (si instaló la app) o copiar link.
+2. En la app, `#/sync`: pegar link, elegir "toda mi colección" (reemplaza) o "pocket extra" (suma) → botón. Manda `repository_dispatch` con un token fine-grained de Randall (Contents: read/write, solo este repo, guardado solo en su navegador).
+3. `.github/workflows/sync-inventory.yml` corre import + catálogo + modelos y commitea. `pages.yml` publica después de cada sync y cada push.
+4. Sin token: editar `data/sources/brickit_links.txt` en GitHub. Piezas no reconocidas → `data/manual_parts.csv`.
+5. El import **verifica** piezas/formas contra lo que declara Brickit; si no cuadra, falla el job.
 
-Mejoras pendientes al flujo (no urgentes): un formulario web en la app donde Randall pegue el link y dispare el workflow vía `repository_dispatch`; o un bookmarklet/atajo en Android que abra el link compartido y lo mande al repo.
+## Datos (`data/`) — todo generado salvo `sources/` y `manual_parts.csv`
+| Archivo | Para qué |
+|---|---|
+| `inventory.json` | Fuente de verdad de la app. Totales, colores, por pieza qty + desglose por color + imagen. |
+| `locator.json` | Por `pieza|color`: en qué foto de escaneo y en qué caja. Fotos 3024×4032. |
+| `part_catalog.csv` | Por pieza: archivo LDraw, descripción, ancho×fondo×alto, studs. **Úsalo para diseñar.** |
+| `part_names.json` | Nombres LDraw (la app los traduce). |
+| `inventory.csv`, `color_matrix.csv`, `by_scan.csv` | Para revisar a mano / Excel. |
+| `raw/<offer-id>.json` | Dump completo del link. |
 
-## Archivos de datos (`data/`)
-| Archivo | Qué es | Úsalo para |
-|---|---|---|
-| `inventory.json` | Fuente de verdad para la app. Totales, colores, y por pieza: grupo, categoría, tamaño, qty, imagen, desglose por color. | Cargar en la app, validar diseños. |
-| `inventory.csv` | Una fila por pieza+color. | Revisar a mano, Excel. |
-| `color_matrix.csv` | Piezas × colores. | Elegir paleta de un diseño. |
-| `by_scan.csv` | Detalle por fuente y escaneo. | Saber en qué bolsa/pocket está una pieza. |
-| `raw/<offer-id>.json` | Dump completo del link (incluye bounding boxes y fotos). | Localizador de piezas en la foto, debugging. |
-| `manual_parts.csv` | Piezas agregadas a mano (formato: pieza,grupo,categoria,tamano,color,cantidad). | Lo edita Randall. |
-| `sources/brickit_links.txt` | Links de Brickit a importar. | Lo edita Randall. |
+**Regla:** no editar generados a mano; editar fuentes y correr los scripts.
 
-**Regla:** `data/*.csv|json` y `data/raw/` los genera el script. No editarlos a mano; editar fuentes y correr `node scripts/brickit_import.mjs`.
+## Cómo diseñar un modelo nuevo (lo hace Claude)
+1. Mira `data/part_catalog.csv` (medidas y colores con cantidad) y pensar en piezas comunes primero.
+2. Crea `builds/<slug>/meta.json` (`name`, `description`, `difficulty` 1–3, `status: "diseñado"`, `tags`) y `builds/<slug>/model.txt`.
+3. `model.txt`, una pieza por línea: `<pieza> <familia>[:codigoLDraw] <x> <z> <y> [giro]`
+   - Rejilla: **x** a la derecha, **z hacia el frente**, **y** = altura de la base en **plates** (brick = 3, plate/tile = 1). x,z = esquina de la pieza en studs.
+   - **Giro** alrededor del eje vertical: `0` la pendiente mira al frente (studs atrás), `90` mira a la izquierda, `180` atrás, `270` derecha. Un 1×2 con giro 90 queda 1 de ancho × 2 de fondo.
+   - Pendientes invertidas (3665, 3660, 3747b, 4287c): su cara de abajo es solo la fila de atrás; con giro 0 sobresalen hacia el frente.
+   - `STEP <título>` empieza un paso (3–8 piezas, de abajo hacia arriba). `#` comenta.
+   - Color con tono exacto: `Turquoises:43` (transparente azul claro, p. ej. parabrisas `2437`), `Grays:72` (gris oscuro).
+   - Medio stud a propósito: x/z con decimales (`59900 Reds 1.5 1.5 32`). Piezas cuya base sobresale (pétalos `15469`) también: x/z = esquina de su caja, ver con `--part`.
+   - Bisagras, ruedas, minifigs: línea LDraw cruda `1 <color> x y z a b c d e f g h i pieza.dat` (pasa sin revisar estructura).
+4. `node scripts/build_models.mjs <slug>` y corregir hasta que diga `OK inventario` y **sin avisos**:
+   - `encimada`: dos piezas ocupan la misma celda.
+   - `flotando`: no conecta (stud con cara de abajo) con nada que llegue al piso.
+5. Revisar visualmente en la app (`#/b/<slug>/0`, girar el modelo, ver cada paso).
+- `node scripts/build_models.mjs --part 3039 3747b` muestra tamaño, studs y cara de abajo de cada pieza con giro 0.
+- Diseño conservador: traslapa juntas entre hiladas, nada de voladizos largos, amarra alas/salientes con placas que crucen al cuerpo.
+- Números de pieza que LDraw nombra distinto → `scripts/part_aliases.json` (`{"970c03": "970c00"}`). Hoy faltan en LDraw: `32306`, `3814`, `41864`, `970c03`, `98560`.
 
-## Números clave del inventario actual
-- Por grupo: Bricks 225, Plates 157 (incluye tiles), Technic 31, Functional (bisagras/brazos) 19, Minifigs 12, Outdoor 11, Transport 10, Building 3.
-- Top piezas: brick 1×2 `3004` (40), plate 1×2 `3023` (31), brick 2×2 `3003` (24), tile 2×2 `3068b` (22), slope 2×2 `3039` (21), brick 2×4 `3001` (19), plate 2×4 `3020` (15).
-- Por color: negro 134 (29%), gris 78, rojo 49, amarillo 43, azul 41, verde 35, blanco 33, café 21, turquesa 17, rosa 8, morado 7, naranja 2.
-- Mayor stock en un solo color: plate 1×2 negra 15, slope 2×2 negro 10, tile 2×2 amarillo 10, brick 2×4 negro 8.
-- 75 de 140 formas tienen 1 sola pieza. Solo 6 ruedas, de 4 tipos.
-- Implicación de diseño: modelos chicos/medianos (30–120 piezas), paleta negro+gris con acentos; muchos slopes → naves, vehículos, techos.
-
-## Qué construir (orden sugerido)
-1. **Validador de diseños**: dado un modelo (lista de pieza+color+qty), decir si se puede armar con `inventory.json`, qué falta y sustitutos de color.
-2. **Generador de modelos**: Claude propone diseños en formato **LDraw (.ldr)** usando solo números de pieza del inventario. LDraw usa los mismos números que Brickit/BrickLink en casi todos los casos; mapear excepciones en `scripts/part_aliases.json` cuando aparezcan.
-3. **Pasos de armado**: ordenar las piezas del .ldr en pasos (`0 STEP`), de abajo hacia arriba, 3–8 piezas por paso.
-4. **Visor interactivo** (web, estático, deployable en GitHub Pages): render 3D del modelo por paso con Three.js + el loader LDraw de three.js (`three/examples/jsm/loaders/LDrawLoader.js`), que necesita la librería de partes LDraw (descargar `complete.zip` de ldraw.org o servir solo las piezas usadas). Por paso: piezas nuevas resaltadas, lista de piezas con imagen (`partImage` de Brickit), botón anterior/siguiente, barra de progreso, modo oscuro, celular primero. Guardar progreso en `localStorage`.
-5. **Localizador de piezas**: usar `boundingBox` + `scanImage` del raw para mostrar en qué foto/pocket está cada pieza del paso.
-6. **Biblioteca de construcciones**: `builds/<slug>/model.ldr` + `meta.json` (nombre, dificultad, piezas, estado: diseñado/armado/fallido) + fotos del resultado real.
-7. Más adelante: PDF estilo manual Lego (BrickLink Studio importa .ldr y genera instrucciones; es plan B manual).
+## Retroalimentación de Randall
+- En la app: "Algo falló" / "Mandar fotos" abren un issue de GitHub con etiqueta `resultado` (fotos adjuntas). "Pedir un diseño" abre issue con etiqueta `idea`. Revisar issues al empezar sesión.
+- Estado del modelo (Por armar / Armado / Necesita cambios) y progreso se guardan en el navegador de Randall. "Armado" aparta sus piezas para los demás modelos. Para dejarlo en el repo, cambiar `status` en `meta.json`.
 
 ## Decisiones tomadas
-- Stack: sin backend. Repo + GitHub Actions para datos, sitio estático para la app (GitHub Pages). Node ≥ 18 sin dependencias para scripts.
-- Formato de modelos: LDraw, por ser texto plano, abierto, compatible con Studio y con three.js.
-- Se descartó entrenar/usar un modelo de visión propio (YOLO/B200): menor precisión que Brickit y solo ~200 tipos de pieza.
-- Se descartó Pileometer y la versión Quick Play de Brickit.
-- Los dos CSV de la primera versión (`lego_lote1_consolidado.csv`, `lego_lote1_por_scan.csv`) quedaron obsoletos; no existen aquí.
+- Sin backend: repo + GitHub Actions para datos, GitHub Pages para la app. Node ≥ 18 sin dependencias. App sin build step (ES modules + importmap).
+- Modelos en LDraw (texto, abierto, compatible con BrickLink Studio y three.js). El `.mpd` empaquetado evita cientos de peticiones en el celular.
+- Piezas LDraw desde el mirror completo `gkjohnson/ldraw-parts-library` en GitHub (ldraw.org solo de respaldo, limita con 429). Cache en `.ldraw-cache/` (ignorado) o `$LDRAW_CACHE` en CI.
+- Revisión estructural aproximada por rejilla (cajas, studs, cara de abajo): detecta encimadas y flotantes, no garantiza estabilidad.
+- Imágenes de piezas: render 3D en color en el manual; fotos de Brickit en inventario.
+- Diseño (Hallmark, playful, tema propio "manual de armado"): fondo de visor azul de manual con studs tenues, botón primario como ladrillo amarillo, número de paso grande. El visor queda medio-claro en modo oscuro para que se vean las piezas negras.
+- Descartado: modelo de visión propio (YOLO), Pileometer, Brickit Quick Play.
 
 ## Límites conocidos
-- Claude no puede probar físicamente la estabilidad de un modelo. Diseñar conservador (traslape de piezas, sin voladizos largos) e iterar con las fotos de Randall.
-- Si Brickit cambia el formato de su página, el import falla con mensaje claro; revisar `window.__NUXT__` y ajustar `fetchOffer()`.
+- Claude no prueba estabilidad física. Diseñar conservador e iterar con fotos de Randall.
+- Si Brickit cambia su página, el import falla con mensaje claro; revisar `window.__NUXT__` en `fetchOffer()`.
+- Ideas pendientes (no urgentes): PDF estilo manual (Studio importa el `.ldr` como plan B), sub-ensambles en el manual, filtros del inventario en la URL.
 
 ## Comandos
 ```bash
-node scripts/brickit_import.mjs                 # regenerar data/ desde las fuentes
-node scripts/brickit_import.mjs <url-brickit>   # probar un link sin tocar las fuentes
+node scripts/brickit_import.mjs                    # regenerar data/ desde las fuentes
+node scripts/brickit_import.mjs <url-brickit>      # probar un link sin tocar las fuentes
+node scripts/build_models.mjs                      # compilar, revisar y empaquetar todos los modelos
+node scripts/build_models.mjs nave-cuervo          # uno solo
+node scripts/build_models.mjs --part 3039 3001     # medidas de piezas en la rejilla
+node scripts/build_models.mjs --catalog            # data/part_catalog.csv + part_names.json
+node scripts/check.test.mjs                        # prueba de la revisión de inventario
+python -m http.server 8123                         # ver la app en http://localhost:8123
 ```

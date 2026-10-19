@@ -1,19 +1,31 @@
-name: Sync inventario Brickit
+name: Sync inventario y modelos
 
-# Se dispara cuando cambian las fuentes (links de Brickit o piezas manuales),
-# a mano desde la pestaña Actions, o cada domingo por si un link cambio.
+# Corre cuando cambian las fuentes (links de Brickit, piezas manuales, modelos, scripts), cuando la app manda un
+# link nuevo (boton "Actualizar inventario" -> repository_dispatch), a mano desde Actions, o cada domingo.
 on:
   push:
+    branches: [main]
     paths:
       - "data/sources/brickit_links.txt"
       - "data/manual_parts.csv"
-      - "scripts/brickit_import.mjs"
+      - "scripts/**"
+      - "app/colors.js"
+      - "app/check.js"
+      - "builds/**/model.txt"
+      - "builds/**/model.ldr"
+      - "builds/**/meta.json"
+  repository_dispatch:
+    types: [brickit-link]
   workflow_dispatch:
   schedule:
     - cron: "17 13 * * 0"
 
 permissions:
   contents: write
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
 
 jobs:
   sync:
@@ -23,13 +35,34 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: Importar inventario
-        run: node scripts/brickit_import.mjs
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/ldraw
+          key: ldraw-${{ hashFiles('builds/**/model.txt', 'builds/**/model.ldr', 'data/inventory.json') }}
+          restore-keys: ldraw-
+      - name: Importar inventario de Brickit
+        env:
+          # Llegan del boton de la app. Se pasan por env (no se pegan en el script) y el import valida el formato.
+          LINK_URL: ${{ github.event.client_payload.url }}
+          LINK_MODE: ${{ github.event.client_payload.mode }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "repository_dispatch" ]; then
+            if [ "$LINK_MODE" = "add" ]; then node scripts/brickit_import.mjs --add "$LINK_URL"
+            else node scripts/brickit_import.mjs --replace "$LINK_URL"; fi
+          else
+            node scripts/brickit_import.mjs
+          fi
+      - name: Catalogo de piezas y modelos
+        run: |
+          node scripts/check.test.mjs
+          export LDRAW_CACHE="$HOME/.cache/ldraw"
+          node scripts/build_models.mjs --catalog
+          node scripts/build_models.mjs
       - name: Commit si hubo cambios
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/
+          git add data/ builds/
           if git diff --cached --quiet; then echo "Sin cambios"; exit 0; fi
-          git commit -m "data: sync inventario Brickit $(date -u +%Y-%m-%d)"
+          git commit -m "data: sync inventario y modelos $(date -u +%Y-%m-%d)"
           git push

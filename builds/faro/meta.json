@@ -1,0 +1,7 @@
+{
+  "name": "Faro",
+  "description": "Faro de franjas rojas y blancas sobre una roca, con luz amarilla. Buen primer modelo para probar la app.",
+  "difficulty": 1,
+  "status": "diseñado",
+  "tags": ["chico", "edificio"]
+}

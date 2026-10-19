@@ -1,0 +1,7 @@
+{
+  "name": "Nave Cuervo",
+  "description": "Caza espacial negro con cabina transparente, alas inclinadas, luces rojas y motores grises.",
+  "difficulty": 2,
+  "status": "diseñado",
+  "tags": ["nave", "mediano"]
+}
