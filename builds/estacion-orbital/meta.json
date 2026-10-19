@@ -1,0 +1,7 @@
+{
+  "name": "Estación orbital",
+  "description": "Estación espacial en cruz con núcleo de cristal y radar, módulos de colores, paneles solares, contenedor de carga y una lanzadera acoplada.",
+  "difficulty": 3,
+  "status": "diseñado",
+  "tags": ["espacio", "grande", "estación"]
+}

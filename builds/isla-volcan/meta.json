@@ -1,0 +1,7 @@
+{
+  "name": "Isla del volcán",
+  "description": "Isla de roca con volcán en erupción de lava y humo, torre vigía, chozas, muelle con cajas y un velero en el mar.",
+  "difficulty": 3,
+  "status": "diseñado",
+  "tags": ["isla", "volcán", "grande"]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Feria con carrusel",
+  "description": "Plaza de feria con carrusel de toldo de colores, dos puestos con toldo, arco de entrada, palmera y farolas.",
+  "difficulty": 3,
+  "status": "diseñado",
+  "tags": ["feria", "grande", "carrusel"]
+}

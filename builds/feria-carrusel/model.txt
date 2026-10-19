@@ -1,0 +1,181 @@
+# Feria con carrusel. Plaza de 16x10 (x0-15, z0-9). Carrusel x0-5 z0-5, puestos x7-10 y x12-15 (z1-4), arco en z8-9.
+STEP Piso: zona del carrusel
+3958 Blacks 0 0 0
+3795 Blacks 0 6 0
+4477 Blacks 6 0 0
+3710 Blacks 6 1 0
+3710 Blacks 10 1 0
+3023 Blacks 14 1 0
+
+STEP Piso: zona de los puestos
+3020 Blacks 6 2 0
+3020 Blacks 10 2 0
+3020 Blacks 6 4 0
+3020 Blacks 10 4 0
+3023 Blacks 14 2 0
+3023 Blacks 14 3 0
+3023 Blacks 14 4 0
+3023 Blacks 14 5 0
+
+STEP Piso: plaza
+3020 Blacks 6 6 0
+3020 Grays 10 6 0
+3023 Blacks 14 6 0
+3023 Blacks 14 7 0
+3710 Blacks 0 8 0
+3710 Blacks 4 8 0
+3710 Blacks 8 8 0
+3710 Blacks 12 8 0
+
+STEP Piso: entrada
+3710 Blacks 0 9 0
+3023 Blacks 4 9 0
+3023 Blacks 6 9 0
+3023 Blacks 8 9 0
+3023 Blacks 10 9 0
+3023 Blacks 12 9 0
+3023 Blacks 14 9 0
+
+STEP Carrusel: piso giratorio
+3795 Grays 0 0 1
+3795 Blues 0 4 1
+3023 Whites 0 2 1
+3023 Whites 0 3 1
+3023 Whites 4 2 1
+3023 Greens 4 3 1
+
+STEP Carrusel: eje central
+3941 Grays 2 2 1
+3941 Grays 2 2 4
+3941 Grays 2 2 7
+
+STEP Carrusel: postes
+3005 Yellows 0 0 2
+3005 Yellows 5 0 2
+3005 Yellows 0 5 2
+3005 Yellows 5 5 2
+
+STEP Carrusel: postes de arriba
+3005 Whites 0 0 5
+3005 Whites 5 0 5
+3005 Reds 0 5 5
+3005 Blacks 5 5 5
+
+STEP Carrusel: caballos
+6091 Reds 2 0 2
+6091 Greens 3 4 2
+3040b Browns 0 2 2
+3040b Browns 5 2 2
+
+STEP Carrusel: toldo
+3020 Turquoises 0 0 8
+3020 Whites 4 0 8 90
+3020 Blues 2 4 8
+3020 Grays 0 2 8 90
+
+STEP Carrusel: techo de adelante
+3039 Reds 0 0 9 180
+3039 Whites 2 0 9 180
+3039 Reds 4 0 9 270
+3039 Greens 4 2 9 270
+3039 Greens 2 4 9 0
+3039 Grays 4 4 9 0
+
+STEP Carrusel: techo de la izquierda y remate
+3039 Reds 0 2 9 90
+3039 Greens 0 4 9 90
+59900 Reds 2 2 10
+11609 Yellows 3 3 10
+
+STEP Puesto de helados: paredes
+3010 Whites 7 1 1
+3004 Whites 7 2 1 90
+3004 Whites 10 2 1 90
+3010 Whites 7 4 1
+3626c Reds 8 2 1
+
+STEP Puesto de helados: segundo nivel
+3004 Whites 7 1 4
+3004 Whites 9 1 4
+3004 Whites 7 2 4 90
+3004 Whites 10 2 4 90
+3005 Blues 7 4 4
+3005 Blues 10 4 4
+6141 Reds 8 4 4
+98138 Pinks 9 4 4
+
+STEP Puesto de helados: techo
+3020 Turquoises 7 1 7
+3020 Turquoises 7 3 7
+4286 Reds 7 2 8
+4286 Whites 8 2 8
+4286 Reds 9 2 8
+4286 Yellows 10 2 8
+3023 Reds 7 1 8
+3023 Reds 9 1 8
+
+STEP Puesto de globos: paredes
+3010 Yellows 12 1 1
+3004 Yellows 12 2 1 90
+3004 Yellows 15 2 1 90
+3010 Browns 12 4 1
+3626c Browns 13 2 1
+
+STEP Puesto de globos: segundo nivel
+3004 Blues 13 1 4
+3004 Blues 12 1 4 90
+3004 Blues 12 3 4 90
+3004 Blues 15 1 4 90
+3004 Blues 15 3 4 90
+6141 Reds 13 4 4
+6141 Reds 14 4 4
+
+STEP Puesto de globos: techo
+3020 Whites 12 1 7
+3020 Whites 12 3 7
+4286 Greens 12 2 8
+4286 Grays 13 2 8
+4286 Greens 14 2 8
+4286 Grays 15 2 8
+3023 Blues 12 1 8
+3023 Blues 14 1 8
+
+STEP Arco de entrada: pilares
+3003 Greens 4 8 1
+3003 Greens 10 8 1
+3003 Greens 4 8 4
+3003 Greens 10 8 4
+
+STEP Arco de entrada: dintel y cartel
+3034 Blues 4 8 7
+3039 Blacks 4 8 8 90
+3039 Blacks 10 8 8 270
+3068b Yellows 6 8 8
+3068b Yellows 8 8 8
+
+STEP Caminos
+3068b Grays 4 6 1
+3068b Grays 6 6 1
+3068b Grays 8 6 1
+3068b Grays 10 6 1
+3068b Whites 12 6 1
+3068b Yellows 6 8 1
+3068b Yellows 8 8 1
+
+STEP Arbol
+3062b Browns 14 7 1
+3062b Browns 14 7 4
+6215 Greens 13 6 7
+6215 Greens 13 6 10
+
+STEP Arbusto y reja
+32607 Greens 0 6 1
+32607 Greens 2 6 1
+24866 Greens 1 8 1
+15332 Whites 0 9 1
+
+STEP Farolas
+3005 Grays 12 8 1
+4070 Reds 12 8 4
+3005 Yellows 13 9 1
+6141 Reds 13 9 4

@@ -1,0 +1,168 @@
+# Estacion orbital. Cruz de 4 brazos (2 de ancho) alrededor de un nucleo de 4x4 en x4-7, z4-7.
+# Frente = z alto: lanzadera acoplada. Atras = z bajo: contenedor de carga.
+STEP Cubiertas del piso
+3020 Grays 4 4 0
+3020 Grays 4 6 0
+3020 Turquoises 0 5 0
+3020 Turquoises 8 5 0
+3795 Blacks 5 8 0 90
+3795 Blues 5 -3 0 90
+3023 Turquoises 5 3 0
+
+STEP Pasillos laterales
+3001 Whites 1 5 1
+3004 Grays 0 5 1 90
+3001 Whites 7 5 1
+3004 Grays 11 5 1 90
+
+STEP Pasillos de frente y fondo
+3001 Blacks 5 7 1 90
+3004 Grays 5 11 1
+3001 Blacks 5 1 1 90
+3004 Grays 5 0 1
+
+STEP Piso del nucleo
+3003 Blues 5 5 1
+3005 Yellows 4 4 1
+3005 Yellows 7 4 1
+3005 Yellows 4 7 1
+3005 Yellows 7 7 1
+
+STEP Modulo izquierdo
+3004 Whites 0 5 4
+3004 Whites 2 5 4
+3004 Whites 0 6 4
+3004 Whites 2 6 4
+
+STEP Modulo derecho
+3004 Blues 8 5 4
+3004 Blues 10 5 4
+3004 Blues 8 6 4
+3004 Blues 10 6 4
+
+STEP Modulo de frente
+3004 Reds 5 8 4
+3004 Reds 5 9 4
+3004 Reds 5 10 4
+3004 Reds 5 11 4
+
+STEP Modulo de fondo
+3004 Greens 5 0 4
+3004 Greens 5 1 4
+3004 Greens 5 2 4
+3004 Greens 5 3 4
+
+STEP Cuerpo del nucleo
+3001 Reds 4 4 4
+3001 Reds 4 6 4
+
+STEP Segundo nivel izquierdo y derecho
+3004 Yellows 0 5 7
+3004 Yellows 2 5 7
+3004 Yellows 0 6 7
+3004 Yellows 2 6 7
+3004 Whites 8 5 7
+3004 Whites 10 5 7
+3004 Whites 8 6 7
+3004 Whites 10 6 7
+
+STEP Segundo nivel de frente y fondo
+3004 Turquoises 5 8 7
+3004 Turquoises 5 9 7
+3004 Turquoises 5 10 7
+3004 Turquoises 5 11 7
+3004 Blues 5 0 7
+3004 Blues 5 1 7
+3004 Blacks 5 2 7
+3004 Blacks 5 3 7
+
+STEP Anillo del nucleo
+3622 Yellows 4 4 7
+3622 Yellows 7 4 7 90
+3622 Yellows 5 7 7
+3622 Blues 4 5 7 90
+3941 Grays 5 5 7
+
+STEP Techos de los brazos
+3039 Blacks 2 5 10 270
+3022 Grays 0 5 10
+3039 Blacks 8 5 10 90
+3022 Whites 10 5 10
+3039 Blacks 5 8 10 180
+3039 Blacks 5 10 10 0
+3039 Blacks 5 0 10 180
+3039 Blacks 5 2 10 0
+
+STEP Cabina de cristal
+2437 Turquoises:43 4 4 10
+3010 Whites 4 7 10
+3710 Blacks 4 7 13
+
+STEP Techo del nucleo
+3020 Whites 4 4 14
+3020 Whites 4 6 14
+3022 Blues 5 5 15
+4740 Grays 5 5 16
+98138 Reds 6 6 17
+3700 Grays 5 4 15
+3700 Grays 5 7 15
+
+STEP Luces de los brazos
+3023 Blacks 2 5 13 90
+3023 Blacks 9 5 13 90
+3023 Blacks 5 9 13
+3023 Blacks 5 10 13
+3023 Blacks 5 1 13
+3023 Blacks 5 2 13
+6141 Reds 2 5 14
+6141 Reds 9 6 14
+
+STEP Mas luces
+6141 Reds 5 9 14
+6141 Reds 5 2 14
+6141 Blacks 4 4 15
+6141 Blacks 7 4 15
+6141 Blacks 4 7 15
+98138 Grays 7 7 15
+
+STEP Panel solar izquierdo
+3020 Blacks 0 2 11 90
+3020 Blacks 0 6 11 90
+3068b Blues 0 2 12
+3068b Blues 0 4 12
+3068b Blues 0 6 12
+3068b Blues 0 8 12
+
+STEP Panel solar derecho
+3020 Blacks 10 2 11 90
+3020 Blacks 10 6 11 90
+3068b Yellows 10 2 12
+3068b Yellows 10 4 12
+3068b Yellows 10 6 12
+3068b Yellows 10 8 12
+
+STEP Lanzadera: casco
+3020 Whites 5 14 0 90
+3001 Grays 5 12 1 90
+3039 Blacks 5 16 1
+
+STEP Lanzadera: alas y cabina
+3795 Grays 3 12 4
+3298 Turquoises 5 14 4
+3039 Blacks 5 12 5 180
+6141 Blacks 3 12 5
+6141 Blacks 8 12 5
+
+STEP Contenedor de carga
+3003 Yellows 5 -3 1
+3004 Yellows 5 -1 1
+3004 Yellows 5 -3 4
+3003 Yellows 5 -2 4
+3039 Reds 5 -3 7 180
+3023 Reds 5 -1 7
+
+STEP Torre de senal y rejillas
+60592 Blues 5 -1 8
+3023 Reds 5 -1 14
+2412b Grays 3 13 5
+2412b Grays 7 13 5

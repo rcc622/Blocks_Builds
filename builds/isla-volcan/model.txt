@@ -1,0 +1,172 @@
+# Isla del volcan. Plataforma 18x12: roca z0-7 (x0-17), mar z8-11. Volcan en x6-13 z1-6. Chozas a la derecha, torre atras-izquierda.
+STEP Roca: izquierda y atras
+3958 Blacks 0 0 0
+3795 Blacks 0 6 0
+3020 Blacks 6 0 0
+3020 Blacks 10 0 0
+3020 Blacks 14 0 0
+
+STEP Roca: centro
+3020 Blacks 6 2 0
+3020 Blacks 10 2 0
+3710 Blacks 14 2 0
+3710 Blacks 14 3 0
+4477 Blacks 6 4 0
+3023 Blacks 16 4 0
+
+STEP Roca: frente
+3710 Blacks 6 5 0
+3710 Blacks 10 5 0
+3710 Blacks 14 5 0
+3710 Blacks 6 6 0
+3710 Blacks 10 6 0
+3023 Blacks 14 6 0
+3023 Blacks 16 6 0
+
+STEP Roca: orilla
+3023 Blacks 6 7 0
+3023 Blacks 8 7 0
+3023 Blacks 10 7 0
+3023 Blacks 12 7 0
+3023 Blacks 14 7 0
+3023 Blacks 16 7 0
+
+STEP Mar azul
+3031 Blues 0 8 0
+3034 Blues 4 8 0
+3795 Blues 12 8 0
+
+STEP Mar turquesa
+3020 Turquoises 4 10 0
+3020 Turquoises 8 10 0
+3020 Turquoises 12 10 0
+3023 Turquoises 16 10 0
+3023 Blues 16 11 0
+
+STEP Volcan: base de roca, atras y lados
+3039 Blacks 6 1 1 180
+3039 Blacks 8 1 1 180
+3039 Blacks 10 1 1 180
+3039 Blacks 12 1 1 180
+3039 Blacks 6 3 1 90
+3039 Blacks 12 3 1 270
+
+STEP Volcan: relleno y frente con lava
+3003 Grays 8 3 1
+3003 Blacks 10 3 1
+3039 Blacks 6 5 1 0
+3039 Reds 8 5 1 0
+3039 Reds 10 5 1 0
+3039 Blacks 12 5 1 0
+
+STEP Volcan: segundo nivel
+3039 Grays 7 2 4 180
+3039 Grays 9 2 4 180
+3039 Grays 11 2 4 180
+3039 Grays 7 4 4 0
+3039 Reds 9 4 4 0
+3039 Blacks 11 4 4 0
+
+STEP Volcan: lago de lava
+3710 Reds 7 3 7
+3023 Reds 11 3 7
+3023 Reds 7 4 7
+3023 Reds 9 4 7
+15573 Yellows 11 4 7
+
+STEP Volcan: llamas
+11609 Yellows 7 3 8
+6141 Reds 8 3 8
+59900 Reds 12 3 8
+98138 Reds 7 4 8
+
+STEP Volcan: humo
+3941 Grays 9 3 8
+3941 Grays 9 3 11
+30367c Whites 9 3 14
+
+STEP Rio de lava
+4477 Reds 4 7 1
+
+STEP Torre vigia
+3003 Purples 4 0 1
+3003 Purples 4 0 4
+3003 Purples 4 0 7
+3003 Oranges 4 0 10
+98100 Grays 4 0 13
+
+STEP Selva: pasto y arbol
+2419 Greens 0 0 1 90
+3062b Browns 1 1 2
+3062b Browns 1 1 5
+6215 Greens 0 1 8
+6215 Greens 0 1 11
+
+STEP Selva: arbustos
+32607 Greens 1 4 2
+3024 Greens 1 3 2
+24866 Greens 0 3 2
+
+STEP Rocas y playa
+3660 Browns 4 4 1
+3040b Browns 3 3 1
+54200 Browns 4 2 1
+54200 Browns 5 2 1
+3020 Whites 0 6 1
+3023 Whites 4 6 1
+
+STEP Choza amarilla
+3001 Browns 14 1 1
+3001 Yellows 14 1 4
+3039 Greens 14 1 7 180
+3039 Greens 16 1 7 180
+4865b Blacks 15 3 1
+
+STEP Choza roja
+3001 Reds 14 4 1
+3001 Reds 14 4 4
+3039 Greens 14 4 7 0
+3039 Whites 16 4 7 0
+15332 Whites 14 6 1
+
+STEP Muelle
+3623 Browns 14 7 1 90
+3623 Browns 15 7 1 90
+3623 Browns 16 7 1 90
+3005 Yellows 14 7 2
+3005 Yellows 15 7 2
+3005 Yellows 14 7 5
+
+STEP Velero: casco
+3020 Whites 5 9 1
+3023 Grays 9 9 1
+3023 Grays 9 10 1
+3010 Whites 5 9 2
+3010 Whites 5 10 2
+3040b Blues 9 9 2 270
+3040b Grays 9 10 2 270
+
+STEP Velero: vela y bandera
+3622 Yellows 6 9 5
+3622 Yellows 6 9 8
+3622 Yellows 6 9 11
+6141 Reds 6 9 14
+
+STEP Boyas
+6141 Reds 3 10 1
+6141 Reds 13 11 1
+3024 Blues 6 11 1
+3024 Whites 10 11 1
+3024 Blacks 15 10 1
+
+STEP Piedras de la aldea
+98138 Blacks 14 0 1
+98138 Blacks 17 0 1
+98138 Grays 14 3 1
+98138 Pinks 17 3 1
+
+STEP Piratas y farola
+3626c Browns 16 7 2
+3626c Reds 5 10 5
+3005 Grays 17 7 1
+4070 Reds 17 7 4
