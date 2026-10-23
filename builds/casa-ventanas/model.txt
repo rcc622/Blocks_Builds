@@ -1,0 +1,167 @@
+# Casa de dos pisos con ventanas, techo a dos aguas, chimenea, jardin y cerca.
+# Casa en x0-7 z0-5 (frente = z5). Jardin al frente (z6-9).
+STEP Cimientos
+3034 Blues 0 0 0
+3795 Grays 0 2 0
+3020 Whites 6 2 0 90
+3795 Blues 0 4 0
+
+STEP Jardin
+2419 Greens 0 6 0
+3020 Blacks 6 6 0 90
+
+STEP Muros de abajo, pared de atras
+3004 Yellows 0 0 1
+3004 Yellows 2 0 1
+3004 Yellows 4 0 1
+3004 Yellows 6 0 1
+
+STEP Muros de abajo, lados y frente
+3004 Yellows 0 1 1 90
+3004 Yellows 0 3 1 90
+3622 Yellows 7 1 1 90
+3005 Yellows 7 4 1
+3004 Whites 0 5 1
+3010 Yellows 4 5 1
+
+STEP Segunda hilada, lados con ventana
+3622 Yellows 0 0 4 90
+3005 Yellows 0 5 4
+3622 Yellows 7 0 4 90
+3005 Yellows 7 3 4
+3005 Yellows 7 5 4
+
+STEP Segunda hilada, atras y frente
+3004 Whites 1 0 4
+3004 Whites 5 0 4
+3005 Whites 1 5 4
+3004 Whites 4 5 4
+3005 Yellows 6 5 4
+
+STEP Sala, sofa
+3004 Reds 1 1 1
+3004 Reds 3 1 1
+3710 Reds 1 1 4
+
+STEP Sala, chimenea y alfombra
+3003 Blacks 5 1 1
+3003 Grays 5 1 4
+3068b Blues 1 3 1
+
+STEP Sala, mesa y sillas
+3941 Browns 5 3 1
+14769 Grays 5 3 4
+3040b Browns 4 3 1
+3040b Browns 3 3 1
+
+STEP Piso de arriba, atras
+3020 Turquoises 0 0 7
+3020 Turquoises 4 0 7
+3795 Blacks 0 2 7
+3023 Blacks 6 2 7
+3023 Blacks 6 3 7
+
+STEP Piso de arriba, frente
+3020 Turquoises 0 4 7
+3020 Turquoises 4 4 7
+
+STEP Muros de arriba, atras y lados
+3004 Whites 0 0 8
+3004 Whites 2 0 8
+3004 Whites 4 0 8
+3004 Whites 6 0 8
+3004 Blues 0 1 8 90
+3004 Blues 0 3 8 90
+3004 Blues 7 1 8 90
+3004 Blues 7 3 8 90
+
+STEP Muros de arriba, frente con ventana
+3004 Blues 0 5 8
+60592 Blues 2 5 8
+3010 Whites 4 5 8
+
+STEP Dormitorio, cama
+3001 Browns 1 1 8 90
+3020 Whites 1 1 11 90
+3068b Blues 1 3 12
+3024 Whites 1 1 12
+
+STEP Dormitorio, ropero
+3003 Reds 5 1 8
+3003 Reds 5 1 11
+
+STEP Dormitorio, escritorio
+3700 Grays 3 4 8
+3700 Grays 5 4 8
+3710 Grays 3 4 11
+3005 Grays 4 3 8
+6141 Blacks 3 4 12
+
+STEP Ultima hilada, lados
+3004 Greens 0 0 11 90
+3004 Greens 0 4 11 90
+3004 Greens 7 0 11 90
+3004 Greens 7 4 11 90
+
+STEP Ultima hilada, atras y frente
+3004 Blues 1 0 11
+3005 Whites 5 0 11
+3005 Blues 6 0 11
+3005 Blues 1 5 11
+3004 Greens 4 5 11
+3005 Reds 6 5 11
+
+STEP Viga superior, lados
+3710 Blacks 0 0 14 90
+3023 Whites 0 4 14 90
+3710 Blacks 7 0 14 90
+3023 Whites 7 4 14 90
+
+STEP Viga superior, atras y frente
+3710 Blacks 1 0 14
+3023 Greens 5 0 14
+3710 Blacks 1 5 14
+3023 Greens 5 5 14
+
+STEP Techo, pendientes del frente
+3039 Blacks 0 4 15 0
+3039 Blacks 2 4 15 0
+3039 Blacks 4 4 15 0
+3039 Blacks 6 4 15 0
+
+STEP Techo, pendientes de atras
+3039 Blacks 0 0 15 180
+3039 Blacks 2 0 15 180
+3039 Blacks 4 0 15 180
+3039 Blacks 6 0 15 180
+
+STEP Cumbrera
+3001 Reds 0 2 15
+3001 Reds 4 2 15
+3068b Grays 0 2 18
+3068b Grays 2 2 18
+3068b Grays 4 2 18
+
+STEP Chimenea
+3941 Grays 6 2 18
+3941 Grays 6 2 21
+98100 Grays 6 2 24
+
+STEP Camino y buzon
+3068b Grays 2 6 1
+3023 Turquoises 2 8 1
+4070 Reds 5 6 1
+
+STEP Setos con flores
+3003 Greens 0 7 1
+6141 Reds 0 7 4
+6141 Reds 1 8 4
+3003 Greens 6 6 1
+6141 Reds 6 6 4
+6141 Reds 7 7 4
+
+STEP Cerca y arbol
+15332 Whites 4 6 1 90
+3062b Browns 7 8 1
+3062b Browns 7 8 4
+15469 Greens 6 7 7

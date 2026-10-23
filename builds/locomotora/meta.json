@@ -1,0 +1,7 @@
+{
+  "name": "Locomotora",
+  "description": "Locomotora de juguete con cabina de ventanas, caldera de colores, domo de vapor, chimenea y ruedas redondas.",
+  "difficulty": 2,
+  "status": "diseñado",
+  "tags": ["tren", "transporte", "mediano"]
+}

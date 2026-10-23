@@ -1,6 +1,576 @@
 {
- "generated_at": "2026-10-23T23:14:17.615Z",
+ "generated_at": "2026-10-23T23:31:20.868Z",
  "builds": [
+  {
+   "slug": "avion-ala-alta",
+   "name": "Avión de ala alta",
+   "description": "Avión de pasajeros con fuselaje hueco, ventanillas, asientos, cabina de parabrisas turquesa, alas altas con motores y cola roja.",
+   "difficulty": 2,
+   "status": "diseñado",
+   "tags": [
+    "avión",
+    "transporte",
+    "mediano"
+   ],
+   "photos": [],
+   "file": "builds/avion-ala-alta/model.mpd",
+   "ldr": "builds/avion-ala-alta/model.ldr",
+   "pieces": 69,
+   "warnings": [],
+   "descs": {
+    "2437": "Windscreen  3 x  4 x  1.333",
+    "3001": "Brick  2 x  4",
+    "3003": "Brick  2 x  2",
+    "3004": "Brick  1 x  2",
+    "3005": "Brick  1 x  1",
+    "3020": "Plate  2 x  4",
+    "3023": "Plate  1 x  2",
+    "3039": "Slope Brick 45  2 x  2",
+    "3666": "Plate  1 x  6",
+    "3710": "Plate  1 x  4",
+    "3795": "Plate  2 x  6",
+    "3941": "Brick  2 x  2 Round without Reinforcement",
+    "4477": "Plate  1 x 10",
+    "6636": "Tile  1 x  6",
+    "78329": "Plate  1 x  5"
+   },
+   "bom": [
+    {
+     "part": "3941",
+     "family": "Blacks",
+     "qty": 2
+    },
+    {
+     "part": "3941",
+     "family": "Browns",
+     "qty": 1
+    },
+    {
+     "part": "3941",
+     "family": "Turquoises",
+     "qty": 1
+    },
+    {
+     "part": "3003",
+     "family": "Purples",
+     "qty": 3
+    },
+    {
+     "part": "3001",
+     "family": "Blacks",
+     "qty": 4
+    },
+    {
+     "part": "3003",
+     "family": "Oranges",
+     "qty": 1
+    },
+    {
+     "part": "3004",
+     "family": "Reds",
+     "qty": 4
+    },
+    {
+     "part": "3004",
+     "family": "Blues",
+     "qty": 6
+    },
+    {
+     "part": "3004",
+     "family": "Grays",
+     "qty": 4
+    },
+    {
+     "part": "3005",
+     "family": "Yellows",
+     "qty": 4
+    },
+    {
+     "part": "3005",
+     "family": "Whites",
+     "qty": 2
+    },
+    {
+     "part": "3005",
+     "family": "Blues",
+     "qty": 2
+    },
+    {
+     "part": "3710",
+     "family": "Blacks",
+     "qty": 7
+    },
+    {
+     "part": "3004",
+     "family": "Whites",
+     "qty": 8
+    },
+    {
+     "part": "3004",
+     "family": "Turquoises",
+     "qty": 2
+    },
+    {
+     "part": "3941",
+     "family": "Grays",
+     "qty": 2
+    },
+    {
+     "part": "3020",
+     "family": "Blues",
+     "qty": 1
+    },
+    {
+     "part": "3020",
+     "family": "Whites",
+     "qty": 3
+    },
+    {
+     "part": "3795",
+     "family": "Blues",
+     "qty": 1
+    },
+    {
+     "part": "3795",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3795",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3020",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3023",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "2437",
+     "family": "Turquoises",
+     "qty": 1
+    },
+    {
+     "part": "3003",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "3039",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "6636",
+     "family": "Blues",
+     "qty": 1
+    },
+    {
+     "part": "78329",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "4477",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "3666",
+     "family": "Grays",
+     "qty": 1
+    }
+   ],
+   "steps": [
+    {
+     "title": "Ruedas",
+     "parts": [
+      {
+       "part": "3941",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3941.dat",
+       "qty": 2
+      },
+      {
+       "part": "3941",
+       "family": "Browns",
+       "code": 70,
+       "file": "3941.dat",
+       "qty": 1
+      },
+      {
+       "part": "3941",
+       "family": "Turquoises",
+       "code": 3,
+       "file": "3941.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Panza, cola y centro",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Purples",
+       "code": 22,
+       "file": "3003.dat",
+       "qty": 2
+      },
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Panza, centro y nariz",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 2
+      },
+      {
+       "part": "3003",
+       "family": "Purples",
+       "code": 22,
+       "file": "3003.dat",
+       "qty": 1
+      },
+      {
+       "part": "3003",
+       "family": "Oranges",
+       "code": 25,
+       "file": "3003.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Franja de abajo, lado izquierdo",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Reds",
+       "code": 4,
+       "file": "3004.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Blues",
+       "code": 1,
+       "file": "3004.dat",
+       "qty": 3
+      },
+      {
+       "part": "3004",
+       "family": "Grays",
+       "code": 71,
+       "file": "3004.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Franja de abajo, lado derecho",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Reds",
+       "code": 4,
+       "file": "3004.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Blues",
+       "code": 1,
+       "file": "3004.dat",
+       "qty": 3
+      },
+      {
+       "part": "3004",
+       "family": "Grays",
+       "code": 71,
+       "file": "3004.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Franja de abajo, cola y nariz",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Reds",
+       "code": 4,
+       "file": "3004.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Asientos de pasajeros",
+     "parts": [
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 2
+      },
+      {
+       "part": "3005",
+       "family": "Whites",
+       "code": 15,
+       "file": "3005.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Asientos de cabina",
+     "parts": [
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 2
+      },
+      {
+       "part": "3005",
+       "family": "Blues",
+       "code": 1,
+       "file": "3005.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Vigas del lado izquierdo",
+     "parts": [
+      {
+       "part": "3710",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3710.dat",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "title": "Vigas del lado derecho",
+     "parts": [
+      {
+       "part": "3710",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3710.dat",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "title": "Ventanillas, lado izquierdo",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Ventanillas, lado derecho",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Cola y nariz arriba",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Turquoises",
+       "code": 3,
+       "file": "3004.dat",
+       "qty": 2
+      },
+      {
+       "part": "3941",
+       "family": "Grays",
+       "code": 71,
+       "file": "3941.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Techo de la cola",
+     "parts": [
+      {
+       "part": "3020",
+       "family": "Blues",
+       "code": 1,
+       "file": "3020.dat",
+       "qty": 1
+      },
+      {
+       "part": "3020",
+       "family": "Whites",
+       "code": 15,
+       "file": "3020.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Alas, fila de atras",
+     "parts": [
+      {
+       "part": "3795",
+       "family": "Blues",
+       "code": 1,
+       "file": "3795.dat",
+       "qty": 1
+      },
+      {
+       "part": "3795",
+       "family": "Grays",
+       "code": 71,
+       "file": "3795.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Alas, fila de adelante",
+     "parts": [
+      {
+       "part": "3795",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3795.dat",
+       "qty": 1
+      },
+      {
+       "part": "3020",
+       "family": "Grays",
+       "code": 71,
+       "file": "3020.dat",
+       "qty": 1
+      },
+      {
+       "part": "3023",
+       "family": "Reds",
+       "code": 4,
+       "file": "3023.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Parabrisas y nariz",
+     "parts": [
+      {
+       "part": "2437",
+       "family": "Turquoises",
+       "code": 3,
+       "file": "2437.dat",
+       "qty": 1
+      },
+      {
+       "part": "3710",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3710.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Estabilizador y aleta",
+     "parts": [
+      {
+       "part": "3020",
+       "family": "Whites",
+       "code": 15,
+       "file": "3020.dat",
+       "qty": 2
+      },
+      {
+       "part": "3003",
+       "family": "Reds",
+       "code": 4,
+       "file": "3003.dat",
+       "qty": 1
+      },
+      {
+       "part": "3039",
+       "family": "Reds",
+       "code": 4,
+       "file": "3039.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Franjas de las alas",
+     "parts": [
+      {
+       "part": "6636",
+       "family": "Blues",
+       "code": 1,
+       "file": "6636.dat",
+       "qty": 1
+      },
+      {
+       "part": "78329",
+       "family": "Grays",
+       "code": 71,
+       "file": "78329.dat",
+       "qty": 1
+      },
+      {
+       "part": "4477",
+       "family": "Reds",
+       "code": 4,
+       "file": "4477.dat",
+       "qty": 1
+      },
+      {
+       "part": "3666",
+       "family": "Grays",
+       "code": 71,
+       "file": "3666.dat",
+       "qty": 1
+      }
+     ]
+    }
+   ]
+  },
   {
    "slug": "barco-pirata",
    "name": "Barco pirata",
@@ -177,6 +747,914 @@
        "code": 70,
        "file": "3062b.dat",
        "qty": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "casa-ventanas",
+   "name": "Casa con ventanas",
+   "description": "Casa de dos pisos con muros amarillos y azules, ventanas abiertas, techo a dos aguas, chimenea y jardín con cerca.",
+   "difficulty": 2,
+   "status": "diseñado",
+   "tags": [
+    "casa",
+    "ventanas",
+    "grande"
+   ],
+   "photos": [],
+   "file": "builds/casa-ventanas/model.mpd",
+   "ldr": "builds/casa-ventanas/model.ldr",
+   "pieces": 112,
+   "warnings": [],
+   "descs": {
+    "2419": "Plate  3 x  6 without Corners",
+    "3001": "Brick  2 x  4",
+    "3003": "Brick  2 x  2",
+    "3004": "Brick  1 x  2",
+    "3005": "Brick  1 x  1",
+    "3010": "Brick  1 x  4",
+    "3020": "Plate  2 x  4",
+    "3023": "Plate  1 x  2",
+    "3024": "Plate  1 x  1",
+    "3034": "Plate  2 x  8",
+    "3039": "Slope Brick 45  2 x  2",
+    "3622": "Brick  1 x  3",
+    "3700": "Technic Brick  1 x  2 with Hole",
+    "3710": "Plate  1 x  4",
+    "3795": "Plate  2 x  6",
+    "3941": "Brick  2 x  2 Round without Reinforcement",
+    "4070": "Brick  1 x  1 with Headlight",
+    "6141": "Plate  1 x  1 Round",
+    "14769": "Tile  2 x  2 Round with Round Underside Stud",
+    "15332": "Fence Spindled  1 x  4 x  2 with 4 Studs",
+    "15469": "Brick  2 x  2 Round with 4 Petals Base and Axle Hole",
+    "60592": "Window  1 x  2 x  2 without Sill",
+    "98100": "Cone  2 x  2 Truncated",
+    "3068b": "Tile  2 x  2 with Groove",
+    "3040b": "Slope Brick 45  2 x  1",
+    "3062b": "Brick  1 x  1 Round with Hollow Stud"
+   },
+   "bom": [
+    {
+     "part": "3034",
+     "family": "Blues",
+     "qty": 1
+    },
+    {
+     "part": "3795",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3020",
+     "family": "Whites",
+     "qty": 2
+    },
+    {
+     "part": "3795",
+     "family": "Blues",
+     "qty": 1
+    },
+    {
+     "part": "2419",
+     "family": "Greens",
+     "qty": 1
+    },
+    {
+     "part": "3020",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3004",
+     "family": "Yellows",
+     "qty": 6
+    },
+    {
+     "part": "3622",
+     "family": "Yellows",
+     "qty": 3
+    },
+    {
+     "part": "3005",
+     "family": "Yellows",
+     "qty": 5
+    },
+    {
+     "part": "3004",
+     "family": "Whites",
+     "qty": 8
+    },
+    {
+     "part": "3010",
+     "family": "Yellows",
+     "qty": 1
+    },
+    {
+     "part": "3005",
+     "family": "Whites",
+     "qty": 2
+    },
+    {
+     "part": "3004",
+     "family": "Reds",
+     "qty": 2
+    },
+    {
+     "part": "3710",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "3003",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3003",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3068b",
+     "family": "Blues",
+     "qty": 2
+    },
+    {
+     "part": "3941",
+     "family": "Browns",
+     "qty": 1
+    },
+    {
+     "part": "14769",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3040b",
+     "family": "Browns",
+     "qty": 2
+    },
+    {
+     "part": "3020",
+     "family": "Turquoises",
+     "qty": 4
+    },
+    {
+     "part": "3795",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3023",
+     "family": "Blacks",
+     "qty": 2
+    },
+    {
+     "part": "3004",
+     "family": "Blues",
+     "qty": 6
+    },
+    {
+     "part": "60592",
+     "family": "Blues",
+     "qty": 1
+    },
+    {
+     "part": "3010",
+     "family": "Whites",
+     "qty": 1
+    },
+    {
+     "part": "3001",
+     "family": "Browns",
+     "qty": 1
+    },
+    {
+     "part": "3024",
+     "family": "Whites",
+     "qty": 1
+    },
+    {
+     "part": "3003",
+     "family": "Reds",
+     "qty": 2
+    },
+    {
+     "part": "3700",
+     "family": "Grays",
+     "qty": 2
+    },
+    {
+     "part": "3710",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3005",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "6141",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3004",
+     "family": "Greens",
+     "qty": 5
+    },
+    {
+     "part": "3005",
+     "family": "Blues",
+     "qty": 2
+    },
+    {
+     "part": "3005",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "3710",
+     "family": "Blacks",
+     "qty": 4
+    },
+    {
+     "part": "3023",
+     "family": "Whites",
+     "qty": 2
+    },
+    {
+     "part": "3023",
+     "family": "Greens",
+     "qty": 2
+    },
+    {
+     "part": "3039",
+     "family": "Blacks",
+     "qty": 8
+    },
+    {
+     "part": "3001",
+     "family": "Reds",
+     "qty": 2
+    },
+    {
+     "part": "3068b",
+     "family": "Grays",
+     "qty": 4
+    },
+    {
+     "part": "3941",
+     "family": "Grays",
+     "qty": 2
+    },
+    {
+     "part": "98100",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3023",
+     "family": "Turquoises",
+     "qty": 1
+    },
+    {
+     "part": "4070",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "3003",
+     "family": "Greens",
+     "qty": 2
+    },
+    {
+     "part": "6141",
+     "family": "Reds",
+     "qty": 4
+    },
+    {
+     "part": "15332",
+     "family": "Whites",
+     "qty": 1
+    },
+    {
+     "part": "3062b",
+     "family": "Browns",
+     "qty": 2
+    },
+    {
+     "part": "15469",
+     "family": "Greens",
+     "qty": 1
+    }
+   ],
+   "steps": [
+    {
+     "title": "Cimientos",
+     "parts": [
+      {
+       "part": "3034",
+       "family": "Blues",
+       "code": 1,
+       "file": "3034.dat",
+       "qty": 1
+      },
+      {
+       "part": "3795",
+       "family": "Grays",
+       "code": 71,
+       "file": "3795.dat",
+       "qty": 1
+      },
+      {
+       "part": "3020",
+       "family": "Whites",
+       "code": 15,
+       "file": "3020.dat",
+       "qty": 1
+      },
+      {
+       "part": "3795",
+       "family": "Blues",
+       "code": 1,
+       "file": "3795.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Jardin",
+     "parts": [
+      {
+       "part": "2419",
+       "family": "Greens",
+       "code": 2,
+       "file": "2419.dat",
+       "qty": 1
+      },
+      {
+       "part": "3020",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3020.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Muros de abajo, pared de atras",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3004.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Muros de abajo, lados y frente",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3004.dat",
+       "qty": 2
+      },
+      {
+       "part": "3622",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3622.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 1
+      },
+      {
+       "part": "3010",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3010.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Segunda hilada, lados con ventana",
+     "parts": [
+      {
+       "part": "3622",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3622.dat",
+       "qty": 2
+      },
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "title": "Segunda hilada, atras y frente",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 3
+      },
+      {
+       "part": "3005",
+       "family": "Whites",
+       "code": 15,
+       "file": "3005.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Sala, sofa",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Reds",
+       "code": 4,
+       "file": "3004.dat",
+       "qty": 2
+      },
+      {
+       "part": "3710",
+       "family": "Reds",
+       "code": 4,
+       "file": "3710.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Sala, chimenea y alfombra",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3003.dat",
+       "qty": 1
+      },
+      {
+       "part": "3003",
+       "family": "Grays",
+       "code": 71,
+       "file": "3003.dat",
+       "qty": 1
+      },
+      {
+       "part": "3068b",
+       "family": "Blues",
+       "code": 1,
+       "file": "3068b.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Sala, mesa y sillas",
+     "parts": [
+      {
+       "part": "3941",
+       "family": "Browns",
+       "code": 70,
+       "file": "3941.dat",
+       "qty": 1
+      },
+      {
+       "part": "14769",
+       "family": "Grays",
+       "code": 71,
+       "file": "14769.dat",
+       "qty": 1
+      },
+      {
+       "part": "3040b",
+       "family": "Browns",
+       "code": 70,
+       "file": "3040b.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Piso de arriba, atras",
+     "parts": [
+      {
+       "part": "3020",
+       "family": "Turquoises",
+       "code": 3,
+       "file": "3020.dat",
+       "qty": 2
+      },
+      {
+       "part": "3795",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3795.dat",
+       "qty": 1
+      },
+      {
+       "part": "3023",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3023.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Piso de arriba, frente",
+     "parts": [
+      {
+       "part": "3020",
+       "family": "Turquoises",
+       "code": 3,
+       "file": "3020.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Muros de arriba, atras y lados",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 4
+      },
+      {
+       "part": "3004",
+       "family": "Blues",
+       "code": 1,
+       "file": "3004.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Muros de arriba, frente con ventana",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Blues",
+       "code": 1,
+       "file": "3004.dat",
+       "qty": 1
+      },
+      {
+       "part": "60592",
+       "family": "Blues",
+       "code": 1,
+       "file": "60592.dat",
+       "qty": 1
+      },
+      {
+       "part": "3010",
+       "family": "Whites",
+       "code": 15,
+       "file": "3010.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Dormitorio, cama",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Browns",
+       "code": 70,
+       "file": "3001.dat",
+       "qty": 1
+      },
+      {
+       "part": "3020",
+       "family": "Whites",
+       "code": 15,
+       "file": "3020.dat",
+       "qty": 1
+      },
+      {
+       "part": "3068b",
+       "family": "Blues",
+       "code": 1,
+       "file": "3068b.dat",
+       "qty": 1
+      },
+      {
+       "part": "3024",
+       "family": "Whites",
+       "code": 15,
+       "file": "3024.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Dormitorio, ropero",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Reds",
+       "code": 4,
+       "file": "3003.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Dormitorio, escritorio",
+     "parts": [
+      {
+       "part": "3700",
+       "family": "Grays",
+       "code": 71,
+       "file": "3700.dat",
+       "qty": 2
+      },
+      {
+       "part": "3710",
+       "family": "Grays",
+       "code": 71,
+       "file": "3710.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Grays",
+       "code": 71,
+       "file": "3005.dat",
+       "qty": 1
+      },
+      {
+       "part": "6141",
+       "family": "Blacks",
+       "code": 0,
+       "file": "6141.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Ultima hilada, lados",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Greens",
+       "code": 2,
+       "file": "3004.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Ultima hilada, atras y frente",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Blues",
+       "code": 1,
+       "file": "3004.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Whites",
+       "code": 15,
+       "file": "3005.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Blues",
+       "code": 1,
+       "file": "3005.dat",
+       "qty": 2
+      },
+      {
+       "part": "3004",
+       "family": "Greens",
+       "code": 2,
+       "file": "3004.dat",
+       "qty": 1
+      },
+      {
+       "part": "3005",
+       "family": "Reds",
+       "code": 4,
+       "file": "3005.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Viga superior, lados",
+     "parts": [
+      {
+       "part": "3710",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3710.dat",
+       "qty": 2
+      },
+      {
+       "part": "3023",
+       "family": "Whites",
+       "code": 15,
+       "file": "3023.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Viga superior, atras y frente",
+     "parts": [
+      {
+       "part": "3710",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3710.dat",
+       "qty": 2
+      },
+      {
+       "part": "3023",
+       "family": "Greens",
+       "code": 2,
+       "file": "3023.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Techo, pendientes del frente",
+     "parts": [
+      {
+       "part": "3039",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3039.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Techo, pendientes de atras",
+     "parts": [
+      {
+       "part": "3039",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3039.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Cumbrera",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Reds",
+       "code": 4,
+       "file": "3001.dat",
+       "qty": 2
+      },
+      {
+       "part": "3068b",
+       "family": "Grays",
+       "code": 71,
+       "file": "3068b.dat",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "title": "Chimenea",
+     "parts": [
+      {
+       "part": "3941",
+       "family": "Grays",
+       "code": 71,
+       "file": "3941.dat",
+       "qty": 2
+      },
+      {
+       "part": "98100",
+       "family": "Grays",
+       "code": 71,
+       "file": "98100.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Camino y buzon",
+     "parts": [
+      {
+       "part": "3068b",
+       "family": "Grays",
+       "code": 71,
+       "file": "3068b.dat",
+       "qty": 1
+      },
+      {
+       "part": "3023",
+       "family": "Turquoises",
+       "code": 3,
+       "file": "3023.dat",
+       "qty": 1
+      },
+      {
+       "part": "4070",
+       "family": "Reds",
+       "code": 4,
+       "file": "4070.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Setos con flores",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Greens",
+       "code": 2,
+       "file": "3003.dat",
+       "qty": 2
+      },
+      {
+       "part": "6141",
+       "family": "Reds",
+       "code": 4,
+       "file": "6141.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Cerca y arbol",
+     "parts": [
+      {
+       "part": "15332",
+       "family": "Whites",
+       "code": 15,
+       "file": "15332.dat",
+       "qty": 1
+      },
+      {
+       "part": "3062b",
+       "family": "Browns",
+       "code": 70,
+       "file": "3062b.dat",
+       "qty": 2
+      },
+      {
+       "part": "15469",
+       "family": "Greens",
+       "code": 2,
+       "file": "15469.dat",
+       "qty": 1
       }
      ]
     }
@@ -4323,6 +5801,332 @@
        "family": "Grays",
        "code": 71,
        "file": "3005.dat",
+       "qty": 1
+      },
+      {
+       "part": "4070",
+       "family": "Reds",
+       "code": 4,
+       "file": "4070.dat",
+       "qty": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "locomotora",
+   "name": "Locomotora",
+   "description": "Locomotora de juguete con cabina de ventanas, caldera de colores, domo de vapor, chimenea y ruedas redondas.",
+   "difficulty": 2,
+   "status": "diseñado",
+   "tags": [
+    "tren",
+    "transporte",
+    "mediano"
+   ],
+   "photos": [],
+   "file": "builds/locomotora/model.mpd",
+   "ldr": "builds/locomotora/model.ldr",
+   "pieces": 42,
+   "warnings": [],
+   "descs": {
+    "3001": "Brick  2 x  4",
+    "3004": "Brick  1 x  2",
+    "3010": "Brick  1 x  4",
+    "3020": "Plate  2 x  4",
+    "3941": "Brick  2 x  2 Round without Reinforcement",
+    "4070": "Brick  1 x  1 with Headlight",
+    "98100": "Cone  2 x  2 Truncated",
+    "30367c": "Cylinder  2 x  2 with Dome Top with Axle Hole and Hollow Stud"
+   },
+   "bom": [
+    {
+     "part": "3941",
+     "family": "Blacks",
+     "qty": 2
+    },
+    {
+     "part": "3941",
+     "family": "Grays",
+     "qty": 2
+    },
+    {
+     "part": "3941",
+     "family": "Browns",
+     "qty": 1
+    },
+    {
+     "part": "3941",
+     "family": "Turquoises",
+     "qty": 1
+    },
+    {
+     "part": "3001",
+     "family": "Blacks",
+     "qty": 6
+    },
+    {
+     "part": "3010",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3001",
+     "family": "Reds",
+     "qty": 3
+    },
+    {
+     "part": "3001",
+     "family": "Yellows",
+     "qty": 2
+    },
+    {
+     "part": "3010",
+     "family": "Whites",
+     "qty": 1
+    },
+    {
+     "part": "3004",
+     "family": "Yellows",
+     "qty": 6
+    },
+    {
+     "part": "3004",
+     "family": "Reds",
+     "qty": 2
+    },
+    {
+     "part": "3001",
+     "family": "Browns",
+     "qty": 1
+    },
+    {
+     "part": "3001",
+     "family": "Pinks",
+     "qty": 1
+    },
+    {
+     "part": "3001",
+     "family": "Turquoises",
+     "qty": 1
+    },
+    {
+     "part": "3004",
+     "family": "Whites",
+     "qty": 6
+    },
+    {
+     "part": "3020",
+     "family": "Blacks",
+     "qty": 3
+    },
+    {
+     "part": "98100",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "30367c",
+     "family": "Whites",
+     "qty": 1
+    },
+    {
+     "part": "4070",
+     "family": "Reds",
+     "qty": 1
+    }
+   ],
+   "steps": [
+    {
+     "title": "Ruedas",
+     "parts": [
+      {
+       "part": "3941",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3941.dat",
+       "qty": 2
+      },
+      {
+       "part": "3941",
+       "family": "Grays",
+       "code": 71,
+       "file": "3941.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Ruedas de adelante",
+     "parts": [
+      {
+       "part": "3941",
+       "family": "Browns",
+       "code": 70,
+       "file": "3941.dat",
+       "qty": 1
+      },
+      {
+       "part": "3941",
+       "family": "Turquoises",
+       "code": 3,
+       "file": "3941.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Chasis, primera hilada",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "title": "Chasis, segunda hilada, cabina",
+     "parts": [
+      {
+       "part": "3010",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3010.dat",
+       "qty": 1
+      },
+      {
+       "part": "3001",
+       "family": "Reds",
+       "code": 4,
+       "file": "3001.dat",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "title": "Chasis, segunda hilada, caldera",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3001.dat",
+       "qty": 2
+      },
+      {
+       "part": "3010",
+       "family": "Whites",
+       "code": 15,
+       "file": "3010.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Cabina, paredes laterales",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3004.dat",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "title": "Cabina, atras y frente",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Reds",
+       "code": 4,
+       "file": "3004.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Caldera",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Browns",
+       "code": 70,
+       "file": "3001.dat",
+       "qty": 1
+      },
+      {
+       "part": "3001",
+       "family": "Pinks",
+       "code": 5,
+       "file": "3001.dat",
+       "qty": 1
+      },
+      {
+       "part": "3001",
+       "family": "Turquoises",
+       "code": 3,
+       "file": "3001.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Ventanas de la cabina, lados",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Ventanas de la cabina, atras y frente",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Techo de la cabina",
+     "parts": [
+      {
+       "part": "3020",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3020.dat",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "title": "Chimenea y domo",
+     "parts": [
+      {
+       "part": "98100",
+       "family": "Grays",
+       "code": 71,
+       "file": "98100.dat",
+       "qty": 1
+      },
+      {
+       "part": "30367c",
+       "family": "Whites",
+       "code": 15,
+       "file": "30367c.dat",
        "qty": 1
       },
       {

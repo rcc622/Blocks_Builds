@@ -1,0 +1,66 @@
+# Locomotora de vapor. Cuerpo x0-3 z0-11 (frente = z11). Cabina atras (z0-5), caldera adelante (z6-11).
+STEP Ruedas
+3941 Blacks 0 1 0
+3941 Blacks 2 1 0
+3941 Grays 0 5 0
+3941 Grays 2 5 0
+
+STEP Ruedas de adelante
+3941 Browns 0 9 0
+3941 Turquoises 2 9 0
+
+STEP Chasis, primera hilada
+3001 Blacks 0 0 3
+3001 Blacks 0 2 3
+3001 Blacks 0 4 3
+3001 Blacks 0 6 3
+3001 Blacks 0 8 3
+3001 Blacks 0 10 3
+
+STEP Chasis, segunda hilada, cabina
+3010 Blacks 0 0 6
+3001 Reds 0 1 6
+3001 Reds 0 3 6
+3001 Reds 0 5 6
+
+STEP Chasis, segunda hilada, caldera
+3001 Yellows 0 7 6
+3001 Yellows 0 9 6
+3010 Whites 0 11 6
+
+STEP Cabina, paredes laterales
+3004 Yellows 0 0 9 90
+3004 Yellows 0 2 9 90
+3004 Yellows 0 4 9 90
+3004 Yellows 3 0 9 90
+3004 Yellows 3 2 9 90
+3004 Yellows 3 4 9 90
+
+STEP Cabina, atras y frente
+3004 Reds 1 0 9
+3004 Reds 1 5 9
+
+STEP Caldera
+3001 Browns 0 6 9
+3001 Pinks 0 8 9
+3001 Turquoises 0 10 9
+
+STEP Ventanas de la cabina, lados
+3004 Whites 0 0 12 90
+3004 Whites 0 4 12 90
+3004 Whites 3 0 12 90
+3004 Whites 3 4 12 90
+
+STEP Ventanas de la cabina, atras y frente
+3004 Whites 1 0 12
+3004 Whites 1 5 12
+
+STEP Techo de la cabina
+3020 Blacks 0 0 15 90
+3020 Blacks 2 0 15 90
+3020 Blacks 0 4 15
+
+STEP Chimenea y domo
+98100 Grays 1 10 12
+30367c Whites 1 7 12
+4070 Reds 0 11 12

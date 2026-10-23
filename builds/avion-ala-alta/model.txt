@@ -1,0 +1,107 @@
+# Avion de pasajeros de ala alta. Fuselaje hueco x4-7 z0-11 (nariz = z11), alas en y13 x0-11, cola en z0-3.
+STEP Ruedas
+3941 Blacks 4 1 0
+3941 Blacks 6 1 0
+3941 Browns 4 9 0
+3941 Turquoises 6 9 0
+
+STEP Panza, cola y centro
+3003 Purples 4 0 3
+3003 Purples 6 0 3
+3001 Blacks 4 2 3 90
+3001 Blacks 6 2 3 90
+
+STEP Panza, centro y nariz
+3001 Blacks 4 6 3 90
+3001 Blacks 6 6 3 90
+3003 Purples 4 10 3
+3003 Oranges 6 10 3
+
+STEP Franja de abajo, lado izquierdo
+3004 Reds 4 0 6 90
+3004 Blues 4 2 6 90
+3004 Blues 4 4 6 90
+3004 Blues 4 6 6 90
+3004 Grays 4 8 6 90
+3004 Grays 4 10 6 90
+
+STEP Franja de abajo, lado derecho
+3004 Reds 7 0 6 90
+3004 Blues 7 2 6 90
+3004 Blues 7 4 6 90
+3004 Blues 7 6 6 90
+3004 Grays 7 8 6 90
+3004 Grays 7 10 6 90
+
+STEP Franja de abajo, cola y nariz
+3004 Reds 5 0 6
+3004 Reds 5 11 6
+
+STEP Asientos de pasajeros
+3005 Yellows 5 2 6
+3005 Yellows 6 2 6
+3005 Whites 5 2 9
+3005 Whites 6 2 9
+
+STEP Asientos de cabina
+3005 Yellows 5 8 6
+3005 Yellows 6 8 6
+3005 Blues 5 8 9
+3005 Blues 6 8 9
+
+STEP Vigas del lado izquierdo
+3710 Blacks 4 0 9 90
+3710 Blacks 4 4 9 90
+3710 Blacks 4 8 9 90
+
+STEP Vigas del lado derecho
+3710 Blacks 7 0 9 90
+3710 Blacks 7 4 9 90
+3710 Blacks 7 8 9 90
+
+STEP Ventanillas, lado izquierdo
+3004 Whites 4 0 10 90
+3004 Whites 4 4 10 90
+3004 Whites 4 6 10 90
+3004 Whites 4 10 10 90
+
+STEP Ventanillas, lado derecho
+3004 Whites 7 0 10 90
+3004 Whites 7 4 10 90
+3004 Whites 7 6 10 90
+3004 Whites 7 10 10 90
+
+STEP Cola y nariz arriba
+3004 Turquoises 5 0 10
+3004 Turquoises 5 11 10
+3941 Grays 1 4 10
+3941 Grays 9 4 10
+
+STEP Techo de la cola
+3020 Blues 4 0 13 90
+3020 Whites 6 0 13 90
+
+STEP Alas, fila de atras
+3795 Blues 0 4 13
+3795 Grays 6 4 13
+
+STEP Alas, fila de adelante
+3795 Blacks 0 6 13
+3020 Grays 6 6 13
+3023 Reds 10 6 13
+
+STEP Parabrisas y nariz
+2437 Turquoises 4 8 13
+3710 Blacks 4 11 13
+
+STEP Estabilizador y aleta
+3020 Whites 2 0 14
+3020 Whites 6 0 14
+3003 Reds 5 0 15
+3039 Reds 5 0 18 180
+
+STEP Franjas de las alas
+6636 Blues 0 4 14
+78329 Grays 6 4 14
+4477 Reds 2 6 14
+3666 Grays 0 7 14

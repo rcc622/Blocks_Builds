@@ -1,0 +1,7 @@
+{
+  "name": "Casa con ventanas",
+  "description": "Casa de dos pisos con muros amarillos y azules, ventanas abiertas, techo a dos aguas, chimenea y jardín con cerca.",
+  "difficulty": 2,
+  "status": "diseñado",
+  "tags": ["casa", "ventanas", "grande"]
+}

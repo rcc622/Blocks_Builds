@@ -1,0 +1,7 @@
+{
+  "name": "Avión de ala alta",
+  "description": "Avión de pasajeros con fuselaje hueco, ventanillas, asientos, cabina de parabrisas turquesa, alas altas con motores y cola roja.",
+  "difficulty": 2,
+  "status": "diseñado",
+  "tags": ["avión", "transporte", "mediano"]
+}
