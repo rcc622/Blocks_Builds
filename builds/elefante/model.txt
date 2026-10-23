@@ -1,0 +1,69 @@
+# Elefante. Rejilla: x derecha, z al frente, y en plates (brick = 3). Giro 0 frente, 90 izq.
+STEP Pezuñas
+3023 Blacks 0 2 0 90
+3023 Blacks 3 2 0 90
+3023 Blacks 0 6 0 90
+3023 Blacks 3 6 0 90
+3022 Grays 1 -2 0
+
+STEP Patas y trompa
+3004 Grays 0 2 1 90
+3004 Grays 3 2 1 90
+3004 Grays 0 6 1 90
+3004 Grays 3 6 1 90
+3941 Grays 1 -2 1
+
+STEP Rodillas y barriga
+3023 Blacks 0 2 4 90
+3023 Blacks 3 2 4 90
+3023 Blacks 0 6 4 90
+3023 Blacks 3 6 4 90
+3941 Grays 1 -2 4
+3020 Grays 1 2 4 90
+3023 Blacks 1 6 4
+3023 Blacks 1 7 4
+
+STEP Primera hilada del cuerpo
+3001 Blacks 0 0 5 90
+3001 Blacks 2 0 5 90
+3001 Blacks 0 4 5 90
+3001 Blacks 2 4 5 90
+3023 Grays 1 -1 7
+3004 Whites 0 -2 5 90
+3004 Whites 3 -2 5 90
+
+STEP Segunda hilada
+3001 Blacks 0 -1 8
+3001 Blacks 0 1 8
+3001 Blacks 0 3 8
+3001 Blacks 0 5 8
+3010 Blacks 0 7 8
+
+STEP Cabeza y manta
+3003 Grays 1 -1 11
+4286 Grays 0 -1 11
+4286 Grays 3 -1 11
+3039 Grays 1 -1 14
+3068b Yellows 0 2 11
+3068b Yellows 2 2 11
+
+STEP Base de la cabina
+3020 Whites 1 4 11 90
+3710 Blacks 0 4 11 90
+3710 Blacks 3 4 11 90
+3005 Yellows 1 4 12
+3005 Yellows 2 4 12
+3005 Yellows 1 7 12
+3005 Yellows 2 7 12
+
+STEP Pasajeros y techo
+3626c Reds 1 5 12
+3626c Browns 2 6 12
+3020 Whites 1 4 15 90
+3039 Reds 1 4 16 180
+3039 Reds 1 6 16
+
+STEP Remate del techo
+3023 Reds 1 5 19 90
+3023 Reds 2 5 19 90
+59900 Reds 1 5 20

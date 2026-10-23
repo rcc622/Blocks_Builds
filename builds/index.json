@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T04:07:27.647Z",
+ "generated_at": "2026-10-23T23:14:17.615Z",
  "builds": [
   {
    "slug": "barco-pirata",
@@ -674,6 +674,370 @@
        "code": 4,
        "file": "6141.dat",
        "qty": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "elefante",
+   "name": "Elefante",
+   "description": "Un elefante gris con colmillos blancos y una cabina de paseo con techo rojo sobre el lomo.",
+   "difficulty": 1,
+   "status": "diseñado",
+   "tags": [
+    "animal",
+    "elefante",
+    "gris",
+    "negro"
+   ],
+   "photos": [],
+   "file": "builds/elefante/model.mpd",
+   "ldr": "builds/elefante/model.ldr",
+   "pieces": 51,
+   "warnings": [],
+   "descs": {
+    "3001": "Brick  2 x  4",
+    "3003": "Brick  2 x  2",
+    "3004": "Brick  1 x  2",
+    "3005": "Brick  1 x  1",
+    "3010": "Brick  1 x  4",
+    "3020": "Plate  2 x  4",
+    "3022": "Plate  2 x  2",
+    "3023": "Plate  1 x  2",
+    "3039": "Slope Brick 45  2 x  2",
+    "3710": "Plate  1 x  4",
+    "3941": "Brick  2 x  2 Round without Reinforcement",
+    "4286": "Slope Brick 33  3 x  1",
+    "59900": "Cone  1 x  1 with Stop",
+    "3068b": "Tile  2 x  2 with Groove",
+    "3626c": "Minifig Head with Hollow Stud"
+   },
+   "bom": [
+    {
+     "part": "3023",
+     "family": "Blacks",
+     "qty": 10
+    },
+    {
+     "part": "3022",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3004",
+     "family": "Grays",
+     "qty": 4
+    },
+    {
+     "part": "3941",
+     "family": "Grays",
+     "qty": 2
+    },
+    {
+     "part": "3020",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3001",
+     "family": "Blacks",
+     "qty": 8
+    },
+    {
+     "part": "3023",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3004",
+     "family": "Whites",
+     "qty": 2
+    },
+    {
+     "part": "3010",
+     "family": "Blacks",
+     "qty": 1
+    },
+    {
+     "part": "3003",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "4286",
+     "family": "Grays",
+     "qty": 2
+    },
+    {
+     "part": "3039",
+     "family": "Grays",
+     "qty": 1
+    },
+    {
+     "part": "3068b",
+     "family": "Yellows",
+     "qty": 2
+    },
+    {
+     "part": "3020",
+     "family": "Whites",
+     "qty": 2
+    },
+    {
+     "part": "3710",
+     "family": "Blacks",
+     "qty": 2
+    },
+    {
+     "part": "3005",
+     "family": "Yellows",
+     "qty": 4
+    },
+    {
+     "part": "3626c",
+     "family": "Reds",
+     "qty": 1
+    },
+    {
+     "part": "3626c",
+     "family": "Browns",
+     "qty": 1
+    },
+    {
+     "part": "3039",
+     "family": "Reds",
+     "qty": 2
+    },
+    {
+     "part": "3023",
+     "family": "Reds",
+     "qty": 2
+    },
+    {
+     "part": "59900",
+     "family": "Reds",
+     "qty": 1
+    }
+   ],
+   "steps": [
+    {
+     "title": "Pezuñas",
+     "parts": [
+      {
+       "part": "3023",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3023.dat",
+       "qty": 4
+      },
+      {
+       "part": "3022",
+       "family": "Grays",
+       "code": 71,
+       "file": "3022.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Patas y trompa",
+     "parts": [
+      {
+       "part": "3004",
+       "family": "Grays",
+       "code": 71,
+       "file": "3004.dat",
+       "qty": 4
+      },
+      {
+       "part": "3941",
+       "family": "Grays",
+       "code": 71,
+       "file": "3941.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Rodillas y barriga",
+     "parts": [
+      {
+       "part": "3023",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3023.dat",
+       "qty": 6
+      },
+      {
+       "part": "3941",
+       "family": "Grays",
+       "code": 71,
+       "file": "3941.dat",
+       "qty": 1
+      },
+      {
+       "part": "3020",
+       "family": "Grays",
+       "code": 71,
+       "file": "3020.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Primera hilada del cuerpo",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 4
+      },
+      {
+       "part": "3023",
+       "family": "Grays",
+       "code": 71,
+       "file": "3023.dat",
+       "qty": 1
+      },
+      {
+       "part": "3004",
+       "family": "Whites",
+       "code": 15,
+       "file": "3004.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Segunda hilada",
+     "parts": [
+      {
+       "part": "3001",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3001.dat",
+       "qty": 4
+      },
+      {
+       "part": "3010",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3010.dat",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "title": "Cabeza y manta",
+     "parts": [
+      {
+       "part": "3003",
+       "family": "Grays",
+       "code": 71,
+       "file": "3003.dat",
+       "qty": 1
+      },
+      {
+       "part": "4286",
+       "family": "Grays",
+       "code": 71,
+       "file": "4286.dat",
+       "qty": 2
+      },
+      {
+       "part": "3039",
+       "family": "Grays",
+       "code": 71,
+       "file": "3039.dat",
+       "qty": 1
+      },
+      {
+       "part": "3068b",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3068b.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Base de la cabina",
+     "parts": [
+      {
+       "part": "3020",
+       "family": "Whites",
+       "code": 15,
+       "file": "3020.dat",
+       "qty": 1
+      },
+      {
+       "part": "3710",
+       "family": "Blacks",
+       "code": 0,
+       "file": "3710.dat",
+       "qty": 2
+      },
+      {
+       "part": "3005",
+       "family": "Yellows",
+       "code": 14,
+       "file": "3005.dat",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "title": "Pasajeros y techo",
+     "parts": [
+      {
+       "part": "3626c",
+       "family": "Reds",
+       "code": 4,
+       "file": "3626c.dat",
+       "qty": 1
+      },
+      {
+       "part": "3626c",
+       "family": "Browns",
+       "code": 70,
+       "file": "3626c.dat",
+       "qty": 1
+      },
+      {
+       "part": "3020",
+       "family": "Whites",
+       "code": 15,
+       "file": "3020.dat",
+       "qty": 1
+      },
+      {
+       "part": "3039",
+       "family": "Reds",
+       "code": 4,
+       "file": "3039.dat",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "title": "Remate del techo",
+     "parts": [
+      {
+       "part": "3023",
+       "family": "Reds",
+       "code": 4,
+       "file": "3023.dat",
+       "qty": 2
+      },
+      {
+       "part": "59900",
+       "family": "Reds",
+       "code": 4,
+       "file": "59900.dat",
+       "qty": 1
       }
      ]
     }
