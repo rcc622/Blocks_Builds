@@ -361,7 +361,22 @@ details.panel[open] > summary::after { transform: rotate(-135deg); }
 .where { margin: 0; display: grid; gap: var(--space-2); }
 .where figcaption { font-weight: 600; font-size: var(--text-sm); }
 .crops { display: flex; flex-wrap: wrap; gap: var(--space-2); }
-.crop { position: relative; width: 88px; height: 88px; border-radius: var(--radius-sm); background-repeat: no-repeat; background-color: var(--color-paper-3); }
+.crop { position: relative; width: 88px; height: 88px; padding: 0; border: 0; border-radius: var(--radius-sm); background-repeat: no-repeat; background-color: var(--color-paper-3); cursor: pointer; transition: transform var(--dur-fast) var(--ease-out); }
+button.crop:hover { transform: translateY(-2px); }
+button.crop:active { transform: translateY(1px); }
+.crop.pending { outline: 3px solid var(--color-accent-2); outline-offset: 1px; }
+.crop.done { outline: 3px solid var(--color-ok); outline-offset: 1px; }
+.crop-tag { position: absolute; left: var(--space-1); right: var(--space-1); bottom: var(--space-1); z-index: 1; padding: var(--space-half) var(--space-1); border-radius: var(--radius-pill); background: var(--color-paper); color: var(--color-ink); font-size: var(--text-xs); font-weight: 700; text-align: center; }
+.fix-form { gap: var(--space-3); border-color: var(--color-accent-2); }
+.fix-row { display: flex; gap: var(--space-3); align-items: center; }
+.fix-row .crop { flex: none; cursor: default; }
+.fix-row p { font-size: var(--text-sm); }
+.field select { min-height: 48px; padding: 0 var(--space-4); border: 2px solid var(--color-rule); border-radius: var(--radius-md); background: var(--color-paper); color: var(--color-ink); font-size: var(--text-md); font-weight: 400; }
+.field select:focus-visible { outline: none; border-color: var(--color-focus); box-shadow: 0 0 0 3px var(--color-accent-2-soft); }
+.field input:disabled, .field select:disabled { opacity: 0.5; }
+.check { display: flex; gap: var(--space-2); align-items: center; font-size: var(--text-sm); font-weight: 600; min-height: 44px; cursor: pointer; }
+.check input { width: 20px; height: 20px; accent-color: var(--color-accent-2); }
+.fixes { border-color: var(--color-accent-2); background: var(--color-accent-2-soft); }
 .crop::after { content: ""; position: absolute; inset: 27%; border: 2px solid var(--color-accent-3); border-radius: var(--space-1); box-shadow: 0 0 0 2px var(--color-halo); }
 .where summary { cursor: pointer; color: var(--color-accent-2); font-weight: 600; font-size: var(--text-sm); min-height: 32px; display: flex; align-items: center; }
 .scan { position: relative; margin-top: var(--space-2); }

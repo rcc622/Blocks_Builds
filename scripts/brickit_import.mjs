@@ -8,7 +8,11 @@
  * Cada link brickit.app/offer/<id> es un SNAPSHOT fijo del inventario al momento de compartir.
  * La pagina trae los datos embebidos en window.__NUXT__; de ahi sale cada pieza individual
  * con su numero, categoria, tamano y familia de color. Se suman las piezas de data/manual_parts.csv
- * (piezas que Brickit no reconocio) y se escriben los archivos de data/.
+ * (piezas que Brickit no reconocio), se aplican las correcciones de data/corrections.csv (piezas que Brickit
+ * identifico mal, por id de pieza) y se escriben los archivos de data/.
+ *
+ *       node scripts/brickit_import.mjs --add-corrections   (lee $CORRECTIONS: lineas "<id> -> <pieza> <familia>"
+ *                                                            o "<id> -> -" para quitar; las agrega al csv)
  *
  * Sin dependencias: Node >= 18.
  */
@@ -16,12 +20,33 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
+import { FAMILIES } from '../app/colors.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
 const LINKS_FILE = path.join(DATA, 'sources', 'brickit_links.txt');
 const MANUAL_FILE = path.join(DATA, 'manual_parts.csv');
 const RAW_DIR = path.join(DATA, 'raw');
+const FIX_FILE = path.join(DATA, 'corrections.csv');
+const FIX_HEAD = 'id,pieza,color,nota\n# Piezas que Brickit identifico mal, una por id de pieza (sale en la app al tocar "Corregir"). pieza "-" = no existe.\n';
+const ID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+
+// Correcciones que manda la app (o un issue "[correcciones]"). Valida todo: llegan de afuera.
+function addCorrections() {
+  if (!process.argv.includes('--add-corrections')) return;
+  const rows = new Map(fs.existsSync(FIX_FILE) ? parseCsv(fs.readFileSync(FIX_FILE, 'utf8')).map(r => [r.id, r]) : []);
+  let added = 0;
+  for (const line of (process.env.CORRECTIONS || '').split(/\r?\n/)) {
+    const m = line.trim().match(/^([0-9a-f-]{36})\s*->\s*(-|([A-Za-z0-9]{2,12})\s+([A-Za-z]+))\s*$/);
+    if (!m || !ID.test(m[1])) continue;
+    if (m[2] !== '-' && !FAMILIES[m[4]]) { console.log(`ignorada (color "${m[4]}" no existe): ${line}`); continue; }
+    rows.set(m[1], { id: m[1], pieza: m[2] === '-' ? '-' : m[3], color: m[2] === '-' ? '' : m[4], nota: new Date().toISOString().slice(0, 10) });
+    added++;
+  }
+  if (!added) throw new Error('No llego ninguna correccion valida (formato: "<id> -> <pieza> <familia>")');
+  fs.writeFileSync(FIX_FILE, FIX_HEAD + [...rows.values()].map(r => csvLine([r.id, r.pieza, r.color, r.nota])).join('\n') + '\n');
+  console.log(`${FIX_FILE}: ${added} correccion(es) nueva(s), ${rows.size} en total`);
+}
 
 // --replace <url> deja ese link como unica coleccion; --add <url> lo suma como pocket extra. Ambos editan
 // data/sources/brickit_links.txt (los usa el boton "Actualizar inventario" de la app via GitHub Actions).
@@ -63,6 +88,26 @@ async function fetchOffer(url) {
   return { id, url, d };
 }
 
+function applyCorrections(pieces) {
+  if (!fs.existsSync(FIX_FILE)) return;
+  const fixes = new Map(parseCsv(fs.readFileSync(FIX_FILE, 'utf8')).filter(r => ID.test(r.id)).map(r => [r.id, r]));
+  const meta = new Map(pieces.map(p => [p.part, p]));
+  let used = 0;
+  for (let i = pieces.length - 1; i >= 0; i--) {
+    const p = pieces[i], f = fixes.get(p.id);
+    if (!f) continue;
+    used++;
+    if (f.pieza === '-') { pieces.splice(i, 1); continue; }
+    if (f.pieza && f.pieza !== p.part) {
+      const m = meta.get(f.pieza);
+      Object.assign(p, { part: f.pieza, group: m?.group || 'Corregidas', category: m?.category || '', size: m?.size || '',
+        image: m?.image || `https://storage.googleapis.com/brickit-prod-imagebox-public/manual_images/pom_part/${f.pieza}/pom_part_lanczos_webp/image.WEBP` });
+    }
+    if (f.color) p.color = f.color;
+  }
+  console.log(`correcciones: ${used} aplicadas${fixes.size - used ? `, ${fixes.size - used} no aparecen en estos links` : ''}`);
+}
+
 function parseCsv(text) {
   const [head, ...lines] = text.split('\n').map(l => l.trim()).filter(Boolean);
   const cols = head.split(',');
@@ -72,6 +117,7 @@ const csvLine = arr => arr.map(v => (/[",\n]/.test(String(v)) ? `"${String(v).re
 
 async function main() {
   updateLinks();
+  addCorrections();
   const links = readLinks();
   const pieces = [];
   const sources = [];
@@ -92,9 +138,9 @@ async function main() {
             locator.scans[scanKey].w = Math.round((c.left + c.right) / (b.left + b.right));
             locator.scans[scanKey].h = Math.round((c.top + c.bottom) / (b.top + b.bottom));
           }
-          if (b) (locator.parts[`${part}|${p.colorName}`] ??= []).push([scanKey, ...[b.left, b.top, b.right, b.bottom].map(v => Math.round(v * 1e4) / 1e4)]);
+          const box = b ? [scanKey, ...[b.left, b.top, b.right, b.bottom].map(v => Math.round(v * 1e4) / 1e4), p.partId] : null;
           pieces.push({ source: id, scan: scan.scanNumber, part, group: p.partGroup, category: p.partCategory,
-                        size: p.partSize || '', color: p.colorName, image: p.partImage || '' });
+                        size: p.partSize || '', color: p.colorName, image: p.partImage || '', id: p.partId, box });
         }
       }
     }
@@ -104,6 +150,10 @@ async function main() {
     console.log(`${id}: ${n} piezas / ${shapes} formas / ${d.offer.scanCount} escaneos  ${ok ? 'OK' : 'NO CUADRA con lo declarado: ' + JSON.stringify(d.offer)}`);
     if (!ok) process.exitCode = 1;
   }
+  applyCorrections(pieces);
+  // Localizador: despues de corregir, para que cada caja quede bajo su pieza+color correctos.
+  for (const p of pieces) if (p.box) (locator.parts[`${p.part}|${p.color}`] ??= []).push(p.box);
+  for (const p of pieces) { delete p.box; delete p.id; }
   if (fs.existsSync(MANUAL_FILE)) {
     for (const r of parseCsv(fs.readFileSync(MANUAL_FILE, 'utf8'))) {
       const qty = Number(r.cantidad || 1);

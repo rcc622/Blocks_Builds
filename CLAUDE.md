@@ -54,6 +54,8 @@ Randall no programa; construye con IA. Explica decisiones técnicas en una líne
 
 **Regla:** no editar generados a mano; editar fuentes y correr los scripts.
 
+**Correcciones de identificación:** `data/corrections.csv` (`id,pieza,color,nota`) corrige piezas que Brickit identificó mal, una por id de pieza de Brickit (`partId`); `pieza` `-` = no existe. El import las aplica en cada sync. En la app: tocar la foto de una pieza en "Dónde está" → Corregir; se juntan en "Mis piezas" y se envían juntas (`repository_dispatch` `corrections` o issue `[correcciones]`). Si un link nuevo de Brickit trae otros ids, el import avisa cuántas correcciones ya no aplican.
+
 ## Cómo diseñar un modelo nuevo (lo hace Claude)
 1. Mira `data/part_catalog.csv` (medidas y colores con cantidad) y pensar en piezas comunes primero.
 2. Crea `builds/<slug>/meta.json` (`name`, `description`, `difficulty` 1–3, `status: "diseñado"`, `tags`) y `builds/<slug>/model.txt`.

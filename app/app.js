@@ -478,30 +478,41 @@ async function partDialog(d, part, family) {
     </div>
     ${p ? `<ul class="color-counts">${Object.entries(p.colors).map(([f, q]) => `<li class="${f === family ? 'is-current' : ''}">${swatch(f)}${esc(famName(f))}<strong>${q}</strong></li>`).join('')}</ul>` : ''}
     <h3>Dónde está ${family ? `(${esc(famName(family).toLowerCase())})` : ''}</h3>
+    <p class="hint">¿Brickit se equivocó en alguna? Toca su foto para corregirla.</p>
     <div id="where"><p class="hint">Buscando en tus fotos de Brickit…</p></div>
+    <div id="fix-slot"></div>
     ${uses.length ? `<h3>La usan</h3><ul class="uses">${uses.map(u => `<li><a href="#/b/${esc(u.b.slug)}">${esc(u.b.name)}</a> · ${u.q}</li>`).join('')}</ul>` : ''}`, true);
   try {
-    const loc = await locator();
+    const [loc, done] = await Promise.all([locator(), appliedFixes()]);
     const keys = family ? [`${part}|${family}`] : Object.keys(p?.colors || {}).map(f => `${part}|${f}`);
     const hits = keys.flatMap(k => (loc.parts[k] || []).map(h => ({ k, h })));
-    $('#where', el).innerHTML = hits.length ? whereHtml(loc, hits) : `<p class="hint">Brickit no guardó la posición de esta pieza (la agregaste a mano o vino de otro link).</p>`;
+    const where = $('#where', el);
+    where.innerHTML = hits.length ? whereHtml(loc, hits, done) : `<p class="hint">Brickit no guardó la posición de esta pieza (la agregaste a mano o vino de otro link).</p>`;
+    where.addEventListener('click', e => {
+      const crop = e.target.closest('[data-fix]');
+      if (crop) fixForm(d, el, crop);
+    });
   } catch {
     $('#where', el).innerHTML = `<p class="hint">No se pudo cargar el localizador. Revisa tu conexión.</p>`;
   }
 }
 
-// Recortes de la foto de escaneo alrededor de cada pieza + la foto completa con recuadros.
-function whereHtml(loc, hits) {
+// Recortes de la foto de escaneo alrededor de cada pieza (cada uno se puede corregir) + la foto completa.
+function whereHtml(loc, hits, done = new Set()) {
+  const pending = new Set((store.get().fixes || []).map(f => f.id));
   const byScan = new Map();
   for (const x of hits) (byScan.get(x.h[0]) || byScan.set(x.h[0], []).get(x.h[0])).push(x);
   return [...byScan].map(([scanKey, list]) => {
     const s = loc.scans[scanKey];
     if (!s) return '';
-    const crops = list.slice(0, 6).map(({ h: [, l, t, r, b] }) => {
+    const crops = list.map(({ k, h: [, l, t, r, b, id] }) => {
       const W = s.w || 3000, H = s.h || 4000, side = Math.max((r - l) * W, (b - t) * H) * 2.4;
       const rw = side / W, rh = side / H, x0 = (l + r) / 2 - rw / 2, y0 = (t + b) / 2 - rh / 2, S = 88;
       const bw = S / rw, bh = bw * H / W;
-      return `<span class="crop" style="background-image:url('${esc(s.image)}');background-size:${bw}px ${bh}px;background-position:${-x0 * bw}px ${-y0 * bh}px"></span>`;
+      const state = done.has(id) ? 'done' : pending.has(id) ? 'pending' : '';
+      return `<button type="button" class="crop ${state}" ${id ? `data-fix="${esc(id)}" data-from="${esc(k)}"` : 'disabled'} aria-label="Corregir esta pieza"
+        style="background-image:url('${esc(s.image)}');background-size:${bw}px ${bh}px;background-position:${-x0 * bw}px ${-y0 * bh}px">
+        ${state ? `<span class="crop-tag">${state === 'done' ? 'Corregida' : 'Por enviar'}</span>` : ''}</button>`;
     }).join('');
     const boxes = list.map(({ h: [, l, t, r, b] }) => `<i style="left:${l * 100}%;top:${t * 100}%;width:${(r - l) * 100}%;height:${(b - t) * 100}%"></i>`).join('');
     return `<figure class="where">
@@ -510,6 +521,98 @@ function whereHtml(loc, hits) {
         <details><summary>Ver foto completa</summary><div class="scan"><img src="${esc(s.image)}" alt="Foto del escaneo ${s.n} con la pieza marcada" loading="lazy" width="${s.w || 3024}" height="${s.h || 4032}">${boxes}</div></details>
       </figure>`;
   }).join('');
+}
+
+// ---------- Corregir piezas mal identificadas ----------
+// Cada corrección es para UNA pieza (su id de Brickit). Se juntan aquí y se mandan juntas a GitHub, que las guarda en
+// data/corrections.csv y las vuelve a aplicar en cada sync.
+let fixesP;
+const appliedFixes = () => fixesP ??= fetch('data/corrections.csv', { cache: 'no-cache' })
+  .then(r => r.ok ? r.text() : '').then(t => new Set(t.split('\n').map(l => l.split(',')[0]).filter(x => /^[0-9a-f-]{36}$/.test(x))))
+  .catch(() => new Set());
+
+function fixForm(d, dialog, crop) {
+  const [part, family] = crop.dataset.from.split('|');
+  const slot = $('#fix-slot', dialog);
+  slot.innerHTML = `<form class="panel fix-form" id="fix-form">
+      <h3>Corregir esta pieza</h3>
+      <div class="fix-row"><span class="crop" style="${esc(crop.getAttribute('style'))}"></span>
+        <p>Brickit dijo: <strong>${esc(partName(d, part))}</strong> <span class="mono" translate="no">${esc(part)}</span> · ${swatch(family)}${esc(famName(family))}</p></div>
+      <label class="field"><span>Pieza correcta (número de BrickLink)</span>
+        <input name="part" list="fix-parts" value="${esc(part)}" autocomplete="off" spellcheck="false" inputmode="text" required pattern="[A-Za-z0-9]{2,12}"></label>
+      <datalist id="fix-parts">${d.inventory.parts.map(x => `<option value="${esc(x.part)}">${esc(partName(d, x.part))}</option>`).join('')}</datalist>
+      <label class="field"><span>Color correcto</span>
+        <select name="color">${Object.entries(FAMILIES).map(([k, f]) => `<option value="${k}" ${k === family ? 'selected' : ''}>${esc(f.es)}</option>`).join('')}</select></label>
+      <label class="check"><input type="checkbox" name="none"> No es una pieza o está repetida (quitarla)</label>
+      <p class="field-err" id="fix-err" hidden></p>
+      <div class="row"><button type="button" class="btn ghost" id="fix-cancel">Cancelar</button><button class="btn primary">${icon('check')}Guardar corrección</button></div>
+    </form>`;
+  const form = $('#fix-form', slot), err = $('#fix-err', slot);
+  form.scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  form.part.focus();
+  form.none.addEventListener('change', () => { form.part.disabled = form.color.disabled = form.none.checked; });
+  $('#fix-cancel', slot).addEventListener('click', () => { slot.innerHTML = ''; crop.focus(); });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const to = form.none.checked ? '-' : `${form.part.value.trim()} ${form.color.value}`;
+    if (!form.none.checked && !/^[A-Za-z0-9]{2,12}$/.test(form.part.value.trim())) {
+      err.hidden = false; err.textContent = 'Escribe el número de la pieza, por ejemplo 3001 (viene en BrickLink o debajo de cada pieza en la app).'; form.part.focus(); return;
+    }
+    if (to === `${part} ${family}`) { err.hidden = false; err.textContent = 'Es lo mismo que dijo Brickit: cambia la pieza o el color.'; return; }
+    store.set(s => { s.fixes = [...(s.fixes || []).filter(f => f.id !== crop.dataset.fix), { id: crop.dataset.fix, from: `${part} ${family}`, to }]; });
+    crop.classList.add('pending');
+    crop.innerHTML = '<span class="crop-tag">Por enviar</span>';
+    slot.innerHTML = `<p class="panel ok small" role="status">${icon('check')}<span>Guardada. Cuando termines, envíalas todas desde <a href="#/piezas">Mis piezas</a>.</span></p>`;
+  });
+}
+
+// Correcciones guardadas en este navegador que GitHub todavía no tiene.
+async function pendingFixes() {
+  const done = await appliedFixes();
+  const list = (store.get().fixes || []).filter(f => !done.has(f.id));
+  store.set(s => { s.fixes = list; });
+  return list;
+}
+
+function fixesPanel(d, list) {
+  const name = t => t === '-' ? 'quitarla' : (([p, c]) => `${partName(d, p)} ${famName(c).toLowerCase()}`)(t.split(' '));
+  return `<div class="panel fixes" id="fixes">
+      <h2>${plural(list.length, 'corrección', 'correcciones')} por enviar</h2>
+      <ul class="plain">${list.map(f => `<li>${esc(name(f.from))} → <strong>${esc(name(f.to))}</strong></li>`).join('')}</ul>
+      <div class="row"><button class="btn ghost" id="fixes-clear">Descartar</button><button class="btn primary" id="fixes-send">${icon('refresh')}<span>Enviar a GitHub</span></button></div>
+      <p class="hint" id="fixes-status" aria-live="polite">${store.get().token ? 'Se aplican en unos 2 minutos.' : 'Se abre GitHub para confirmar: toca <strong>Create</strong> y vuelve.'}</p>
+    </div>`;
+}
+
+function wireFixesPanel(d, list) {
+  const box = $('#fixes');
+  if (!box) return;
+  $('#fixes-clear', box).addEventListener('click', () => { store.set(s => { s.fixes = []; }); route(); });
+  $('#fixes-send', box).addEventListener('click', async e => {
+    const btn = e.currentTarget, status = $('#fixes-status', box), lines = list.map(f => `${f.id} -> ${f.to}`).join('\n');
+    const token = store.get().token;
+    if (!token) {
+      openRequest(`[correcciones] ${plural(list.length, 'pieza', 'piezas')}`,
+        `${lines}\n\nPedido desde la app Blocks Builds. Toca "Create" y vuelve a la app.`);
+      btn.disabled = true; btn.dataset.state = 'loading';
+      status.textContent = 'Abrimos GitHub: toca Create y vuelve. Se aplican en unos 2 minutos.';
+      return watchRun(status, btn, 'issues');
+    }
+    btn.disabled = true; btn.dataset.state = 'loading'; status.textContent = 'Enviando a GitHub…';
+    try {
+      const res = await fetch(`https://api.github.com/repos/${REPO}/dispatches`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' },
+        body: JSON.stringify({ event_type: 'corrections', client_payload: { lines } }),
+      });
+      if (!res.ok) throw new Error(`GitHub respondió ${res.status}.`);
+      status.textContent = 'Listo, GitHub está aplicando tus correcciones…';
+      watchRun(status, btn);
+    } catch (ex) {
+      status.textContent = `No se pudo enviar (${ex.message}). Intenta de nuevo.`;
+      btn.disabled = false; btn.dataset.state = 'error';
+    }
+  });
 }
 
 function issueUrl(b, kind) {
@@ -576,6 +679,7 @@ function inventory(d) {
         ${Object.entries(inv.colors).map(([c, q]) => `<button class="chip" aria-pressed="false" data-color="${esc(c)}">${swatch(c)}${esc(famName(c))} <span class="chip-n">${q}</span></button>`).join('')}
       </div>
     </div>
+    <div id="fixes-slot"></div>
     <p class="count" id="count" aria-live="polite"></p>
     <ul class="parts-grid" id="grid"></ul>
   </section>`;
@@ -605,6 +709,12 @@ function inventory(d) {
     draw();
   });
   grid.addEventListener('click', e => { const b = e.target.closest('.part-card'); if (b) partDialog(d, b.dataset.part, b.dataset.family); });
+  pendingFixes().then(list => {
+    const slot = $('#fixes-slot');
+    if (!list.length || !slot) return;
+    slot.innerHTML = fixesPanel(d, list);
+    wireFixesPanel(d, list);
+  });
 }
 
 // ---------- Sincronizar con Brickit ----------

@@ -8,6 +8,7 @@ on:
     paths:
       - "data/sources/brickit_links.txt"
       - "data/manual_parts.csv"
+      - "data/corrections.csv"
       - "scripts/**"
       - "app/colors.js"
       - "app/check.js"
@@ -15,7 +16,7 @@ on:
       - "builds/**/model.ldr"
       - "builds/**/meta.json"
   repository_dispatch:
-    types: [brickit-link]
+    types: [brickit-link, corrections]   # corrections: piezas mal identificadas, desde el boton "Corregir" de la app
   issues:
     types: [opened]   # "[sync] ..." con el link en el cuerpo: lo abre la app cuando ese navegador no tiene token
   workflow_dispatch:
@@ -32,7 +33,7 @@ concurrency:
 
 jobs:
   sync:
-    if: github.event_name != 'issues' || (github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, '[sync]'))
+    if: github.event_name != 'issues' || (github.event.issue.user.login == github.repository_owner && (startsWith(github.event.issue.title, '[sync]') || startsWith(github.event.issue.title, '[correcciones]')))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -49,8 +50,16 @@ jobs:
           # Llegan del boton de la app. Se pasan por env (no se pegan en el script) y el import valida el formato.
           LINK_URL: ${{ github.event.client_payload.url }}
           LINK_MODE: ${{ github.event.client_payload.mode }}
+          FIX_LINES: ${{ github.event.client_payload.lines }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
+          # Correcciones de piezas: se guardan en data/corrections.csv y se reimporta el mismo link.
+          case "$ISSUE_TITLE" in "[correcciones]"*) FIX_LINES="$ISSUE_BODY" ;; esac
+          if [ -n "$FIX_LINES" ]; then
+            CORRECTIONS="$FIX_LINES" node scripts/brickit_import.mjs --add-corrections
+            exit 0
+          fi
           if [ "$GITHUB_EVENT_NAME" = "issues" ]; then
             LINK_URL=$(printf '%s' "$ISSUE_BODY" | grep -oE 'https://brickit\.app/offer/[0-9a-f-]{36}' | head -1)
             case "$ISSUE_BODY" in *"modo: pocket"*) LINK_MODE=add ;; *) LINK_MODE=replace ;; esac
